@@ -428,6 +428,45 @@ export default function Index() {
         </div>
       </section>
 
+      {/* WECHAT BANNER */}
+      <section className="py-12 max-w-7xl mx-auto px-4 md:px-8">
+        <div className="section-reveal rounded-3xl overflow-hidden flex flex-col md:flex-row items-center gap-0"
+          style={{ background: "linear-gradient(135deg, #07C160 0%, #0BAB52 100%)", boxShadow: "0 16px 60px rgba(7,193,96,0.25)" }}>
+          <div className="flex-1 p-8 md:p-12 text-white">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                <span className="text-xl">💬</span>
+              </div>
+              <span className="text-sm font-bold tracking-widest uppercase opacity-80">WeChat 微信</span>
+            </div>
+            <h2 className="text-2xl md:text-4xl font-black mb-3 leading-tight">
+              有任何问题？<br />请直接联系我！
+            </h2>
+            <p className="text-white/80 text-base mb-6 leading-relaxed">
+              我是 <strong className="text-white">VITǍLY 维塔利</strong>，俄罗斯专家。<br />
+              关于网站开发、广告投放、社媒运营——所有问题都可以通过微信联系我，我将亲自为您解答。
+            </p>
+            <div className="flex items-center gap-3 bg-white/15 rounded-2xl px-5 py-3 w-fit">
+              <span className="text-2xl">🇷🇺</span>
+              <div>
+                <div className="font-black text-lg">VITǍLY 维塔利</div>
+                <div className="text-white/70 text-sm">Россия · 俄罗斯</div>
+              </div>
+            </div>
+          </div>
+          <div className="p-8 md:p-10 flex flex-col items-center gap-4">
+            <div className="bg-white rounded-2xl p-4" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.15)" }}>
+              <img
+                src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/5fa91614-330c-4deb-9927-17ed121f6ba1.jpg"
+                alt="WeChat QR код VITALY"
+                className="w-48 h-48 md:w-56 md:h-56 object-contain"
+              />
+            </div>
+            <p className="text-white/80 text-sm text-center">扫描二维码添加微信好友</p>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact" className="py-12" style={{ background: "#F5F7FA" }}>
         <div className="max-w-3xl mx-auto px-4 md:px-8">
