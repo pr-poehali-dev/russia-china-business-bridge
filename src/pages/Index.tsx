@@ -136,68 +136,155 @@ export default function Index() {
       )}
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{
-        background: "linear-gradient(135deg, #0F0C29 0%, #302B63 50%, #24243E 100%)",
-        minHeight: "92vh",
-      }}>
-        {/* mesh blobs */}
+      <section className="relative overflow-hidden" style={{ background: "#07050F", minHeight: "95vh" }}>
+
+        {/* ── background layers ── */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute w-[600px] h-[600px] rounded-full opacity-30 animate-float"
-            style={{ background: "radial-gradient(circle, #6366F1 0%, transparent 70%)", top: "-10%", left: "-10%" }} />
-          <div className="absolute w-[500px] h-[500px] rounded-full opacity-20 animate-float"
-            style={{ background: "radial-gradient(circle, #EC4899 0%, transparent 70%)", bottom: "-10%", right: "5%", animationDelay: "2s" }} />
-          <div className="absolute w-[300px] h-[300px] rounded-full opacity-15"
-            style={{ background: "radial-gradient(circle, #F59E0B 0%, transparent 70%)", top: "40%", left: "50%" }} />
-          {/* grid lines */}
-          <div className="absolute inset-0 opacity-[0.04]"
-            style={{ backgroundImage: "linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
+          {/* strong top-left violet orb */}
+          <div className="absolute animate-float" style={{
+            width: 800, height: 800, borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(99,102,241,0.55) 0%, transparent 65%)",
+            top: "-25%", left: "-20%", filter: "blur(8px)",
+          }} />
+          {/* pink bottom-right orb */}
+          <div className="absolute animate-float" style={{
+            width: 600, height: 600, borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(236,72,153,0.45) 0%, transparent 65%)",
+            bottom: "-15%", right: "-10%", animationDelay: "2.5s", filter: "blur(10px)",
+          }} />
+          {/* amber center accent */}
+          <div className="absolute" style={{
+            width: 400, height: 400, borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(245,158,11,0.2) 0%, transparent 70%)",
+            top: "35%", left: "45%", filter: "blur(4px)",
+          }} />
+          {/* sharp grid */}
+          <div className="absolute inset-0" style={{
+            backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
+            backgroundSize: "64px 64px",
+          }} />
+          {/* grain overlay */}
+          <div className="absolute inset-0 opacity-[0.035]" style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          }} />
+          {/* top highlight line */}
+          <div className="absolute top-0 left-0 right-0 h-px" style={{
+            background: "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.8) 30%, rgba(236,72,153,0.8) 70%, transparent 100%)",
+          }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-12 py-20 md:py-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-16 py-24 md:py-36">
           <div className="flex-1">
             {/* badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-xs font-bold tracking-widest"
-              style={{ background: "rgba(99,102,241,0.2)", border: "1px solid rgba(99,102,241,0.4)", color: "#A5B4FC" }}>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-10 text-xs font-bold tracking-[0.15em]"
+              style={{
+                background: "rgba(99,102,241,0.15)",
+                border: "1px solid rgba(99,102,241,0.5)",
+                color: "#C4B5FD",
+                boxShadow: "0 0 20px rgba(99,102,241,0.2)",
+              }}>
               <div className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
               专业俄罗斯市场推广机构
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.05] mb-6">
+            <h1 className="font-black text-white leading-[1.02] mb-8"
+              style={{ fontSize: "clamp(3rem,8vw,5.5rem)", letterSpacing: "-0.03em" }}>
               在俄罗斯<br />
-              <span className="text-gradient">推广您的</span><br />
+              <span style={{
+                background: "linear-gradient(135deg, #A78BFA 0%, #818CF8 30%, #EC4899 70%, #F472B6 100%)",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+              }}>推广您的</span><br />
               中国业务
             </h1>
-            <p className="text-lg mb-10 leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.6)" }}>
-              网站开发、Яндекс广告、社交媒体运营 — 一站式解决方案，专为中国企业量身定制
+
+            <p className="text-lg mb-12 leading-relaxed max-w-lg" style={{ color: "rgba(255,255,255,0.55)" }}>
+              网站开发、Яндекс广告、社交媒体运营 —<br className="hidden md:block" />
+              一站式解决方案，专为中国企业量身定制
             </p>
-            <div className="flex flex-wrap gap-4">
+
+            <div className="flex flex-wrap gap-4 mb-16">
               <a href="#contact"
-                className="px-8 py-4 rounded-2xl text-base font-bold text-white transition-all hover:scale-105"
-                style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 8px 32px rgba(99,102,241,0.4)" }}>
+                className="px-8 py-4 rounded-2xl text-base font-black text-white transition-all hover:scale-105 hover:opacity-95"
+                style={{
+                  background: "linear-gradient(135deg,#6366F1,#8B5CF6)",
+                  boxShadow: "0 0 0 1px rgba(99,102,241,0.5), 0 12px 40px rgba(99,102,241,0.5)",
+                }}>
                 免费获取方案 →
               </a>
               <a href="#portfolio"
-                className="px-8 py-4 rounded-2xl text-base font-bold text-white transition-all hover:scale-105"
-                style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                className="px-8 py-4 rounded-2xl text-base font-black transition-all hover:scale-105"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  color: "rgba(255,255,255,0.8)",
+                  backdropFilter: "blur(10px)",
+                }}>
                 查看案例
               </a>
             </div>
-            {/* mini stats */}
-            <div className="flex flex-wrap gap-8 mt-14">
-              {[{ n: "150+", l: "成功项目" }, { n: "98%", l: "满意度" }, { n: "7年", l: "经验" }].map((s) => (
+
+            {/* stats row */}
+            <div className="flex flex-wrap gap-10 pt-8"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+              {[
+                { n: "150+", l: "成功项目", c: "#818CF8" },
+                { n: "98%",  l: "满意度",   c: "#F472B6" },
+                { n: "7年",  l: "行业经验", c: "#34D399" },
+                { n: "3×",   l: "平均ROI",  c: "#FBBF24" },
+              ].map((s) => (
                 <div key={s.l}>
-                  <div className="text-3xl font-black text-gradient">{s.n}</div>
-                  <div className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>{s.l}</div>
+                  <div className="text-3xl font-black" style={{ color: s.c, textShadow: `0 0 20px ${s.c}60` }}>{s.n}</div>
+                  <div className="text-xs mt-1 font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>{s.l}</div>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* image */}
           <div className="relative flex-shrink-0">
-            <div className="absolute inset-0 rounded-3xl blur-3xl opacity-40 animate-float"
-              style={{ background: "linear-gradient(135deg,#6366F1,#EC4899)", transform: "scale(1.1)" }} />
+            {/* glow ring */}
+            <div className="absolute inset-0 rounded-3xl animate-float" style={{
+              background: "linear-gradient(135deg,rgba(99,102,241,0.6),rgba(236,72,153,0.4))",
+              filter: "blur(40px)", transform: "scale(1.08)", zIndex: 0,
+            }} />
+            {/* decorative border frame */}
+            <div className="absolute rounded-3xl" style={{
+              inset: -1.5,
+              background: "linear-gradient(135deg,rgba(99,102,241,0.8),rgba(236,72,153,0.6),rgba(99,102,241,0.4))",
+              zIndex: 1, borderRadius: 26,
+            }} />
             <img src={HERO_IMG} alt="Russia China Business"
-              className="relative z-10 w-72 md:w-[420px] rounded-3xl object-cover animate-float"
-              style={{ boxShadow: "0 40px 100px rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.1)" }} />
+              className="relative animate-float"
+              style={{
+                width: "clamp(260px,30vw,420px)",
+                aspectRatio: "1/1",
+                borderRadius: 24,
+                objectFit: "cover",
+                zIndex: 2,
+                display: "block",
+                boxShadow: "0 40px 120px rgba(0,0,0,0.7)",
+              }} />
+            {/* floating chip top-right */}
+            <div className="absolute -top-4 -right-4 px-4 py-2 rounded-2xl text-xs font-black z-10"
+              style={{
+                background: "linear-gradient(135deg,#6366F1,#8B5CF6)",
+                boxShadow: "0 8px 24px rgba(99,102,241,0.5)",
+                color: "#fff",
+                border: "1px solid rgba(255,255,255,0.15)",
+              }}>
+              🇷🇺 × 🇨🇳
+            </div>
+            {/* floating chip bottom-left */}
+            <div className="absolute -bottom-4 -left-4 px-4 py-2 rounded-2xl text-xs font-black z-10"
+              style={{
+                background: "rgba(15,10,30,0.9)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+                color: "#fff",
+                border: "1px solid rgba(99,102,241,0.3)",
+                backdropFilter: "blur(12px)",
+              }}>
+              ✦ 7年经验
+            </div>
           </div>
         </div>
       </section>
