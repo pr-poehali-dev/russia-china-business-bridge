@@ -223,21 +223,7 @@ export default function Index() {
               </a>
             </div>
 
-            {/* stats row */}
-            <div className="flex flex-wrap gap-10 pt-8"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
-              {[
-                { n: "150+", l: "成功项目", c: "#818CF8" },
-                { n: "98%",  l: "满意度",   c: "#F472B6" },
-                { n: "7年",  l: "行业经验", c: "#34D399" },
-                { n: "3×",   l: "平均ROI",  c: "#FBBF24" },
-              ].map((s) => (
-                <div key={s.l}>
-                  <div className="text-3xl font-black" style={{ color: s.c, textShadow: `0 0 20px ${s.c}60` }}>{s.n}</div>
-                  <div className="text-xs mt-1 font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>{s.l}</div>
-                </div>
-              ))}
-            </div>
+
           </div>
 
           {/* image */}
