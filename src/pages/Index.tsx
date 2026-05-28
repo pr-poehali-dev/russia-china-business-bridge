@@ -1,152 +1,12 @@
 import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/bb17128b-ea04-4f01-97c5-328a546810c3.jpg";
-
-const services = [
-  {
-    icon: "Globe",
-    title: "网站开发",
-    subtitle: "Website Development",
-    desc: "为俄罗斯市场打造专业网站。SEO优化、移动端适配、现代化设计。",
-    color: "#C0392B",
-  },
-  {
-    icon: "Megaphone",
-    title: "Яндекс广告",
-    subtitle: "Yandex Advertising",
-    desc: "俄罗斯最大搜索引擎的精准广告投放。快速吸引目标客户群体。",
-    color: "#D4A017",
-  },
-  {
-    icon: "Share2",
-    title: "社交媒体运营",
-    subtitle: "Social Media Management",
-    desc: "专业管理VK、Telegram等俄罗斯主流社交平台，建立品牌影响力。",
-    color: "#C0392B",
-  },
-  {
-    icon: "TrendingUp",
-    title: "市场推广",
-    subtitle: "Market Promotion",
-    desc: "全方位的俄罗斯市场推广策略，帮助中国品牌快速打开俄罗斯市场。",
-    color: "#D4A017",
-  },
-];
-
-const portfolio = [
-  {
-    category: "电商平台",
-    title: "华俄贸易中心",
-    result: "销售额提升 340%",
-    period: "6个月",
-  },
-  {
-    category: "餐饮连锁",
-    title: "北京烤鸭坊",
-    result: "月访客 +12,000",
-    period: "3个月",
-  },
-  {
-    category: "建材出口",
-    title: "长城建材集团",
-    result: "询盘增长 280%",
-    period: "4个月",
-  },
-  {
-    category: "美容行业",
-    title: "上海美妆品牌",
-    result: "品牌知名度 +5倍",
-    period: "8个月",
-  },
-];
-
-const testimonials = [
-  {
-    name: "王建国",
-    company: "华俄进出口有限公司",
-    text: "与该团队合作后，我们的网站流量增加了5倍。他们深刻理解俄罗斯市场，专业水平令人印象深刻。",
-    rating: 5,
-  },
-  {
-    name: "李晓梅",
-    company: "北京健康科技",
-    text: "Яндекс广告效果超出预期，两个月内就收回了投资成本。强烈推荐！",
-    rating: 5,
-  },
-  {
-    name: "张伟",
-    company: "深圳电子制造商",
-    text: "他们的社交媒体团队非常专业，VK上的粉丝在三个月内从零增长到一万。",
-    rating: 5,
-  },
-];
-
-const blogPosts = [
-  {
-    tag: "市场洞察",
-    title: "2024年中国企业进入俄罗斯市场的5大关键策略",
-    desc: "如何在当前地缘政治背景下，把握俄罗斯市场的黄金机遇...",
-    date: "2024年3月",
-  },
-  {
-    tag: "广告技巧",
-    title: "Яндекс广告入门：为什么它比Google更适合俄罗斯",
-    desc: "详解俄罗斯最大搜索引擎的广告系统，手把手教你投放第一个广告...",
-    date: "2024年2月",
-  },
-  {
-    tag: "社媒运营",
-    title: "VK与Telegram：如何选择适合您业务的俄罗斯社交平台",
-    desc: "深入分析两大俄罗斯主流社交平台的特点与适用场景...",
-    date: "2024年1月",
-  },
-];
-
-const team = [
-  {
-    name: "亚历山大·索科洛夫",
-    role: "首席执行官 & 创始人",
-    exp: "15年俄中商业经验",
-    emoji: "👨‍💼",
-  },
-  {
-    name: "陈美华",
-    role: "中国市场总监",
-    exp: "精通中俄双语营销",
-    emoji: "👩‍💼",
-  },
-  {
-    name: "伊万·彼得罗夫",
-    role: "数字营销专家",
-    exp: "Яндекс认证专家",
-    emoji: "👨‍💻",
-  },
-  {
-    name: "刘芳",
-    role: "网站开发负责人",
-    exp: "100+项目经验",
-    emoji: "👩‍💻",
-  },
-];
-
-const stats = [
-  { num: "150+", label: "成功项目" },
-  { num: "98%", label: "客户满意度" },
-  { num: "7年", label: "行业经验" },
-  { num: "3倍", label: "平均ROI提升" },
-];
+const HERO_3D_MAN = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/bb17128b-ea04-4f01-97c5-328a546810c3.jpg";
 
 function useScrollReveal() {
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
       { threshold: 0.1 }
     );
     document.querySelectorAll(".section-reveal").forEach((el) => observer.observe(el));
@@ -154,8 +14,87 @@ function useScrollReveal() {
   }, []);
 }
 
+const stats = [
+  { num: "7年", desc: "自2017年起帮助中国企业进入俄罗斯市场", bg: "#EEF2FF" },
+  { num: "150+", desc: "成功完成项目，受保障交易", bg: "#EDFAF1" },
+  { num: "98%", desc: "来自俄罗斯的活跃客户满意度", bg: "#FFFBEB" },
+  { num: "24小时", desc: "专家响应时间，工作日内", bg: "#FAF0FF" },
+];
+
+const services = [
+  { icon: "Globe", title: "网站开发", desc: "为俄罗斯市场打造专业网站。SEO优化、移动端适配。" },
+  { icon: "Megaphone", title: "Яндекс广告", desc: "俄罗斯最大搜索引擎精准广告，快速获客。" },
+  { icon: "Share2", title: "社交媒体运营", desc: "管理VK、Telegram等主流俄罗斯社交平台。" },
+  { icon: "TrendingUp", title: "市场推广", desc: "全方位俄罗斯市场推广策略，帮助品牌落地。" },
+  { icon: "FileText", title: "博客与内容", desc: "中俄双语内容营销，提升品牌信任度。" },
+  { icon: "BarChart2", title: "数据分析", desc: "全面分析推广效果，持续优化ROI。" },
+];
+
+const categories = ["全部", "网站", "社媒", "广告", "内容", "分析"];
+
+const projects = [
+  {
+    cat: "电商",
+    title: "华俄贸易中心 | 俄罗斯全渠道推广",
+    sub: "官网: chinatrade.ru | 评分: 5  项目数: 12  月收入: 429 815 руб.",
+    price: "1 462 964 ₽",
+  },
+  {
+    cat: "餐饮",
+    title: "北京烤鸭坊 | 莫斯科品牌推广",
+    sub: "社媒: vk.com/pekingduck | 评分: 5  粉丝: 12 000  月增长: 3 000",
+    price: "259 259 ₽",
+  },
+  {
+    cat: "建材",
+    title: "长城建材集团 | Яндекс广告投放",
+    sub: "广告: yandex.ru/adv | 评分: 5  询盘: 280/月  转化: 18%",
+    price: "890 000 ₽",
+  },
+  {
+    cat: "美容",
+    title: "上海美妆品牌 | 全渠道数字营销",
+    sub: "官网: beautysh.ru | 评分: 5  月访客: 45 000  转化: 4.2%",
+    price: "540 000 ₽",
+  },
+  {
+    cat: "科技",
+    title: "深圳电子制造商 | B2B推广",
+    sub: "官网: szelec.ru | 评分: 5  B2B询盘: 150/月  成交: 28%",
+    price: "1 200 000 ₽",
+  },
+];
+
+const solutions = [
+  { emoji: "💼", title: "大型企业", desc: "完整的市场进入方案，包括网站、广告、PR全套服务，专属顾问全程陪跑" },
+  { emoji: "💰", title: "高回报项目", desc: "ROI最高的推广组合，精准定位高价值客户群体" },
+  { emoji: "📊", title: "初创企业", desc: "低成本高效入市方案，适合刚进入俄罗斯市场的中国企业" },
+  { emoji: "📱", title: "社媒运营", desc: "专业VK和Telegram账号运营，快速积累俄罗斯本地粉丝" },
+  { emoji: "🔥", title: "热门推荐", desc: "当前最受欢迎、性价比最高的推广服务套餐" },
+];
+
+const testimonials = [
+  { name: "王建国", company: "华俄进出口有限公司", text: "合作后网站流量增加5倍，他们深刻理解俄罗斯市场。", rating: 5 },
+  { name: "李晓梅", company: "北京健康科技", text: "Яндекс广告效果超出预期，两个月内收回投资成本。", rating: 5 },
+  { name: "张伟", company: "深圳电子制造商", text: "VK粉丝三个月内从零增长到一万，非常专业。", rating: 5 },
+];
+
+const team = [
+  { name: "亚历山大·索科洛夫", role: "首席执行官", exp: "15年俄中商业", emoji: "👨‍💼" },
+  { name: "陈美华", role: "中国市场总监", exp: "双语营销专家", emoji: "👩‍💼" },
+  { name: "伊万·彼得罗夫", role: "数字营销专家", exp: "Яндекс认证", emoji: "👨‍💻" },
+  { name: "刘芳", role: "开发负责人", exp: "100+项目", emoji: "👩‍💻" },
+];
+
+const blogPosts = [
+  { tag: "市场洞察", title: "2024年中国企业进入俄罗斯市场的5大关键策略", date: "2024年3月" },
+  { tag: "广告技巧", title: "Яндекс广告入门：为什么它比Google更适合俄罗斯", date: "2024年2月" },
+  { tag: "社媒运营", title: "VK与Telegram：如何选择适合您业务的俄罗斯社交平台", date: "2024年1月" },
+];
+
 export default function Index() {
   useScrollReveal();
+  const [activeTab, setActiveTab] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
@@ -164,368 +103,270 @@ export default function Index() {
     { href: "#team", label: "团队" },
     { href: "#blog", label: "博客" },
     { href: "#reviews", label: "评价" },
-    { href: "#contact", label: "联系我们" },
+    { href: "#contact", label: "联系" },
   ];
 
   return (
-    <div className="min-h-screen bg-[#080808] font-chinese overflow-x-hidden">
+    <div className="min-h-screen bg-white font-chinese" style={{ color: "var(--text-main)" }}>
       {/* NAV */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4"
-        style={{
-          background: "rgba(8,8,8,0.85)",
-          backdropFilter: "blur(20px)",
-          borderBottom: "1px solid rgba(212,160,23,0.1)",
-        }}
-      >
-        <div className="flex items-center gap-2">
-          <div
-            className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm"
-            style={{ background: "linear-gradient(135deg, #C0392B, #E74C3C)" }}
-          >
-            俄
+      <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-14">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-black text-sm"
+              style={{ background: "var(--blue)" }}>俄</div>
+            <span className="font-bold text-lg" style={{ color: "var(--text-main)" }}>俄中推广</span>
           </div>
-          <span className="text-white font-bold text-lg tracking-wide">俄中推广</span>
-        </div>
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm transition-colors"
-              style={{ color: "#888" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#888")}
-            >
-              {l.label}
+
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="text-sm font-medium transition-colors hover:text-blue-600"
+                style={{ color: "var(--text-muted)" }}>
+                {l.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <a href="#contact"
+              className="hidden md:block px-5 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: "var(--blue)" }}>
+              免费咨询
             </a>
-          ))}
+            <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+              <Icon name={menuOpen ? "X" : "Menu"} size={22} style={{ color: "var(--text-main)" }} />
+            </button>
+          </div>
         </div>
-        <a
-          href="#contact"
-          className="hidden md:block px-5 py-2 rounded-full text-sm font-bold text-[#080808]"
-          style={{ background: "linear-gradient(135deg, #D4A017, #F5D76E)" }}
-        >
-          免费咨询
-        </a>
-        <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
-          <Icon name={menuOpen ? "X" : "Menu"} size={24} />
-        </button>
       </nav>
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 pt-20 px-6 flex flex-col gap-4"
-          style={{ background: "rgba(8,8,8,0.97)" }}
-        >
+        <div className="fixed inset-0 z-40 bg-white pt-16 px-6 flex flex-col gap-4">
           {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-white text-2xl font-bold py-3 border-b border-white/10"
-              onClick={() => setMenuOpen(false)}
-            >
+            <a key={l.href} href={l.href} className="text-xl font-semibold py-3 border-b border-gray-100"
+              style={{ color: "var(--text-main)" }} onClick={() => setMenuOpen(false)}>
               {l.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="mt-4 px-6 py-3 rounded-full text-center font-bold text-[#080808]"
-            style={{ background: "linear-gradient(135deg, #D4A017, #F5D76E)" }}
-          >
+          <a href="#contact" className="mt-4 px-6 py-3 rounded-lg text-center font-semibold text-white"
+            style={{ background: "var(--blue)" }}>
             免费咨询
           </a>
         </div>
       )}
 
       {/* HERO */}
-      <section
-        className="relative min-h-screen flex items-center pt-20 overflow-hidden"
-        style={{
-          background:
-            "radial-gradient(ellipse at 60% 50%, rgba(192,57,43,0.15) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(212,160,23,0.1) 0%, transparent 50%), #0a0a0a",
-        }}
-      >
-        <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute top-20 right-0 w-[600px] h-[600px] rounded-full opacity-20"
-            style={{
-              background: "radial-gradient(circle, rgba(192,57,43,0.4) 0%, transparent 70%)",
-              animation: "float 6s ease-in-out infinite",
-            }}
-          />
-          <div
-            className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-10"
-            style={{ background: "radial-gradient(circle, rgba(212,160,23,0.5) 0%, transparent 70%)" }}
-          />
-          <div className="absolute top-1/2 right-10 -translate-y-1/2 text-[200px] opacity-[0.03] select-none font-black leading-none text-white">
-            中
-          </div>
+      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1E3A8A 0%, #3B5EDB 60%, #4F6EF7 100%)" }}>
+        {/* floating icons */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[
+            { icon: "Globe", x: "8%", y: "20%" },
+            { icon: "Key", x: "5%", y: "70%" },
+            { icon: "Lock", x: "85%", y: "15%" },
+            { icon: "Lock", x: "78%", y: "75%" },
+            { icon: "CircleDollarSign", x: "60%", y: "65%" },
+          ].map((item, i) => (
+            <div key={i} className="absolute opacity-20"
+              style={{ left: item.x, top: item.y }}>
+              <Icon name={item.icon as "Globe"} size={32} style={{ color: "white" }} />
+            </div>
+          ))}
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center relative z-10">
           <div>
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 text-xs font-bold tracking-widest"
-              style={{
-                background: "rgba(192,57,43,0.15)",
-                border: "1px solid rgba(192,57,43,0.3)",
-                color: "#E74C3C",
-              }}
-            >
-              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              专业俄罗斯市场推广机构
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-black leading-[1.05] mb-6 text-white">
-              让您的
-              <br />
-              <span className="animate-shimmer">中国品牌</span>
-              <br />
-              <span>征服俄罗斯</span>
+            <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] mb-4">
+              在俄罗斯推广<br />您的中国业务
             </h1>
-
-            <p className="text-[#999] text-lg mb-10 leading-relaxed max-w-lg">
-              我们专为中国企业提供全方位的俄罗斯市场进入服务。网站开发、Яндекс广告、社交媒体运营——一站式解决方案。
+            <p className="text-blue-100 text-lg mb-8">
+              网站开发、Яндекс广告、社交媒体运营 — 一站式解决方案
             </p>
-
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="px-8 py-4 rounded-full text-base font-bold text-[#080808] transition-all hover:scale-105"
-                style={{
-                  background: "linear-gradient(135deg, #D4A017, #F5D76E)",
-                  boxShadow: "0 0 40px rgba(212,160,23,0.3)",
-                }}
-              >
-                免费获取方案 →
+              <a href="#services"
+                className="px-7 py-3 rounded-xl text-base font-bold text-white transition-all hover:opacity-90"
+                style={{ background: "rgba(255,255,255,0.2)", border: "1px solid rgba(255,255,255,0.35)" }}>
+                了解服务
               </a>
-              <a
-                href="#portfolio"
-                className="px-8 py-4 rounded-full text-base font-bold text-white transition-all hover:scale-105"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.15)",
-                }}
-              >
-                查看案例
+              <a href="#contact"
+                className="px-7 py-3 rounded-xl text-base font-bold transition-all hover:opacity-90"
+                style={{ background: "white", color: "var(--blue)" }}>
+                免费获取方案
               </a>
             </div>
-
-            <div className="flex flex-wrap gap-8 mt-14">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <div className="text-3xl font-black" style={{ color: "var(--gold)" }}>
-                    {s.num}
-                  </div>
-                  <div className="text-[#666] text-sm mt-1">{s.label}</div>
-                </div>
-              ))}
+            {/* slider dots */}
+            <div className="flex gap-2 mt-10">
+              <div className="w-3 h-3 rounded-full bg-white" />
+              <div className="w-3 h-3 rounded-full bg-white/40" />
             </div>
           </div>
-
-          <div className="relative hidden md:block">
-            <div
-              className="absolute inset-0 rounded-3xl"
-              style={{
-                background: "radial-gradient(circle, rgba(192,57,43,0.2) 0%, transparent 70%)",
-                animation: "float 6s ease-in-out infinite",
-              }}
-            />
-            <img
-              src={HERO_IMAGE}
-              alt="Россия-Китай бизнес"
-              className="relative z-10 w-full rounded-3xl object-cover"
-              style={{
-                aspectRatio: "1/1",
-                boxShadow: "0 40px 100px rgba(192,57,43,0.2), 0 0 0 1px rgba(212,160,23,0.1)",
-                animation: "float 6s ease-in-out infinite",
-              }}
-            />
-            <div
-              className="absolute -bottom-4 -right-4 w-full h-full rounded-3xl"
-              style={{
-                background: "linear-gradient(135deg, rgba(192,57,43,0.2), rgba(212,160,23,0.1))",
-                border: "1px solid rgba(212,160,23,0.2)",
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#555]">
-          <span className="text-xs tracking-widest">向下滚动</span>
-          <Icon name="ChevronDown" size={20} className="animate-bounce" />
-        </div>
-      </section>
-
-      {/* DIVIDER */}
-      <div className="divider-gold mx-12 opacity-30" />
-
-      {/* SERVICES */}
-      <section id="services" className="py-24 px-6 md:px-12">
-        <div className="container mx-auto">
-          <div className="section-reveal text-center mb-16">
-            <span
-              className="text-xs tracking-[0.3em] font-bold uppercase mb-4 block"
-              style={{ color: "var(--gold)" }}
-            >
-              我们的服务
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">全方位推广服务</h2>
-            <p className="text-[#666] text-lg max-w-xl mx-auto">
-              从网站建设到广告投放，我们提供中国企业进入俄罗斯市场所需的一切
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s, i) => (
-              <div key={i} className="section-reveal card-dark card-hover rounded-2xl p-8 cursor-pointer">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-                  style={{ background: `${s.color}22`, border: `1px solid ${s.color}44` }}
-                >
-                  <Icon name={s.icon as "Globe"} size={26} style={{ color: s.color }} />
-                </div>
-                <h3 className="text-white font-black text-xl mb-1">{s.title}</h3>
-                <p className="text-xs mb-4" style={{ color: s.color }}>
-                  {s.subtitle}
-                </p>
-                <p className="text-[#777] text-sm leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
+          <div className="flex justify-center md:justify-end">
+            <img src={HERO_3D_MAN} alt="Business"
+              className="w-72 md:w-96 rounded-2xl object-cover"
+              style={{ boxShadow: "0 24px 80px rgba(0,0,0,0.25)" }} />
           </div>
         </div>
       </section>
 
-      {/* PORTFOLIO */}
-      <section id="portfolio" className="py-24 px-6 md:px-12" style={{ background: "rgba(255,255,255,0.01)" }}>
-        <div className="container mx-auto">
-          <div className="section-reveal text-center mb-16">
-            <span
-              className="text-xs tracking-[0.3em] font-bold uppercase mb-4 block"
-              style={{ color: "var(--gold)" }}
-            >
-              成功案例
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">我们的成果</h2>
-          </div>
+      {/* STATS */}
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {stats.map((s, i) => (
+            <div key={i} className="section-reveal rounded-2xl p-6" style={{ background: s.bg }}>
+              <div className="text-3xl md:text-4xl font-black mb-2" style={{ color: "var(--blue)" }}>{s.num}</div>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {portfolio.map((p, i) => (
-              <div key={i} className="section-reveal card-dark card-hover rounded-2xl p-8 text-center group">
-                <div
-                  className="text-xs font-bold tracking-widest uppercase mb-4"
-                  style={{ color: "var(--gold)" }}
-                >
-                  {p.category}
-                </div>
-                <h3 className="text-white font-bold text-lg mb-6">{p.title}</h3>
-                <div
-                  className="text-3xl font-black mb-2 text-white"
-                  style={{ transition: "color 0.3s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
-                >
-                  {p.result}
-                </div>
-                <div className="text-[#555] text-sm">用时 {p.period}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="section-reveal text-center mt-12">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-[#080808]"
-              style={{ background: "linear-gradient(135deg, #D4A017, #F5D76E)" }}
-            >
-              获取您的推广方案
-              <Icon name="ArrowRight" size={18} />
+      {/* POPULAR PROJECTS */}
+      <section id="portfolio" className="py-12" style={{ background: "#F5F7FA" }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="section-reveal flex items-center justify-between mb-6">
+            <h2 className="text-2xl md:text-3xl font-black" style={{ color: "var(--text-main)" }}>热门推广案例</h2>
+            <a href="#contact"
+              className="hidden md:flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white"
+              style={{ background: "var(--blue)" }}>
+              <Icon name="ChevronRight" size={16} />
+              查看所有案例
             </a>
+          </div>
+
+          {/* tabs */}
+          <div className="section-reveal flex flex-wrap gap-2 mb-6">
+            {categories.map((c, i) => (
+              <button key={i} onClick={() => setActiveTab(i)}
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all"
+                style={activeTab === i
+                  ? { background: "var(--blue)", color: "white" }
+                  : { background: "white", color: "var(--text-muted)", border: "1px solid #E2E8F0" }
+                }>
+                {c}
+              </button>
+            ))}
+          </div>
+
+          {/* list */}
+          <div className="section-reveal bg-white rounded-2xl overflow-hidden" style={{ border: "1px solid #E2E8F0" }}>
+            {projects.map((p, i) => (
+              <div key={i}
+                className="flex items-center justify-between px-6 py-4 cursor-pointer hover:bg-blue-50 transition-colors"
+                style={{ borderBottom: i < projects.length - 1 ? "1px solid #F1F5F9" : "none" }}>
+                <div className="flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-xs flex-shrink-0"
+                    style={{ background: "var(--blue)" }}>
+                    {p.cat[0]}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm mb-1" style={{ color: "var(--text-main)" }}>{p.title}</div>
+                    <div className="text-xs" style={{ color: "var(--text-muted)" }}>{p.sub}</div>
+                  </div>
+                </div>
+                <div className="text-sm font-bold ml-4 flex-shrink-0" style={{ color: "var(--blue)" }}>{p.price}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES / SOLUTIONS */}
+      <section id="services" className="py-16 max-w-7xl mx-auto px-4 md:px-8">
+        <div className="section-reveal mb-10">
+          <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>不知从何开始？</h2>
+          <p style={{ color: "var(--text-muted)" }}>根据您的目标选择最合适的推广方案</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4 mb-4">
+          {solutions.slice(0, 3).map((s, i) => (
+            <div key={i} className="section-reveal flex items-start justify-between p-6 rounded-2xl cursor-pointer hover:shadow-md transition-all bg-white"
+              style={{ border: "1px solid #E2E8F0" }}>
+              <div className="pr-4">
+                <h3 className="font-bold text-base mb-2" style={{ color: "var(--text-main)" }}>{s.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{s.desc}</p>
+              </div>
+              <span className="text-4xl flex-shrink-0">{s.emoji}</span>
+            </div>
+          ))}
+        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          {solutions.slice(3).map((s, i) => (
+            <div key={i} className="section-reveal flex items-start justify-between p-6 rounded-2xl cursor-pointer hover:shadow-md transition-all bg-white"
+              style={{ border: "1px solid #E2E8F0" }}>
+              <div className="pr-4">
+                <h3 className="font-bold text-base mb-2" style={{ color: "var(--text-main)" }}>{s.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{s.desc}</p>
+              </div>
+              <span className="text-4xl flex-shrink-0">{s.emoji}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICES GRID */}
+      <section className="py-12" style={{ background: "#F5F7FA" }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="section-reveal text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>我们的服务</h2>
+            <p style={{ color: "var(--text-muted)" }}>全方位帮助中国企业进入俄罗斯市场</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {services.map((s, i) => (
+              <div key={i} className="section-reveal bg-white rounded-2xl p-6 cursor-pointer hover:shadow-md transition-all"
+                style={{ border: "1px solid #E2E8F0" }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                  style={{ background: "var(--blue-light)" }}>
+                  <Icon name={s.icon as "Globe"} size={22} style={{ color: "var(--blue)" }} />
+                </div>
+                <h3 className="font-bold text-base mb-2" style={{ color: "var(--text-main)" }}>{s.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* TEAM */}
-      <section id="team" className="py-24 px-6 md:px-12">
-        <div className="container mx-auto">
-          <div className="section-reveal text-center mb-16">
-            <span
-              className="text-xs tracking-[0.3em] font-bold uppercase mb-4 block"
-              style={{ color: "var(--gold)" }}
-            >
-              专业团队
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">了解我们的团队</h2>
-            <p className="text-[#666] text-lg max-w-xl mx-auto">
-              深耕俄中商业领域多年，我们的团队精通两国市场规则与文化差异
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {team.map((t, i) => (
-              <div key={i} className="section-reveal card-dark card-hover rounded-2xl p-8 text-center">
-                <div className="text-6xl mb-4">{t.emoji}</div>
-                <h3 className="text-white font-bold text-lg mb-1">{t.name}</h3>
-                <p className="text-sm mb-3" style={{ color: "var(--gold)" }}>
-                  {t.role}
-                </p>
-                <p className="text-[#666] text-sm">{t.exp}</p>
-              </div>
-            ))}
-          </div>
+      <section id="team" className="py-16 max-w-7xl mx-auto px-4 md:px-8">
+        <div className="section-reveal text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>我们的团队</h2>
+          <p style={{ color: "var(--text-muted)" }}>深耕俄中商业领域，精通两国文化与市场</p>
+        </div>
+        <div className="grid md:grid-cols-4 gap-4">
+          {team.map((t, i) => (
+            <div key={i} className="section-reveal bg-white rounded-2xl p-6 text-center hover:shadow-md transition-all"
+              style={{ border: "1px solid #E2E8F0" }}>
+              <div className="text-5xl mb-3">{t.emoji}</div>
+              <div className="font-bold text-sm mb-1" style={{ color: "var(--text-main)" }}>{t.name}</div>
+              <div className="text-xs font-medium mb-1" style={{ color: "var(--blue)" }}>{t.role}</div>
+              <div className="text-xs" style={{ color: "var(--text-muted)" }}>{t.exp}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* BLOG */}
-      <section id="blog" className="py-24 px-6 md:px-12" style={{ background: "rgba(255,255,255,0.01)" }}>
-        <div className="container mx-auto">
-          <div className="section-reveal text-center mb-16">
-            <span
-              className="text-xs tracking-[0.3em] font-bold uppercase mb-4 block"
-              style={{ color: "var(--gold)" }}
-            >
-              知识博客
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">行业洞察</h2>
-            <p className="text-[#666] text-lg">关于中俄商业推广的实用指南与最新趋势</p>
+      <section id="blog" className="py-12" style={{ background: "#F5F7FA" }}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="section-reveal flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-black mb-1" style={{ color: "var(--text-main)" }}>行业博客</h2>
+              <p style={{ color: "var(--text-muted)" }}>中俄商业推广实用指南</p>
+            </div>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-4">
             {blogPosts.map((b, i) => (
-              <div
-                key={i}
-                className="section-reveal card-dark card-hover rounded-2xl overflow-hidden cursor-pointer"
-              >
-                <div
-                  className="h-2 w-full"
-                  style={{ background: i % 2 === 0 ? "var(--red)" : "var(--gold)" }}
-                />
-                <div className="p-8">
-                  <span
-                    className="text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full"
-                    style={{
-                      background: i % 2 === 0 ? "rgba(192,57,43,0.15)" : "rgba(212,160,23,0.15)",
-                      color: i % 2 === 0 ? "#E74C3C" : "var(--gold)",
-                    }}
-                  >
+              <div key={i} className="section-reveal bg-white rounded-2xl overflow-hidden cursor-pointer hover:shadow-md transition-all"
+                style={{ border: "1px solid #E2E8F0" }}>
+                <div className="h-1.5 w-full" style={{ background: "var(--blue)" }} />
+                <div className="p-6">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded-full"
+                    style={{ background: "var(--blue-light)", color: "var(--blue)" }}>
                     {b.tag}
                   </span>
-                  <h3
-                    className="text-white font-bold text-lg mt-4 mb-3 leading-tight"
-                    style={{ transition: "color 0.3s" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
-                  >
-                    {b.title}
-                  </h3>
-                  <p className="text-[#666] text-sm leading-relaxed mb-4">{b.desc}</p>
+                  <h3 className="font-bold text-sm mt-3 mb-4 leading-snug" style={{ color: "var(--text-main)" }}>{b.title}</h3>
                   <div className="flex items-center justify-between">
-                    <span className="text-[#555] text-xs">{b.date}</span>
-                    <span className="text-sm font-bold" style={{ color: "var(--gold)" }}>
-                      阅读更多 →
-                    </span>
+                    <span className="text-xs" style={{ color: "var(--text-muted)" }}>{b.date}</span>
+                    <span className="text-xs font-semibold" style={{ color: "var(--blue)" }}>阅读更多 →</span>
                   </div>
                 </div>
               </div>
@@ -535,170 +376,97 @@ export default function Index() {
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" className="py-24 px-6 md:px-12">
-        <div className="container mx-auto">
-          <div className="section-reveal text-center mb-16">
-            <span
-              className="text-xs tracking-[0.3em] font-bold uppercase mb-4 block"
-              style={{ color: "var(--gold)" }}
-            >
-              客户评价
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-4">他们信任我们</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="section-reveal card-dark rounded-2xl p-8"
-                style={{ border: "1px solid rgba(212,160,23,0.15)" }}
-              >
-                <div className="flex gap-1 mb-6">
-                  {[...Array(t.rating)].map((_, j) => (
-                    <span key={j} style={{ color: "var(--gold)" }}>
-                      ★
-                    </span>
-                  ))}
+      <section id="reviews" className="py-16 max-w-7xl mx-auto px-4 md:px-8">
+        <div className="section-reveal text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>客户评价</h2>
+          <p style={{ color: "var(--text-muted)" }}>中国企业主的真实反馈</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          {testimonials.map((t, i) => (
+            <div key={i} className="section-reveal bg-white rounded-2xl p-6 hover:shadow-md transition-all"
+              style={{ border: "1px solid #E2E8F0" }}>
+              <div className="flex gap-0.5 mb-4">
+                {[...Array(t.rating)].map((_, j) => (
+                  <span key={j} className="text-yellow-400 text-sm">★</span>
+                ))}
+              </div>
+              <p className="text-sm leading-relaxed mb-5 italic" style={{ color: "var(--text-muted)" }}>"{t.text}"</p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                  style={{ background: "var(--blue)" }}>
+                  {t.name[0]}
                 </div>
-                <p className="text-[#bbb] text-base leading-relaxed mb-8 italic">"{t.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold text-white"
-                    style={{
-                      background: "rgba(192,57,43,0.2)",
-                      border: "1px solid rgba(192,57,43,0.3)",
-                    }}
-                  >
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-sm">{t.name}</div>
-                    <div className="text-[#555] text-xs">{t.company}</div>
-                  </div>
+                <div>
+                  <div className="font-semibold text-sm" style={{ color: "var(--text-main)" }}>{t.name}</div>
+                  <div className="text-xs" style={{ color: "var(--text-muted)" }}>{t.company}</div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 px-6 md:px-12" style={{ background: "rgba(255,255,255,0.01)" }}>
-        <div className="container mx-auto max-w-4xl">
-          <div
-            className="section-reveal rounded-3xl p-12 md:p-16 text-center"
-            style={{
-              background:
-                "radial-gradient(ellipse at 50% 0%, rgba(192,57,43,0.15) 0%, rgba(212,160,23,0.05) 50%, transparent 100%)",
-              border: "1px solid rgba(212,160,23,0.2)",
-            }}
-          >
-            <span
-              className="text-xs tracking-[0.3em] font-bold uppercase mb-4 block"
-              style={{ color: "var(--gold)" }}
-            >
-              联系我们
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6">准备好了吗？</h2>
-            <p className="text-[#666] text-lg mb-12 max-w-lg mx-auto">
-              免费获取您专属的俄罗斯市场推广方案。我们的专家将在24小时内与您联系。
+      <section id="contact" className="py-12" style={{ background: "#F5F7FA" }}>
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
+          <div className="section-reveal bg-white rounded-3xl p-8 md:p-12 text-center"
+            style={{ border: "1px solid #E2E8F0", boxShadow: "0 8px 40px rgba(59,94,219,0.08)" }}>
+            <h2 className="text-2xl md:text-4xl font-black mb-3" style={{ color: "var(--text-main)" }}>准备好进入俄罗斯市场了吗？</h2>
+            <p className="text-sm mb-8" style={{ color: "var(--text-muted)" }}>
+              免费获取您专属的市场推广方案，专家24小时内联系您
             </p>
-
-            <div className="grid md:grid-cols-2 gap-4 mb-6">
-              <input
-                type="text"
-                placeholder="您的姓名"
-                className="w-full px-5 py-4 rounded-xl text-white text-sm outline-none"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  transition: "border-color 0.3s",
-                }}
-                onFocus={(e) => (e.target.style.borderColor = "rgba(212,160,23,0.5)")}
-                onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
-              />
-              <input
-                type="text"
-                placeholder="微信 / WhatsApp / 电话"
-                className="w-full px-5 py-4 rounded-xl text-white text-sm outline-none"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  transition: "border-color 0.3s",
-                }}
-                onFocus={(e) => (e.target.style.borderColor = "rgba(212,160,23,0.5)")}
-                onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
-              />
+            <div className="grid md:grid-cols-2 gap-3 mb-3">
+              <input type="text" placeholder="您的姓名"
+                className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all"
+                style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}
+                onFocus={(e) => (e.target.style.borderColor = "var(--blue)")}
+                onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")} />
+              <input type="text" placeholder="微信 / WhatsApp / 电话"
+                className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}
+                onFocus={(e) => (e.target.style.borderColor = "var(--blue)")}
+                onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")} />
             </div>
-            <textarea
-              placeholder="描述您的业务和推广目标..."
-              rows={4}
-              className="w-full px-5 py-4 rounded-xl text-white text-sm outline-none mb-6 resize-none"
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                transition: "border-color 0.3s",
-              }}
-              onFocus={(e) => (e.target.style.borderColor = "rgba(212,160,23,0.5)")}
-              onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.1)")}
-            />
-
-            <button
-              className="w-full md:w-auto px-12 py-4 rounded-full text-lg font-black text-[#080808] transition-all hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, #D4A017, #F5D76E)",
-                boxShadow: "0 0 60px rgba(212,160,23,0.25)",
-              }}
-            >
+            <textarea placeholder="描述您的业务和推广目标..." rows={3}
+              className="w-full px-4 py-3 rounded-xl text-sm outline-none mb-4 resize-none"
+              style={{ background: "#F8FAFC", border: "1px solid #E2E8F0" }}
+              onFocus={(e) => (e.target.style.borderColor = "var(--blue)")}
+              onBlur={(e) => (e.target.style.borderColor = "#E2E8F0")} />
+            <button className="w-full md:w-auto px-10 py-3.5 rounded-xl font-bold text-white text-sm transition-all hover:opacity-90"
+              style={{ background: "var(--blue)" }}>
               发送申请 — 免费咨询
             </button>
-
-            <div
-              className="flex flex-wrap justify-center gap-8 mt-12 pt-12"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
-            >
-              <div className="flex items-center gap-3 text-[#777] text-sm">
-                <Icon name="MessageCircle" size={18} style={{ color: "var(--gold)" }} />
-                <span>微信: RussiaChinaBiz</span>
-              </div>
-              <div className="flex items-center gap-3 text-[#777] text-sm">
-                <Icon name="Mail" size={18} style={{ color: "var(--gold)" }} />
-                <span>info@russia-china.ru</span>
-              </div>
-              <div className="flex items-center gap-3 text-[#777] text-sm">
-                <Icon name="Phone" size={18} style={{ color: "var(--gold)" }} />
-                <span>+7 (495) 000-00-00</span>
-              </div>
+            <div className="flex flex-wrap justify-center gap-6 mt-8 pt-8"
+              style={{ borderTop: "1px solid #F1F5F9" }}>
+              {[
+                { icon: "MessageCircle", text: "微信: RussiaChinaBiz" },
+                { icon: "Mail", text: "info@russia-china.ru" },
+                { icon: "Phone", text: "+7 (495) 000-00-00" },
+              ].map((c) => (
+                <div key={c.text} className="flex items-center gap-2 text-sm" style={{ color: "var(--text-muted)" }}>
+                  <Icon name={c.icon as "Mail"} size={15} style={{ color: "var(--blue)" }} />
+                  {c.text}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 px-6 md:px-12" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="py-8 px-4 md:px-8 bg-white" style={{ borderTop: "1px solid #E2E8F0" }}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-xs"
-              style={{ background: "linear-gradient(135deg, #C0392B, #E74C3C)" }}
-            >
-              俄
-            </div>
-            <span className="text-white font-bold">俄中推广</span>
+            <div className="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold text-xs"
+              style={{ background: "var(--blue)" }}>俄</div>
+            <span className="font-bold" style={{ color: "var(--text-main)" }}>俄中推广机构</span>
           </div>
-          <p className="text-[#444] text-sm">© 2024 俄中推广机构. 保留所有权利</p>
-          <div className="flex gap-4">
+          <p className="text-sm" style={{ color: "var(--text-muted)" }}>© 2024 俄中推广机构. 保留所有权利</p>
+          <div className="flex gap-3">
             {["Globe", "MessageCircle", "Phone"].map((ic) => (
-              <div
-                key={ic}
-                className="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all hover:scale-110"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                <Icon name={ic as "Globe"} size={16} style={{ color: "var(--gold)" }} />
+              <div key={ic} className="w-8 h-8 rounded-lg flex items-center justify-center cursor-pointer hover:opacity-80 transition-all"
+                style={{ background: "var(--blue-light)" }}>
+                <Icon name={ic as "Globe"} size={14} style={{ color: "var(--blue)" }} />
               </div>
             ))}
           </div>
@@ -706,52 +474,18 @@ export default function Index() {
       </footer>
 
       <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-12px); }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-        .animate-shimmer {
-          background: linear-gradient(90deg, #D4A017 0%, #F5D76E 40%, #fff 50%, #F5D76E 60%, #D4A017 100%);
-          background-size: 200% auto;
-          animation: shimmer 3s linear infinite;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+        :root {
+          --blue: #3B5EDB;
+          --blue-light: #EEF2FF;
+          --blue-mid: #4B6EEB;
+          --text-main: #1A2340;
+          --text-muted: #6B7A99;
         }
         .section-reveal {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: opacity 0.8s ease, transform 0.8s ease;
+          opacity: 0; transform: translateY(24px);
+          transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        .section-reveal.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        .card-dark {
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
-        }
-        .card-hover {
-          transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-          background: rgba(255,255,255,0.06);
-          border-color: rgba(212,160,23,0.4);
-          transform: translateY(-4px);
-          box-shadow: 0 20px 60px rgba(192,57,43,0.15);
-        }
-        .divider-gold {
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #D4A017, transparent);
-        }
-        :root {
-          --gold: #D4A017;
-          --red: #C0392B;
-        }
+        .section-reveal.visible { opacity: 1; transform: translateY(0); }
       `}</style>
     </div>
   );
