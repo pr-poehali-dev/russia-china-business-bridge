@@ -26,12 +26,12 @@ const stats = [
 ];
 
 const services = [
-  { icon: "Globe", title: "网站开发", desc: "为俄罗斯市场打造专业网站，SEO优化、移动端适配。", grad: "from-violet-500 to-indigo-500" },
-  { icon: "Megaphone", title: "Яндекс广告", desc: "俄罗斯最大搜索引擎精准广告，快速获客。", grad: "from-pink-500 to-rose-500" },
-  { icon: "Share2", title: "社交媒体运营", desc: "管理VK、Telegram等主流俄罗斯社交平台。", grad: "from-cyan-500 to-blue-500" },
-  { icon: "TrendingUp", title: "市场推广", desc: "全方位俄罗斯市场推广策略，帮助品牌落地。", grad: "from-emerald-500 to-teal-500" },
-  { icon: "FileText", title: "内容营销", desc: "中俄双语内容营销，提升品牌信任度。", grad: "from-orange-500 to-amber-500" },
-  { icon: "BarChart2", title: "数据分析", desc: "全面分析推广效果，持续优化ROI。", grad: "from-fuchsia-500 to-purple-500" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/6b6bf41f-cee4-4756-b942-104fa0ed8c9b.jpg", title: "网站开发", desc: "为俄罗斯市场打造专业网站，SEO优化、移动端适配。", color: "#6366F1" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/36ea098d-80e5-4d6a-af96-e6af936524bb.jpg", title: "Яндекс广告", desc: "俄罗斯最大搜索引擎精准广告，快速获客。", color: "#EC4899" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/de31d94c-ce41-4ac4-b536-21502674faf6.jpg", title: "社交媒体运营", desc: "管理VK、Telegram等主流俄罗斯社交平台。", color: "#0EA5E9" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/534cc755-5413-480e-b293-fed1ea155e61.jpg", title: "市场推广", desc: "全方位俄罗斯市场推广策略，帮助品牌落地。", color: "#10B981" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/25805284-f68d-4d62-ac00-1d640964640d.jpg", title: "内容营销", desc: "中俄双语内容营销，提升品牌信任度。", color: "#F59E0B" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/adf47a2b-9914-4d0b-8e31-96febb5fe065.jpg", title: "数据分析", desc: "全面分析推广效果，持续优化ROI。", color: "#8B5CF6" },
 ];
 
 const categories = ["全部", "网站", "社媒", "广告", "内容", "分析"];
@@ -386,11 +386,11 @@ export default function Index() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <div key={i} className="section-reveal card-sharp p-7 cursor-pointer group overflow-hidden relative">
-              <div className={`absolute top-0 right-0 w-40 h-40 rounded-full opacity-[0.07] bg-gradient-to-br ${s.grad} translate-x-10 -translate-y-10`} />
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white mb-6 bg-gradient-to-br ${s.grad}`}
-                style={{ boxShadow: "0 6px 20px rgba(99,102,241,0.25)" }}>
-                <Icon name={s.icon as "Globe"} size={22} />
-              </div>
+              <div className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-[0.06] translate-x-10 -translate-y-10"
+                style={{ background: `radial-gradient(circle, ${s.color} 0%, transparent 70%)` }} />
+              <img src={s.img} alt={s.title}
+                className="mb-5"
+                style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
               <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
             </div>
