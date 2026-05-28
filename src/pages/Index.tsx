@@ -420,42 +420,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ── WECHAT ── */}
-      <section className="py-12 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="section-reveal rounded-3xl overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #064E3B 0%, #065F46 40%, #047857 100%)", boxShadow: "0 24px 80px rgba(4,120,87,0.3)" }}>
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="flex-1 p-8 md:p-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-xs font-bold"
-                style={{ background: "rgba(255,255,255,0.1)", color: "#6EE7B7" }}>
-                <span>💬</span> WeChat 微信 — 直接联系
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white leading-tight mb-4">
-                有任何问题？<br />请直接联系我！
-              </h2>
-              <p className="text-green-100 text-base mb-6 leading-relaxed">
-                我是 <strong className="text-white">VITǍLY 维塔利</strong>，俄罗斯专家。<br />
-                关于网站开发、广告投放、社媒运营的所有问题，<br />
-                我将亲自为您解答，全程中文沟通。
-              </p>
-              <div className="flex items-center gap-4 p-4 rounded-2xl w-fit"
-                style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)" }}>
-                <span className="text-3xl">🇷🇺</span>
-                <div>
-                  <div className="font-black text-white text-lg">VITǍLY 维塔利</div>
-                  <div className="text-green-300 text-sm">Россия · 俄罗斯专家</div>
-                </div>
-              </div>
-            </div>
-            <div className="p-8 md:p-12 flex flex-col items-center gap-4">
-              <div className="bg-white p-4 rounded-3xl" style={{ boxShadow: "0 16px 60px rgba(0,0,0,0.2)" }}>
-                <img src={IMG_WECHAT} alt="WeChat QR VITALY" className="w-52 h-52 object-contain" />
-              </div>
-              <p className="text-green-200 text-sm text-center font-medium">📱 扫描二维码，添加微信好友</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── CONTACT ── */}
       <section id="contact" className="py-12 px-4 md:px-8" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
