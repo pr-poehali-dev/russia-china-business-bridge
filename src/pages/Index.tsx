@@ -93,7 +93,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <img
-              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/25b79fd7-986a-47bf-a54a-68c4e0a08cef.jpg"
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/27bcabe1-ea65-48e0-962d-384f43f698b1.jpg"
               alt="logo"
               style={{ width: 40, height: 40, objectFit: "contain", mixBlendMode: "multiply" }}
             />
@@ -546,7 +546,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
-              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/25b79fd7-986a-47bf-a54a-68c4e0a08cef.jpg"
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/27bcabe1-ea65-48e0-962d-384f43f698b1.jpg"
               alt="logo"
               style={{ width: 36, height: 36, objectFit: "contain", mixBlendMode: "multiply" }}
             />
