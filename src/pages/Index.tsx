@@ -206,14 +206,13 @@ export default function Index() {
       <section className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 -mt-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((s, i) => (
-            <div key={i} className="section-reveal glass rounded-3xl p-6 card-hover text-center"
-              style={{ boxShadow: "0 8px 32px rgba(99,102,241,0.07)" }}>
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3"
-                style={{ background: `${s.color}18` }}>
-                <Icon name={s.icon as "Clock"} size={22} style={{ color: s.color }} />
+            <div key={i} className="section-reveal stat-card p-7 text-center">
+              <div className="w-13 h-13 rounded-2xl flex items-center justify-center mx-auto mb-4"
+                style={{ background: `${s.color}12`, width: 52, height: 52, border: `1.5px solid ${s.color}25` }}>
+                <Icon name={s.icon as "Clock"} size={24} style={{ color: s.color }} />
               </div>
-              <div className="text-3xl font-black mb-1" style={{ color: s.color }}>{s.num}</div>
-              <p className="text-xs leading-snug" style={{ color: "#9CA3AF" }}>{s.desc}</p>
+              <div className="text-4xl font-black mb-1" style={{ color: s.color }}>{s.num}</div>
+              <p className="text-xs leading-snug mt-1" style={{ color: "#9CA3AF" }}>{s.desc}</p>
             </div>
           ))}
         </div>
@@ -242,22 +241,21 @@ export default function Index() {
               }>{c}</button>
           ))}
         </div>
-        <div className="section-reveal glass rounded-3xl overflow-hidden" style={{ boxShadow: "0 8px 40px rgba(99,102,241,0.08)" }}>
+        <div className="section-reveal list-card">
           {projects.map((p, i) => (
-            <div key={i}
-              className="flex items-center justify-between px-6 py-5 cursor-pointer transition-all hover:bg-violet-50/60 group"
-              style={{ borderBottom: i < projects.length - 1 ? "1px solid rgba(99,102,241,0.07)" : "none" }}>
+            <div key={i} className="list-row flex items-center justify-between px-6 py-5 cursor-pointer group">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-white text-xs font-black flex-shrink-0"
-                  style={{ background: p.color }}>
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-white text-xs font-black flex-shrink-0"
+                  style={{ background: `linear-gradient(135deg,${p.color},${p.color}cc)`, boxShadow: `0 4px 12px ${p.color}40` }}>
                   {p.cat[0]}
                 </div>
                 <div>
-                  <div className="font-semibold text-sm mb-0.5 group-hover:text-violet-700 transition-colors" style={{ color: "#1A1A2E" }}>{p.title}</div>
+                  <div className="font-bold text-sm mb-0.5 group-hover:text-violet-600 transition-colors" style={{ color: "#1A1A2E" }}>{p.title}</div>
                   <div className="text-xs" style={{ color: "#9CA3AF" }}>{p.sub}</div>
                 </div>
               </div>
-              <div className="text-sm font-black ml-4 flex-shrink-0" style={{ color: p.color }}>{p.price}</div>
+              <div className="text-sm font-black ml-4 flex-shrink-0 px-3 py-1.5 rounded-xl"
+                style={{ color: p.color, background: `${p.color}10` }}>{p.price}</div>
             </div>
           ))}
         </div>
@@ -273,29 +271,33 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-4 mb-4">
             {solutions.slice(0, 3).map((s, i) => (
-              <div key={i} className="section-reveal glass rounded-3xl p-6 card-hover cursor-pointer flex items-start justify-between gap-4"
-                style={{ boxShadow: "0 4px 24px rgba(99,102,241,0.06)" }}>
+              <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
                 <div>
-                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-xl mb-4"
-                    style={{ background: `${s.color}15` }}>{s.emoji}</div>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5"
+                    style={{ background: `${s.color}10`, border: `1.5px solid ${s.color}20` }}>{s.emoji}</div>
                   <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
                 </div>
-                <Icon name="ArrowUpRight" size={18} style={{ color: s.color, flexShrink: 0 }} />
+                <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${s.color}10` }}>
+                  <Icon name="ArrowUpRight" size={16} style={{ color: s.color }} />
+                </div>
               </div>
             ))}
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             {solutions.slice(3).map((s, i) => (
-              <div key={i} className="section-reveal glass rounded-3xl p-6 card-hover cursor-pointer flex items-start justify-between gap-4"
-                style={{ boxShadow: "0 4px 24px rgba(99,102,241,0.06)" }}>
+              <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
                 <div>
-                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-xl mb-4"
-                    style={{ background: `${s.color}15` }}>{s.emoji}</div>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5"
+                    style={{ background: `${s.color}10`, border: `1.5px solid ${s.color}20` }}>{s.emoji}</div>
                   <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
                 </div>
-                <Icon name="ArrowUpRight" size={18} style={{ color: s.color, flexShrink: 0 }} />
+                <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${s.color}10` }}>
+                  <Icon name="ArrowUpRight" size={16} style={{ color: s.color }} />
+                </div>
               </div>
             ))}
           </div>
@@ -315,11 +317,10 @@ export default function Index() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
-            <div key={i} className="section-reveal glass rounded-3xl p-6 card-hover cursor-pointer group overflow-hidden relative"
-              style={{ boxShadow: "0 4px 24px rgba(99,102,241,0.06)" }}>
-              <div className={`absolute top-0 right-0 w-32 h-32 rounded-full opacity-10 bg-gradient-to-br ${s.grad} translate-x-8 -translate-y-8`} />
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white mb-5 bg-gradient-to-br ${s.grad}`}
-                style={{ boxShadow: "0 4px 16px rgba(99,102,241,0.3)" }}>
+            <div key={i} className="section-reveal card-sharp p-7 cursor-pointer group overflow-hidden relative">
+              <div className={`absolute top-0 right-0 w-40 h-40 rounded-full opacity-[0.07] bg-gradient-to-br ${s.grad} translate-x-10 -translate-y-10`} />
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white mb-6 bg-gradient-to-br ${s.grad}`}
+                style={{ boxShadow: "0 6px 20px rgba(99,102,241,0.25)" }}>
                 <Icon name={s.icon as "Globe"} size={22} />
               </div>
               <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
@@ -343,13 +344,13 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-4 gap-5">
             {team.map((t, i) => (
-              <div key={i} className="section-reveal glass rounded-3xl p-7 text-center card-hover"
-                style={{ boxShadow: "0 4px 24px rgba(99,102,241,0.06)" }}>
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4"
-                  style={{ background: `${t.color}15` }}>{t.emoji}</div>
+              <div key={i} className="section-reveal card-sharp p-7 text-center">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5"
+                  style={{ background: `${t.color}10`, border: `1.5px solid ${t.color}20` }}>{t.emoji}</div>
                 <div className="font-black text-sm mb-1" style={{ color: "#1A1A2E" }}>{t.name}</div>
-                <div className="text-xs font-semibold mb-1" style={{ color: t.color }}>{t.role}</div>
-                <div className="text-xs" style={{ color: "#9CA3AF" }}>{t.exp}</div>
+                <div className="text-xs font-bold mb-2 px-3 py-1 rounded-full inline-block"
+                  style={{ background: `${t.color}10`, color: t.color }}>{t.role}</div>
+                <div className="text-xs block mt-1" style={{ color: "#9CA3AF" }}>{t.exp}</div>
               </div>
             ))}
           </div>
@@ -369,17 +370,19 @@ export default function Index() {
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {blogPosts.map((b, i) => (
-            <div key={i} className="section-reveal glass rounded-3xl overflow-hidden card-hover cursor-pointer group"
-              style={{ boxShadow: "0 4px 24px rgba(99,102,241,0.06)" }}>
-              <div className="h-1.5 w-full" style={{ background: `linear-gradient(90deg, ${b.color}, ${b.color}99)` }} />
+            <div key={i} className="section-reveal card-sharp overflow-hidden cursor-pointer group">
+              <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${b.color}, ${b.color}80)` }} />
               <div className="p-7">
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full"
-                  style={{ background: `${b.color}15`, color: b.color }}>{b.tag}</span>
-                <h3 className="font-black text-sm mt-4 mb-4 leading-snug group-hover:text-violet-600 transition-colors"
+                  style={{ background: `${b.color}12`, color: b.color, border: `1px solid ${b.color}20` }}>{b.tag}</span>
+                <h3 className="font-black text-base mt-5 mb-5 leading-snug group-hover:text-violet-600 transition-colors"
                   style={{ color: "#1A1A2E" }}>{b.title}</h3>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pt-4"
+                  style={{ borderTop: "1px solid rgba(99,102,241,0.07)" }}>
                   <span className="text-xs" style={{ color: "#9CA3AF" }}>{b.date}</span>
-                  <span className="text-xs font-bold" style={{ color: b.color }}>阅读更多 →</span>
+                  <span className="text-xs font-bold flex items-center gap-1" style={{ color: b.color }}>
+                    阅读更多 <Icon name="ArrowRight" size={12} />
+                  </span>
                 </div>
               </div>
             </div>
@@ -396,17 +399,19 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
-              <div key={i} className="section-reveal glass rounded-3xl p-7 card-hover"
-                style={{ boxShadow: "0 4px 24px rgba(99,102,241,0.06)" }}>
-                <div className="flex gap-1 mb-5">
-                  {[...Array(t.rating)].map((_, j) => (
-                    <span key={j} className="text-amber-400">★</span>
-                  ))}
+              <div key={i} className="section-reveal card-sharp p-7 flex flex-col justify-between">
+                <div>
+                  <div className="flex gap-0.5 mb-5">
+                    {[...Array(t.rating)].map((_, j) => (
+                      <span key={j} style={{ color: "#F59E0B", fontSize: 16 }}>★</span>
+                    ))}
+                  </div>
+                  <p className="text-sm leading-relaxed mb-7" style={{ color: "#6B7280" }}>"{t.text}"</p>
                 </div>
-                <p className="text-sm leading-relaxed mb-6 italic" style={{ color: "#6B7280" }}>"{t.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-black text-sm"
-                    style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)" }}>
+                <div className="flex items-center gap-3 pt-5"
+                  style={{ borderTop: "1px solid rgba(99,102,241,0.08)" }}>
+                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-black text-sm flex-shrink-0"
+                    style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 12px rgba(99,102,241,0.35)" }}>
                     {t.name[0]}
                   </div>
                   <div>
@@ -508,6 +513,56 @@ export default function Index() {
         .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(99,102,241,0.12); }
         .section-reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
         .section-reveal.visible { opacity:1; transform:translateY(0); }
+
+        /* ── sharper cards ── */
+        .card-sharp {
+          background: #fff;
+          border: 1.5px solid rgba(99,102,241,0.1);
+          border-radius: 20px;
+          box-shadow: 0 2px 0 rgba(99,102,241,0.06), 0 8px 24px rgba(99,102,241,0.07);
+          transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .card-sharp:hover {
+          transform: translateY(-5px);
+          border-color: rgba(99,102,241,0.25);
+          box-shadow: 0 2px 0 rgba(99,102,241,0.08), 0 20px 48px rgba(99,102,241,0.14);
+        }
+        .card-dark-sharp {
+          background: rgba(255,255,255,0.03);
+          border: 1.5px solid rgba(255,255,255,0.08);
+          border-radius: 20px;
+          box-shadow: 0 2px 0 rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.15);
+          transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .card-dark-sharp:hover {
+          transform: translateY(-5px);
+          border-color: rgba(99,102,241,0.3);
+          box-shadow: 0 2px 0 rgba(0,0,0,0.3), 0 20px 48px rgba(99,102,241,0.15);
+        }
+        .stat-card {
+          background: #fff;
+          border: 1.5px solid rgba(99,102,241,0.1);
+          border-radius: 20px;
+          box-shadow: 0 1px 0 rgba(99,102,241,0.08), 0 6px 20px rgba(99,102,241,0.08);
+          transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease;
+        }
+        .stat-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 1px 0 rgba(99,102,241,0.1), 0 16px 40px rgba(99,102,241,0.14);
+        }
+        .list-card {
+          background: #fff;
+          border: 1.5px solid rgba(99,102,241,0.08);
+          border-radius: 20px;
+          box-shadow: 0 2px 0 rgba(99,102,241,0.04), 0 8px 32px rgba(99,102,241,0.07);
+          overflow: hidden;
+        }
+        .list-row {
+          border-bottom: 1px solid rgba(99,102,241,0.06);
+          transition: background 0.15s ease;
+        }
+        .list-row:last-child { border-bottom: none; }
+        .list-row:hover { background: rgba(99,102,241,0.03); }
 
         @keyframes wc-in {
           from { opacity:0; transform: translateY(16px) scale(0.96); }
