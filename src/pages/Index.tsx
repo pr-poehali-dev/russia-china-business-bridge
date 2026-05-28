@@ -573,8 +573,8 @@ function WeChatWidget() {
           {/* body */}
           <div style={{ padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
             <p style={{ fontSize: 13, color: "#6B7280", textAlign: "center", lineHeight: 1.6, margin: 0 }}>
-              По всем вопросам — сайты, реклама, соцсети.<br />
-              Сканируйте QR и пишите напрямую 👇
+              网站开发、广告投放、社交媒体——<br />
+              所有问题欢迎扫码直接联系我 👇
             </p>
             <div style={{ background: "#F9FAFB", borderRadius: 16, padding: 12, border: "1px solid #F3F4F6" }}>
               <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/5fa91614-330c-4deb-9927-17ed121f6ba1.jpg"
