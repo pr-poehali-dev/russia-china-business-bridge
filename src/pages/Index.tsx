@@ -471,14 +471,14 @@ export default function Index() {
             </div>
           </div>
           <div className="grid md:grid-cols-4 gap-5">
-            {team.map((t, i) => (
+            {team.map((member, i) => (
               <div key={i} className="section-reveal card-sharp p-7 text-center">
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5"
-                  style={{ background: `${t.color}10`, border: `1.5px solid ${t.color}20` }}>{t.emoji}</div>
-                <div className="font-black text-sm mb-1" style={{ color: "#1A1A2E" }}>{t.name}</div>
+                  style={{ background: `${member.color}10`, border: `1.5px solid ${member.color}20` }}>{member.emoji}</div>
+                <div className="font-black text-sm mb-1" style={{ color: "#1A1A2E" }}>{member.name}</div>
                 <div className="text-xs font-bold mb-2 px-3 py-1 rounded-full inline-block"
-                  style={{ background: `${t.color}10`, color: t.color }}>{t.role}</div>
-                <div className="text-xs block mt-1" style={{ color: "#9CA3AF" }}>{t.exp}</div>
+                  style={{ background: `${member.color}10`, color: member.color }}>{member.role}</div>
+                <div className="text-xs block mt-1" style={{ color: "#9CA3AF" }}>{member.exp}</div>
               </div>
             ))}
           </div>
@@ -526,11 +526,11 @@ export default function Index() {
             <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.revTitle}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
-            {testimonials.map((t, i) => (
+            {testimonials.map((rev, i) => (
               <div key={i} className="section-reveal card-sharp p-7 flex flex-col justify-between">
                 <div>
                   <div className="flex gap-0.5 mb-5">
-                    {[...Array(t.rating)].map((_, j) => (
+                    {[...Array(rev.rating)].map((_, j) => (
                       <span key={j} style={{ color: "#F59E0B", fontSize: 16 }}>★</span>
                     ))}
                   </div>
@@ -540,11 +540,11 @@ export default function Index() {
                   style={{ borderTop: "1px solid rgba(99,102,241,0.08)" }}>
                   <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-black text-sm flex-shrink-0"
                     style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 12px rgba(99,102,241,0.35)" }}>
-                    {t.name[0]}
+                    {rev.name[0]}
                   </div>
                   <div>
-                    <div className="font-bold text-sm" style={{ color: "#1A1A2E" }}>{t.name}</div>
-                    <div className="text-xs" style={{ color: "#9CA3AF" }}>{t.company}</div>
+                    <div className="font-bold text-sm" style={{ color: "#1A1A2E" }}>{rev.name}</div>
+                    <div className="text-xs" style={{ color: "#9CA3AF" }}>{rev.company}</div>
                   </div>
                 </div>
               </div>
