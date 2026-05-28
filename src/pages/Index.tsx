@@ -18,11 +18,65 @@ function useScrollReveal() {
   }, []);
 }
 
+/* ── translations ── */
+const T = {
+  zh: {
+    nav: ["服务", "案例", "团队", "博客", "评价", "联系"],
+    navCta: "免费咨询",
+    heroBadge: "专业俄罗斯市场推广机构",
+    heroH1a: "在俄罗斯", heroH1b: "推广您的", heroH1c: "中国业务",
+    heroDesc: "网站开发、Яндекс广告、社交媒体运营 — 一站式解决方案，专为中国企业量身定制",
+    heroCta1: "免费获取方案 →", heroCta2: "查看案例",
+    statsDesc: ["帮助中国企业进入俄罗斯市场", "成功完成的推广项目", "客户满意度", "专家响应时间"],
+    portLabel: "成功案例", portTitle: "热门推广项目", portCta: "查看全部",
+    cats: ["全部", "网站", "社媒", "广告", "内容", "分析"],
+    solLabel: "推广方案", solTitle: "不知从何开始？", solDesc: "根据您的目标选择最适合的方案",
+    solItems: ["大型企业", "高回报项目", "初创企业", "社媒运营", "热门推荐"],
+    solDescs: ["完整的市场进入方案，网站、广告、PR全套，专属顾问全程陪跑","ROI最高的推广组合，精准定位高价值客户群体","低成本高效入市方案，适合刚进入俄罗斯市场的中国企业","专业VK和Telegram账号运营，快速积累俄罗斯本地粉丝","当前最受欢迎、性价比最高的推广服务套餐"],
+    svcLabel: "我们的服务", svcTitle: "全方位推广服务", svcDesc: "从网站建设到广告投放，一站式搞定",
+    svcItems: ["网站开发","Яндекс广告","社交媒体运营","市场推广","内容营销","数据分析"],
+    svcDescs: ["为俄罗斯市场打造专业网站，SEO优化、移动端适配。","俄罗斯最大搜索引擎精准广告，快速获客。","管理VK、Telegram等主流俄罗斯社交平台。","全方位俄罗斯市场推广策略，帮助品牌落地。","中俄双语内容营销，提升品牌信任度。","全面分析推广效果，持续优化ROI。"],
+    teamLabel: "专业团队", teamTitle: "了解我们的团队", teamDesc: "深耕俄中商业领域，精通两国文化与市场",
+    blogLabel: "知识博客", blogTitle: "行业洞察", blogDesc: "中俄商业推广实用指南", blogMore: "阅读更多",
+    revLabel: "客户评价", revTitle: "他们信任我们",
+    revTexts: ["合作后网站流量增加5倍，他们深刻理解俄罗斯市场，专业水平令人印象深刻。","Яндекс广告效果超出预期，两个月内收回了投资成本。强烈推荐！","VK粉丝三个月内从零增长到一万，团队非常专业高效。"],
+    ctaLabel: "联系我们", ctaTitle: "准备好了吗？", ctaDesc: "免费获取您专属的俄罗斯市场推广方案，专家24小时内联系您",
+    f1: "您的姓名", f2: "微信 / WhatsApp / 电话", f3: "描述您的业务和推广目标...", fBtn: "发送申请 — 免费咨询",
+    contacts: ["微信: VITALY维塔利", "info@russia-china.ru", "+7 (495) 000-00-00"],
+    footer: "© 2024 俄中推广机构. 保留所有权利",
+  },
+  ru: {
+    nav: ["Услуги", "Кейсы", "Команда", "Блог", "Отзывы", "Контакт"],
+    navCta: "Бесплатно",
+    heroBadge: "Профессиональное агентство продвижения в России",
+    heroH1a: "Продвигайте", heroH1b: "ваш бизнес", heroH1c: "в России",
+    heroDesc: "Создание сайтов, реклама в Яндексе, ведение соцсетей — всё под ключ для китайских компаний",
+    heroCta1: "Получить план →", heroCta2: "Смотреть кейсы",
+    statsDesc: ["Помогаем китайским бизнесам выйти на рынок России", "Успешно завершённых проектов", "Удовлетворённость клиентов", "Время ответа эксперта"],
+    portLabel: "Успешные кейсы", portTitle: "Популярные проекты", portCta: "Все кейсы",
+    cats: ["Все", "Сайты", "Соцсети", "Реклама", "Контент", "Аналитика"],
+    solLabel: "Решения", solTitle: "Не знаете с чего начать?", solDesc: "Выберите подходящее решение под ваши цели",
+    solItems: ["Крупный бизнес", "Высокий ROI", "Стартап", "Соцсети", "Горячее предложение"],
+    solDescs: ["Полный пакет выхода на рынок: сайт, реклама, PR и персональный консультант","Комбинация с наибольшей отдачей, точное попадание в целевую аудиторию","Эффективный выход при минимальных затратах для новичков на российском рынке","Профессиональное ведение VK и Telegram, быстрый набор местной аудитории","Самые популярные и выгодные пакеты прямо сейчас"],
+    svcLabel: "Наши услуги", svcTitle: "Полный спектр услуг", svcDesc: "От создания сайта до запуска рекламы — всё под ключ",
+    svcItems: ["Создание сайтов","Яндекс реклама","Ведение соцсетей","Маркетинг","Контент","Аналитика"],
+    svcDescs: ["Профессиональные сайты для российского рынка, SEO и мобильная адаптация.","Точная реклама в крупнейшей поисковой системе России, быстрое привлечение клиентов.","Ведение VK, Telegram и других популярных российских платформ.","Комплексная стратегия продвижения на российском рынке.","Двуязычный контент-маркетинг для повышения доверия к бренду.","Полный анализ эффективности и оптимизация ROI."],
+    teamLabel: "Команда", teamTitle: "Наша команда", teamDesc: "Эксперты в российско-китайском бизнесе, знаем культуру обеих стран",
+    blogLabel: "Блог", blogTitle: "Отраслевые insights", blogDesc: "Практические советы по продвижению в России", blogMore: "Читать далее",
+    revLabel: "Отзывы", revTitle: "Нам доверяют",
+    revTexts: ["После сотрудничества трафик сайта вырос в 5 раз. Команда отлично понимает российский рынок.","Яндекс реклама превзошла ожидания — окупили вложения за два месяца. Рекомендую!","Подписчики VK выросли с нуля до десяти тысяч за три месяца. Очень профессионально."],
+    ctaLabel: "Контакты", ctaTitle: "Готовы начать?", ctaDesc: "Получите бесплатный план продвижения. Эксперт свяжется с вами в течение 24 часов",
+    f1: "Ваше имя", f2: "WeChat / WhatsApp / Телефон", f3: "Опишите ваш бизнес и цели...", fBtn: "Отправить заявку — бесплатно",
+    contacts: ["WeChat: VITALY维塔利", "info@russia-china.ru", "+7 (495) 000-00-00"],
+    footer: "© 2024 Агентство Россия-Китай. Все права защищены",
+  },
+};
+
 const stats = [
-  { num: "7年", desc: "帮助中国企业进入俄罗斯市场", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f8a4f64e-2337-4fb6-b4e7-0f9e110af17e.jpg", color: "#6366F1" },
-  { num: "150+", desc: "成功完成的推广项目", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/5743a2e7-6e1f-47a9-9aa6-345bb17d6f51.jpg", color: "#8B5CF6" },
-  { num: "98%", desc: "客户满意度", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/e57d8e1c-96fa-48b2-8021-fc0ddbb297e4.jpg", color: "#EC4899" },
-  { num: "24h", desc: "专家响应时间", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/16d0b26b-9c3e-4f62-a2fb-76171357441c.jpg", color: "#F59E0B" },
+  { num: "7年", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f8a4f64e-2337-4fb6-b4e7-0f9e110af17e.jpg", color: "#6366F1" },
+  { num: "150+", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/5743a2e7-6e1f-47a9-9aa6-345bb17d6f51.jpg", color: "#8B5CF6" },
+  { num: "98%", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/e57d8e1c-96fa-48b2-8021-fc0ddbb297e4.jpg", color: "#EC4899" },
+  { num: "24h", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/16d0b26b-9c3e-4f62-a2fb-76171357441c.jpg", color: "#F59E0B" },
 ];
 
 const services = [
@@ -75,15 +129,13 @@ export default function Index() {
   useScrollReveal();
   const [activeTab, setActiveTab] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, setLang] = useState<"zh" | "ru">("zh");
+  const t = T[lang];
 
-  const navLinks = [
-    { href: "#services", label: "服务" },
-    { href: "#portfolio", label: "案例" },
-    { href: "#team", label: "团队" },
-    { href: "#blog", label: "博客" },
-    { href: "#reviews", label: "评价" },
-    { href: "#contact", label: "联系" },
-  ];
+  const navLinks = t.nav.map((label, i) => ({
+    href: ["#services","#portfolio","#team","#blog","#reviews","#contact"][i],
+    label,
+  }));
 
   return (
     <div className="min-h-screen font-chinese" style={{ background: "#F8F7FF", color: "#1A1A2E" }}>
@@ -107,11 +159,18 @@ export default function Index() {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {/* lang toggle */}
+            <button onClick={() => setLang(lang === "zh" ? "ru" : "zh")}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all hover:scale-105"
+              style={{ background: "rgba(99,102,241,0.08)", color: "#6366F1", border: "1.5px solid rgba(99,102,241,0.15)" }}>
+              <span>{lang === "zh" ? "🇷🇺" : "🇨🇳"}</span>
+              <span>{lang === "zh" ? "RU" : "中文"}</span>
+            </button>
             <a href="#contact"
               className="hidden md:block px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90 hover:scale-105"
               style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 20px rgba(99,102,241,0.35)" }}>
-              免费咨询
+              {t.navCta}
             </a>
             <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg"
               style={{ background: "rgba(99,102,241,0.08)" }}
@@ -185,22 +244,21 @@ export default function Index() {
                 color: "#6366F1",
               }}>
               <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
-              专业俄罗斯市场推广机构
+              {t.heroBadge}
             </div>
 
             <h1 className="font-black leading-[1.02] mb-8"
               style={{ fontSize: "clamp(3rem,8vw,5.5rem)", letterSpacing: "-0.03em", color: "#1A1A2E" }}>
-              在俄罗斯<br />
+              {t.heroH1a}<br />
               <span style={{
                 background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}>推广您的</span><br />
-              中国业务
+              }}>{t.heroH1b}</span><br />
+              {t.heroH1c}
             </h1>
 
             <p className="text-lg mb-12 leading-relaxed max-w-lg" style={{ color: "#6B7280" }}>
-              网站开发、Яндекс广告、社交媒体运营 —<br className="hidden md:block" />
-              一站式解决方案，专为中国企业量身定制
+              {t.heroDesc}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-16">
@@ -210,7 +268,7 @@ export default function Index() {
                   background: "linear-gradient(135deg,#6366F1,#8B5CF6)",
                   boxShadow: "0 8px 32px rgba(99,102,241,0.4)",
                 }}>
-                免费获取方案 →
+                {t.heroCta1}
               </a>
               <a href="#portfolio"
                 className="px-8 py-4 rounded-2xl text-base font-black transition-all hover:scale-105"
@@ -220,7 +278,7 @@ export default function Index() {
                   color: "#6366F1",
                   boxShadow: "0 4px 16px rgba(99,102,241,0.1)",
                 }}>
-                查看案例
+                {t.heroCta2}
               </a>
             </div>
 
@@ -280,7 +338,7 @@ export default function Index() {
                 className="mx-auto mb-3"
                 style={{ width: 64, height: 64, objectFit: "contain", mixBlendMode: "multiply" }} />
               <div className="text-4xl font-black mb-1" style={{ color: s.color }}>{s.num}</div>
-              <p className="text-xs leading-snug mt-1" style={{ color: "#9CA3AF" }}>{s.desc}</p>
+              <p className="text-xs leading-snug mt-1" style={{ color: "#9CA3AF" }}>{t.statsDesc[i]}</p>
             </div>
           ))}
         </div>
@@ -290,17 +348,17 @@ export default function Index() {
       <section id="portfolio" className="py-20 max-w-7xl mx-auto px-4 md:px-8">
         <div className="section-reveal flex items-end justify-between mb-8">
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>成功案例</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>热门推广项目</h2>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.portLabel}</p>
+            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.portTitle}</h2>
           </div>
           <a href="#contact"
             className="hidden md:flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-bold text-white"
             style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 20px rgba(99,102,241,0.3)" }}>
-            查看全部 <Icon name="ArrowRight" size={15} />
+            {t.portCta} <Icon name="ArrowRight" size={15} />
           </a>
         </div>
         <div className="section-reveal flex flex-wrap gap-2 mb-6">
-          {categories.map((c, i) => (
+          {t.cats.map((c, i) => (
             <button key={i} onClick={() => setActiveTab(i)}
               className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
               style={activeTab === i
@@ -333,9 +391,9 @@ export default function Index() {
       <section className="py-12" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="section-reveal mb-10">
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>推广方案</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>不知从何开始？</h2>
-            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>根据您的目标选择最适合的方案</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.solLabel}</p>
+            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.solTitle}</h2>
+            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.solDesc}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-4 mb-4">
             {solutions.slice(0, 3).map((s, i) => (
@@ -344,8 +402,8 @@ export default function Index() {
                   <img src={s.img} alt={s.title}
                     className="mb-4"
                     style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
-                  <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
+                  <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{t.solItems[i]}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{t.solDescs[i]}</p>
                 </div>
                 <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{ background: `${s.color}10` }}>
@@ -358,11 +416,11 @@ export default function Index() {
             {solutions.slice(3).map((s, i) => (
               <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <img src={s.img} alt={s.title}
+                  <img src={s.img} alt={t.solItems[i+3]}
                     className="mb-4"
                     style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
-                  <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
+                  <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{t.solItems[i+3]}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{t.solDescs[i+3]}</p>
                 </div>
                 <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{ background: `${s.color}10` }}>
@@ -378,9 +436,9 @@ export default function Index() {
       <section id="services" className="py-20 max-w-7xl mx-auto px-4 md:px-8">
         <div className="section-reveal flex flex-col md:flex-row items-center gap-8 mb-12">
           <div className="flex-1">
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>我们的服务</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>全方位推广服务</h2>
-            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>从网站建设到广告投放，一站式搞定</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.svcLabel}</p>
+            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.svcTitle}</h2>
+            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.svcDesc}</p>
           </div>
           <img src={IMG_SERVICES} alt="services" className="w-40 h-40 rounded-3xl object-cover flex-shrink-0 card-hover"
             style={{ boxShadow: "0 16px 48px rgba(99,102,241,0.18)" }} />
@@ -393,8 +451,8 @@ export default function Index() {
               <img src={s.img} alt={s.title}
                 className="mb-5"
                 style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
-              <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
+              <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{t.svcItems[i]}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{t.svcDescs[i]}</p>
             </div>
           ))}
         </div>
@@ -407,9 +465,9 @@ export default function Index() {
             <img src={IMG_TEAM} alt="team" className="w-40 h-40 rounded-3xl object-cover flex-shrink-0 card-hover"
               style={{ boxShadow: "0 16px 48px rgba(99,102,241,0.15)" }} />
             <div>
-              <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>专业团队</p>
-              <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>了解我们的团队</h2>
-              <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>深耕俄中商业领域，精通两国文化与市场</p>
+              <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.teamLabel}</p>
+              <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.teamTitle}</h2>
+              <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.teamDesc}</p>
             </div>
           </div>
           <div className="grid md:grid-cols-4 gap-5">
@@ -431,9 +489,9 @@ export default function Index() {
       <section id="blog" className="py-20 max-w-7xl mx-auto px-4 md:px-8">
         <div className="section-reveal flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>知识博客</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>行业洞察</h2>
-            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>中俄商业推广实用指南</p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.blogLabel}</p>
+            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.blogTitle}</h2>
+            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.blogDesc}</p>
           </div>
           <img src={IMG_BLOG} alt="blog" className="w-36 h-36 rounded-3xl object-cover flex-shrink-0 card-hover"
             style={{ boxShadow: "0 16px 48px rgba(99,102,241,0.15)" }} />
@@ -451,7 +509,7 @@ export default function Index() {
                   style={{ borderTop: "1px solid rgba(99,102,241,0.07)" }}>
                   <span className="text-xs" style={{ color: "#9CA3AF" }}>{b.date}</span>
                   <span className="text-xs font-bold flex items-center gap-1" style={{ color: b.color }}>
-                    阅读更多 <Icon name="ArrowRight" size={12} />
+                    {t.blogMore} <Icon name="ArrowRight" size={12} />
                   </span>
                 </div>
               </div>
@@ -464,8 +522,8 @@ export default function Index() {
       <section id="reviews" className="py-20" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="section-reveal text-center mb-12">
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>客户评价</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>他们信任我们</h2>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.revLabel}</p>
+            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.revTitle}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
@@ -476,7 +534,7 @@ export default function Index() {
                       <span key={j} style={{ color: "#F59E0B", fontSize: 16 }}>★</span>
                     ))}
                   </div>
-                  <p className="text-sm leading-relaxed mb-7" style={{ color: "#6B7280" }}>"{t.text}"</p>
+                  <p className="text-sm leading-relaxed mb-7" style={{ color: "#6B7280" }}>"{t.revTexts[i]}"</p>
                 </div>
                 <div className="flex items-center gap-3 pt-5"
                   style={{ borderTop: "1px solid rgba(99,102,241,0.08)" }}>
@@ -501,35 +559,33 @@ export default function Index() {
         <div className="max-w-3xl mx-auto">
           <div className="section-reveal glass rounded-3xl p-8 md:p-14 text-center"
             style={{ boxShadow: "0 16px 60px rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.12)" }}>
-            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#6366F1" }}>联系我们</p>
-            <h2 className="text-3xl md:text-5xl font-black mb-4" style={{ color: "#1A1A2E" }}>准备好了吗？</h2>
-            <p className="text-base mb-10" style={{ color: "#9CA3AF" }}>
-              免费获取您专属的俄罗斯市场推广方案，专家24小时内联系您
-            </p>
+            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#6366F1" }}>{t.ctaLabel}</p>
+            <h2 className="text-3xl md:text-5xl font-black mb-4" style={{ color: "#1A1A2E" }}>{t.ctaTitle}</h2>
+            <p className="text-base mb-10" style={{ color: "#9CA3AF" }}>{t.ctaDesc}</p>
             <div className="grid md:grid-cols-2 gap-3 mb-3">
-              {[{ ph: "您的姓名" }, { ph: "微信 / WhatsApp / 电话" }].map((f) => (
-                <input key={f.ph} type="text" placeholder={f.ph}
+              {[t.f1, t.f2].map((ph) => (
+                <input key={ph} type="text" placeholder={ph}
                   className="w-full px-5 py-4 rounded-2xl text-sm outline-none transition-all"
                   style={{ background: "#F3F4F6", border: "2px solid transparent" }}
                   onFocus={(e) => (e.target.style.borderColor = "#6366F1")}
                   onBlur={(e) => (e.target.style.borderColor = "transparent")} />
               ))}
             </div>
-            <textarea placeholder="描述您的业务和推广目标..." rows={3}
+            <textarea placeholder={t.f3} rows={3}
               className="w-full px-5 py-4 rounded-2xl text-sm outline-none mb-5 resize-none transition-all"
               style={{ background: "#F3F4F6", border: "2px solid transparent" }}
               onFocus={(e) => (e.target.style.borderColor = "#6366F1")}
               onBlur={(e) => (e.target.style.borderColor = "transparent")} />
             <button className="w-full md:w-auto px-12 py-4 rounded-2xl text-base font-black text-white transition-all hover:scale-105 hover:opacity-90"
               style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 8px 32px rgba(99,102,241,0.4)" }}>
-              发送申请 — 免费咨询 🚀
+              {t.fBtn} 🚀
             </button>
             <div className="flex flex-wrap justify-center gap-8 mt-10 pt-10"
               style={{ borderTop: "1px solid rgba(99,102,241,0.1)" }}>
               {[
-                { icon: "MessageCircle", text: "微信: VITALY维塔利" },
-                { icon: "Mail", text: "info@russia-china.ru" },
-                { icon: "Phone", text: "+7 (495) 000-00-00" },
+                { icon: "MessageCircle", text: t.contacts[0] },
+                { icon: "Mail", text: t.contacts[1] },
+                { icon: "Phone", text: t.contacts[2] },
               ].map((c) => (
                 <div key={c.text} className="flex items-center gap-2 text-sm font-medium" style={{ color: "#6B7280" }}>
                   <Icon name={c.icon as "Mail"} size={16} style={{ color: "#6366F1" }} />
@@ -552,7 +608,7 @@ export default function Index() {
             />
             <span className="font-black" style={{ color: "#1A1A2E" }}>俄中推广机构</span>
           </div>
-          <p className="text-sm" style={{ color: "#9CA3AF" }}>© 2024 俄中推广机构. 保留所有权利</p>
+          <p className="text-sm" style={{ color: "#9CA3AF" }}>{t.footer}</p>
           <div className="flex gap-3">
             {["Globe", "MessageCircle", "Phone"].map((ic) => (
               <div key={ic} className="w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer card-hover"
