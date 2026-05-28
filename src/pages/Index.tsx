@@ -173,7 +173,7 @@ export default function Index() {
           }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-16 py-24 md:py-36">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-16 py-10 md:py-16">
           <div className="flex-1">
             {/* badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-10 text-xs font-bold tracking-[0.15em]"
