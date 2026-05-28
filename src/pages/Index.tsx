@@ -19,10 +19,10 @@ function useScrollReveal() {
 }
 
 const stats = [
-  { num: "7年", desc: "帮助中国企业进入俄罗斯市场", icon: "Clock", color: "#6366F1" },
-  { num: "150+", desc: "成功完成的推广项目", icon: "CheckCircle", color: "#8B5CF6" },
-  { num: "98%", desc: "客户满意度", icon: "Star", color: "#EC4899" },
-  { num: "24h", desc: "专家响应时间", icon: "Zap", color: "#F59E0B" },
+  { num: "7年", desc: "帮助中国企业进入俄罗斯市场", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f8a4f64e-2337-4fb6-b4e7-0f9e110af17e.jpg", color: "#6366F1" },
+  { num: "150+", desc: "成功完成的推广项目", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/5743a2e7-6e1f-47a9-9aa6-345bb17d6f51.jpg", color: "#8B5CF6" },
+  { num: "98%", desc: "客户满意度", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/e57d8e1c-96fa-48b2-8021-fc0ddbb297e4.jpg", color: "#EC4899" },
+  { num: "24h", desc: "专家响应时间", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/16d0b26b-9c3e-4f62-a2fb-76171357441c.jpg", color: "#F59E0B" },
 ];
 
 const services = [
@@ -273,10 +273,9 @@ export default function Index() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((s, i) => (
             <div key={i} className="section-reveal stat-card p-7 text-center">
-              <div className="w-13 h-13 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                style={{ background: `${s.color}12`, width: 52, height: 52, border: `1.5px solid ${s.color}25` }}>
-                <Icon name={s.icon as "Clock"} size={24} style={{ color: s.color }} />
-              </div>
+              <img src={s.img} alt={s.num}
+                className="mx-auto mb-3"
+                style={{ width: 64, height: 64, objectFit: "contain", mixBlendMode: "multiply" }} />
               <div className="text-4xl font-black mb-1" style={{ color: s.color }}>{s.num}</div>
               <p className="text-xs leading-snug mt-1" style={{ color: "#9CA3AF" }}>{s.desc}</p>
             </div>
