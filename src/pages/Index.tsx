@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f1e7a2ba-7373-4f6b-84ce-8b934720a6e8.jpg";
-const IMG_SERVICES = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/03ba3332-b200-46b0-bcd9-0505d5448801.jpg";
-const IMG_TEAM = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/56dc42a0-5ef5-4e06-8b21-4af7b1789918.jpg";
-const IMG_BLOG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0fcd6408-4941-493c-95be-f0e00d5c41d2.jpg";
+const IMG_SERVICES = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0835f0e1-ed9b-4e80-a474-6cda7640370b.jpg";
+const IMG_TEAM = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/4dd28e09-598a-4a8d-8e21-4b356d3472fe.jpg";
+const IMG_BLOG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/7608446c-a5ea-4892-bd33-601a8849a2b5.jpg";
 const IMG_WECHAT = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/5fa91614-330c-4deb-9927-17ed121f6ba1.jpg";
 
 function useScrollReveal() {
