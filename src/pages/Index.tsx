@@ -92,8 +92,11 @@ export default function Index() {
       <nav className="sticky top-0 z-50 glass" style={{ borderBottom: "1px solid rgba(99,102,241,0.1)" }}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-sm"
-              style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)" }}>俄</div>
+            <img
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/25b79fd7-986a-47bf-a54a-68c4e0a08cef.jpg"
+              alt="logo"
+              style={{ width: 40, height: 40, objectFit: "contain", mixBlendMode: "multiply" }}
+            />
             <span className="font-black text-lg" style={{ color: "#1A1A2E" }}>俄中推广</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -542,8 +545,11 @@ export default function Index() {
       <footer className="py-8 px-4 md:px-8" style={{ borderTop: "1px solid rgba(99,102,241,0.1)", background: "#F8F7FF" }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-black text-sm"
-              style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)" }}>俄</div>
+            <img
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/25b79fd7-986a-47bf-a54a-68c4e0a08cef.jpg"
+              alt="logo"
+              style={{ width: 36, height: 36, objectFit: "contain", mixBlendMode: "multiply" }}
+            />
             <span className="font-black" style={{ color: "#1A1A2E" }}>俄中推广机构</span>
           </div>
           <p className="text-sm" style={{ color: "#9CA3AF" }}>© 2024 俄中推广机构. 保留所有权利</p>
