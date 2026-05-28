@@ -305,9 +305,17 @@ export default function Index() {
       {/* SERVICES GRID */}
       <section className="py-12" style={{ background: "#F5F7FA" }}>
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="section-reveal text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>我们的服务</h2>
-            <p style={{ color: "var(--text-muted)" }}>全方位帮助中国企业进入俄罗斯市场</p>
+          <div className="section-reveal flex flex-col md:flex-row items-center gap-8 mb-10">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>我们的服务</h2>
+              <p style={{ color: "var(--text-muted)" }}>全方位帮助中国企业进入俄罗斯市场</p>
+            </div>
+            <img
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/03ba3332-b200-46b0-bcd9-0505d5448801.jpg"
+              alt="services illustration"
+              className="w-48 h-48 rounded-2xl object-cover flex-shrink-0"
+              style={{ boxShadow: "0 8px 32px rgba(59,94,219,0.12)" }}
+            />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map((s, i) => (
@@ -327,9 +335,17 @@ export default function Index() {
 
       {/* TEAM */}
       <section id="team" className="py-16 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="section-reveal text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>我们的团队</h2>
-          <p style={{ color: "var(--text-muted)" }}>深耕俄中商业领域，精通两国文化与市场</p>
+        <div className="section-reveal flex flex-col md:flex-row items-center gap-8 mb-10">
+          <img
+            src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/56dc42a0-5ef5-4e06-8b21-4af7b1789918.jpg"
+            alt="team illustration"
+            className="w-48 h-48 rounded-2xl object-cover flex-shrink-0"
+            style={{ boxShadow: "0 8px 32px rgba(59,94,219,0.12)" }}
+          />
+          <div>
+            <h2 className="text-2xl md:text-3xl font-black mb-2" style={{ color: "var(--text-main)" }}>我们的团队</h2>
+            <p style={{ color: "var(--text-muted)" }}>深耕俄中商业领域，精通两国文化与市场</p>
+          </div>
         </div>
         <div className="grid md:grid-cols-4 gap-4">
           {team.map((t, i) => (
@@ -347,11 +363,17 @@ export default function Index() {
       {/* BLOG */}
       <section id="blog" className="py-12" style={{ background: "#F5F7FA" }}>
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="section-reveal flex items-center justify-between mb-8">
-            <div>
+          <div className="section-reveal flex flex-col md:flex-row items-center gap-8 mb-8">
+            <div className="flex-1">
               <h2 className="text-2xl md:text-3xl font-black mb-1" style={{ color: "var(--text-main)" }}>行业博客</h2>
               <p style={{ color: "var(--text-muted)" }}>中俄商业推广实用指南</p>
             </div>
+            <img
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0fcd6408-4941-493c-95be-f0e00d5c41d2.jpg"
+              alt="blog illustration"
+              className="w-40 h-40 rounded-2xl object-cover flex-shrink-0"
+              style={{ boxShadow: "0 8px 32px rgba(59,94,219,0.12)" }}
+            />
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             {blogPosts.map((b, i) => (
