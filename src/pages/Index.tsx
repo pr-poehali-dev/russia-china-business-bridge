@@ -45,11 +45,11 @@ const projects = [
 ];
 
 const solutions = [
-  { emoji: "💼", title: "大型企业", desc: "完整的市场进入方案，网站、广告、PR全套，专属顾问全程陪跑", color: "#6366F1" },
-  { emoji: "💰", title: "高回报项目", desc: "ROI最高的推广组合，精准定位高价值客户群体", color: "#EC4899" },
-  { emoji: "📊", title: "初创企业", desc: "低成本高效入市方案，适合刚进入俄罗斯市场的中国企业", color: "#8B5CF6" },
-  { emoji: "📱", title: "社媒运营", desc: "专业VK和Telegram账号运营，快速积累俄罗斯本地粉丝", color: "#0EA5E9" },
-  { emoji: "🔥", title: "热门推荐", desc: "当前最受欢迎、性价比最高的推广服务套餐", color: "#F59E0B" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/49215ff9-b393-42f4-af78-19f5e2e29be4.jpg", title: "大型企业", desc: "完整的市场进入方案，网站、广告、PR全套，专属顾问全程陪跑", color: "#6366F1" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/410385e4-51c9-41c0-a602-5996e6dade33.jpg", title: "高回报项目", desc: "ROI最高的推广组合，精准定位高价值客户群体", color: "#EC4899" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f4b4d2ba-5b56-49fc-a1ea-a5ee6994da0f.jpg", title: "初创企业", desc: "低成本高效入市方案，适合刚进入俄罗斯市场的中国企业", color: "#8B5CF6" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/4a2559f8-d506-4235-9bb6-6e8613c4957c.jpg", title: "社媒运营", desc: "专业VK和Telegram账号运营，快速积累俄罗斯本地粉丝", color: "#0EA5E9" },
+  { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/03059348-c236-495e-b2cc-1adf14e012ca.jpg", title: "热门推荐", desc: "当前最受欢迎、性价比最高的推广服务套餐", color: "#F59E0B" },
 ];
 
 const testimonials = [
@@ -338,9 +338,10 @@ export default function Index() {
           <div className="grid md:grid-cols-3 gap-4 mb-4">
             {solutions.slice(0, 3).map((s, i) => (
               <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5"
-                    style={{ background: `${s.color}10`, border: `1.5px solid ${s.color}20` }}>{s.emoji}</div>
+                <div className="flex-1">
+                  <img src={s.img} alt={s.title}
+                    className="mb-4"
+                    style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
                   <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
                 </div>
@@ -354,9 +355,10 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-4">
             {solutions.slice(3).map((s, i) => (
               <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
-                <div>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-5"
-                    style={{ background: `${s.color}10`, border: `1.5px solid ${s.color}20` }}>{s.emoji}</div>
+                <div className="flex-1">
+                  <img src={s.img} alt={s.title}
+                    className="mb-4"
+                    style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
                   <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{s.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{s.desc}</p>
                 </div>
