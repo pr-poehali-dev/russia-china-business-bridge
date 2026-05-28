@@ -232,7 +232,7 @@ export default function Index() {
               background: "radial-gradient(ellipse, rgba(99,102,241,0.25) 0%, transparent 70%)",
               bottom: "-10%", left: "5%", filter: "blur(20px)", zIndex: 0,
             }} />
-            <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/5fc78619-c720-4275-8240-66b4ab4af620.png"
+            <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/17eced6a-1ff7-4f5e-b174-66c123a02581.jpg"
               alt="Яндекс Реклама"
               className="relative animate-float"
               style={{
@@ -240,7 +240,8 @@ export default function Index() {
                 objectFit: "contain",
                 zIndex: 2,
                 display: "block",
-                filter: "drop-shadow(0 24px 48px rgba(99,102,241,0.2))",
+                mixBlendMode: "multiply",
+                filter: "drop-shadow(0 24px 48px rgba(99,102,241,0.25))",
               }} />
             {/* floating chip top-right */}
             <div className="absolute -top-4 -right-4 px-4 py-2 rounded-2xl text-xs font-black z-10"
