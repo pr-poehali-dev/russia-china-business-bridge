@@ -508,7 +508,112 @@ export default function Index() {
         .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(99,102,241,0.12); }
         .section-reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
         .section-reveal.visible { opacity:1; transform:translateY(0); }
+
+        @keyframes wc-in {
+          from { opacity:0; transform: translateY(16px) scale(0.96); }
+          to   { opacity:1; transform: translateY(0)   scale(1); }
+        }
+        @keyframes wc-out {
+          from { opacity:1; transform: translateY(0)   scale(1); }
+          to   { opacity:0; transform: translateY(16px) scale(0.96); }
+        }
+        .wc-popup-in  { animation: wc-in  0.25s cubic-bezier(.22,1,.36,1) forwards; }
+        .wc-popup-out { animation: wc-out 0.2s ease forwards; }
+
+        @keyframes pulse-dot {
+          0%,100% { opacity:1; transform:scale(1); }
+          50%      { opacity:0.5; transform:scale(1.4); }
+        }
+        .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
       `}</style>
+
+      {/* ── WECHAT FLOAT ── */}
+      <WeChatWidget />
+    </div>
+  );
+}
+
+function WeChatWidget() {
+  const [open, setOpen] = useState(false);
+  const [closing, setClosing] = useState(false);
+
+  function close() {
+    setClosing(true);
+    setTimeout(() => { setOpen(false); setClosing(false); }, 200);
+  }
+
+  return (
+    <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 9999, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12 }}>
+
+      {/* popup */}
+      {open && (
+        <div className={closing ? "wc-popup-out" : "wc-popup-in"}
+          style={{
+            background: "white",
+            borderRadius: 24,
+            boxShadow: "0 24px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.05)",
+            overflow: "hidden",
+            width: 300,
+          }}>
+          {/* header */}
+          <div style={{ background: "linear-gradient(135deg,#07C160,#059669)", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.2)", display: "grid", placeItems: "center", fontSize: 18 }}>💬</div>
+              <div>
+                <div style={{ fontWeight: 900, color: "#fff", fontSize: 14 }}>WeChat 微信</div>
+                <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 11 }}>VITǍLY 维塔利 · 俄罗斯专家</div>
+              </div>
+            </div>
+            <button onClick={close}
+              style={{ width: 28, height: 28, borderRadius: 8, background: "rgba(255,255,255,0.15)", border: "none", cursor: "pointer", color: "#fff", display: "grid", placeItems: "center" }}>
+              ✕
+            </button>
+          </div>
+
+          {/* body */}
+          <div style={{ padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+            <p style={{ fontSize: 13, color: "#6B7280", textAlign: "center", lineHeight: 1.6, margin: 0 }}>
+              По всем вопросам — сайты, реклама, соцсети.<br />
+              Сканируйте QR и пишите напрямую 👇
+            </p>
+            <div style={{ background: "#F9FAFB", borderRadius: 16, padding: 12, border: "1px solid #F3F4F6" }}>
+              <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/5fa91614-330c-4deb-9927-17ed121f6ba1.jpg"
+                alt="WeChat QR" style={{ width: 200, height: 200, objectFit: "contain", display: "block", borderRadius: 8 }} />
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, background: "#F0FDF4", borderRadius: 12, padding: "10px 16px", width: "100%" }}>
+              <span style={{ fontSize: 20 }}>🇷🇺</span>
+              <div>
+                <div style={{ fontWeight: 900, fontSize: 13, color: "#064E3B" }}>VITǍLY 维塔利</div>
+                <div style={{ fontSize: 11, color: "#6B7280" }}>扫码添加微信好友</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* trigger button */}
+      <button onClick={() => open ? close() : setOpen(true)}
+        style={{
+          width: 56, height: 56, borderRadius: 18,
+          background: "linear-gradient(135deg,#07C160,#059669)",
+          boxShadow: "0 8px 32px rgba(7,193,96,0.45)",
+          border: "none", cursor: "pointer",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: 24, transition: "transform 0.2s ease",
+          position: "relative",
+        }}
+        onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.08)")}
+        onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}>
+        {open ? "✕" : "💬"}
+        {/* red dot */}
+        {!open && (
+          <div className="pulse-dot" style={{
+            position: "absolute", top: 8, right: 8,
+            width: 10, height: 10, borderRadius: "50%",
+            background: "#EF4444", border: "2px solid white",
+          }} />
+        )}
+      </button>
     </div>
   );
 }
