@@ -38,7 +38,7 @@ type Tab = "profile" | "services" | "chat";
 
 export default function Cabinet() {
   const navigate = useNavigate();
-  const { lang } = useLang();
+  const { lang, toggle } = useLang();
   const t = useT(lang);
   const cabinetServices = lang === "zh" ? cabinetServicesZh : cabinetServicesRu;
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -154,8 +154,15 @@ export default function Cabinet() {
             <img src={LOGO} alt={BRAND} style={{ width: 26, height: 26, objectFit: "contain", mixBlendMode: "multiply" }} />
             <span className="font-bold text-sm" style={{ color: INK }}>{BRAND}</span>
           </Link>
-          <div className="flex items-center gap-4">
-            <button onClick={openChat} className="relative" style={{ color: INK }} aria-label="Сообщения">
+          <div className="flex items-center gap-3">
+            <button onClick={toggle}
+              className="h-8 px-2.5 flex items-center gap-1 rounded-full text-xs font-semibold"
+              style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}
+              aria-label="Сменить язык">
+              <Icon name="Globe" size={13} style={{ color: SUB }} />
+              {lang === "ru" ? "中文" : "RU"}
+            </button>
+            <button onClick={openChat} className="relative" style={{ color: INK }} aria-label={t("messages")}>
               <Icon name="MessageCircle" size={22} />
               {unread > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full text-[11px] font-bold text-white flex items-center justify-center" style={{ background: ACCENT }}>
@@ -163,7 +170,7 @@ export default function Cabinet() {
                 </span>
               )}
             </button>
-            <button onClick={logout} style={{ color: SUB }} aria-label="Выйти"><Icon name="LogOut" size={20} /></button>
+            <button onClick={logout} style={{ color: SUB }} aria-label={t("logout")}><Icon name="LogOut" size={20} /></button>
           </div>
         </div>
 
