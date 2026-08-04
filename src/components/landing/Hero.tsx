@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, LOGO, HERO_IMG, BRAND, navLinks, services } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, LOGO, BRAND, navLinks, services } from "./theme";
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -88,10 +88,9 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex-1 w-full section-reveal">
-            <div className="card rounded-3xl overflow-hidden" style={{ border: `1px solid ${LINE}`, background: "#fff", boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
-              <img src={HERO_IMG}
-                alt="Создание сайтов" className="w-full" style={{ objectFit: "cover", mixBlendMode: "multiply" }} />
-            </div>
+            <img src="/hero-illustration.png"
+              alt="Создание сайтов" className="w-full"
+              style={{ objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(17,19,24,0.12))" }} />
           </div>
         </div>
       </section>
