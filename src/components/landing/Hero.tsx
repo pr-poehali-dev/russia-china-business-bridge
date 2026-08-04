@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-12 md:pt-24 pb-14 md:pb-16">
+      <section className="max-w-6xl mx-auto px-4 md:px-8 md:pt-24 md:pb-16 py-2.5">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="flex-1 section-reveal text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6 md:mb-7 text-xs font-semibold"
