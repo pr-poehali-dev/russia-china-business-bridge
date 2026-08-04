@@ -16,8 +16,13 @@ const LanguageContext = createContext<LanguageContextValue>({
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem("site_lang") : null;
-    return saved === "zh" ? "zh" : "ru";
+    if (typeof window === "undefined") return "ru";
+    const saved = localStorage.getItem("site_lang");
+    if (saved === "zh" || saved === "ru") return saved;
+    // Автоопределение при первом заходе: китайский язык браузера → 中文
+    const browserLangs = [navigator.language, ...(navigator.languages || [])];
+    const isChinese = browserLangs.some((l) => l && l.toLowerCase().startsWith("zh"));
+    return isChinese ? "zh" : "ru";
   });
 
   const setLang = (l: Lang) => {
