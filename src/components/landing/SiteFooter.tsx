@@ -14,6 +14,20 @@ export default function SiteFooter() {
           />
           <span className="font-bold text-sm" style={{ color: INK }}>{BRAND}</span>
         </Link>
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
+            style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
+            <span className="w-5 h-5 rounded flex items-center justify-center font-black text-white text-xs"
+              style={{ background: "#FC3F1D" }}>Я</span>
+            Работаем с Яндекс
+          </div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
+            style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
+            <span className="w-5 h-5 rounded flex items-center justify-center font-black text-xs"
+              style={{ background: "#fff", border: `1px solid ${LINE}`, color: "#4285F4" }}>G</span>
+            Работаем с Google
+          </div>
+        </div>
         <div className="flex gap-2">
           {["Globe", "MessageCircle", "Phone"].map((ic) => (
             <div key={ic} className="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors hover:bg-gray-50"
