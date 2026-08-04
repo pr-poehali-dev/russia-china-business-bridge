@@ -11,6 +11,27 @@ export default function Features() {
   const { included, promotion, whyUs } = useContent(lang);
   return (
     <>
+      {/* ── ЧТО ВХОДИТ ── */}
+      <section id="included" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("includedTag")}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("includedTitle")}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t("includedSubtitle")}</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {included.map((f, i) => (
+            <div key={i} className="card section-reveal flex items-start gap-3 p-4 rounded-2xl"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
+                <Icon name="Check" size={14} style={{ color: ACCENT }} />
+              </div>
+              <span className="text-sm font-medium" style={{ color: INK }}>{f}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── ПРОДВИЖЕНИЕ ── */}
       <section id="promotion" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <Link to="/promotion" className="section-reveal card group block rounded-3xl p-6 md:p-12" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
@@ -35,27 +56,6 @@ export default function Features() {
             </div>
           </div>
         </Link>
-      </section>
-
-      {/* ── ЧТО ВХОДИТ ── */}
-      <section id="included" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
-        <div className="section-reveal mb-8 md:mb-10">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("includedTag")}</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("includedTitle")}</h2>
-          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t("includedSubtitle")}</p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {included.map((f, i) => (
-            <div key={i} className="card section-reveal flex items-start gap-3 p-4 rounded-2xl"
-              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
-              <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
-                <Icon name="Check" size={14} style={{ color: ACCENT }} />
-              </div>
-              <span className="text-sm font-medium" style={{ color: INK }}>{f}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* ── ПОЧЕМУ ВЫБИРАЮТ НАС ── */}
