@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import SiteHeader from "@/components/landing/SiteHeader";
 import Hero from "@/components/landing/Hero";
+import ProcessSteps from "@/components/landing/ProcessSteps";
 import Features from "@/components/landing/Features";
 import Process from "@/components/landing/Process";
 import ContactFooter from "@/components/landing/ContactFooter";
@@ -36,6 +37,7 @@ export default function Index() {
     <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
       <SiteHeader />
       <Hero />
+      <ProcessSteps />
       <Features />
       <Process />
       <ContactFooter />
