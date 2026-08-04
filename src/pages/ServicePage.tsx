@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, LOGO, BRAND, services } from "@/components/landing/theme";
+import SiteHeader from "@/components/landing/SiteHeader";
+import SiteFooter from "@/components/landing/SiteFooter";
+import { INK, SUB, LINE, ACCENT, PANEL, services } from "@/components/landing/theme";
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -24,20 +26,7 @@ export default function ServicePage() {
 
   return (
     <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
-      {/* NAV */}
-      <nav className="sticky top-0 z-50" style={{ background: "rgba(246,247,248,0.8)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
-        <div className="max-w-4xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src={LOGO} alt={BRAND} style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }} />
-            <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
-          </Link>
-          <Link to="/#contact"
-            className="px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-            style={{ background: INK }}>
-            Заказать сайт
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <article className="max-w-4xl mx-auto px-4 md:px-8 py-10 md:py-16">
         {/* breadcrumb */}
@@ -135,6 +124,8 @@ export default function ServicePage() {
           </div>
         </section>
       </article>
+
+      <SiteFooter />
 
       <style>{`
         .card {

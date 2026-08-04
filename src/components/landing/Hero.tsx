@@ -1,63 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, LOGO, BRAND, navLinks, services } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, services } from "./theme";
 
 export default function Hero() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
-      {/* ── NAV ── */}
-      <nav className="sticky top-0 z-50" style={{ background: "rgba(246,247,248,0.8)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
-        <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-          <div className="flex items-center gap-2.5">
-            <img
-              src={LOGO}
-              alt={BRAND}
-              style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }}
-            />
-            <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
-          </div>
-          <div className="hidden md:flex items-center gap-7">
-            {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm transition-colors hover:opacity-70"
-                style={{ color: SUB }}>
-                {l.label}
-              </a>
-            ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <a href="#contact"
-              className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: INK }}>
-              Заказать сайт
-            </a>
-            <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
-              style={{ background: "#fff", border: `1px solid ${LINE}` }}
-              onClick={() => setMenuOpen(!menuOpen)}>
-              <Icon name={menuOpen ? "X" : "Menu"} size={18} style={{ color: INK }} />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* MOBILE MENU */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 pt-20 px-6 flex flex-col gap-1" style={{ background: PANEL }}>
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href}
-              className="text-lg font-semibold py-4"
-              style={{ color: INK, borderBottom: `1px solid ${LINE}` }}
-              onClick={() => setMenuOpen(false)}>{l.label}</a>
-          ))}
-          <a href="#contact" className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
-            style={{ background: INK }} onClick={() => setMenuOpen(false)}>
-            Заказать сайт
-          </a>
-        </div>
-      )}
-
       {/* ── HERO ── */}
       <section className="max-w-6xl mx-auto px-4 md:px-8 pt-12 md:pt-24 pb-14 md:pb-16">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
