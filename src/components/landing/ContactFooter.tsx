@@ -18,32 +18,34 @@ export default function ContactFooter() {
           <p className="text-sm md:text-base mb-8 md:mb-9 max-w-xl mx-auto" style={{ color: "#9CA3AF" }}>
             Если вам нужен современный сайт, который будет работать на ваш бизнес и приносить клиентов, свяжитесь с нами уже сегодня. Мы бесплатно проконсультируем и предложим лучшее решение.
           </p>
-          <div className="max-w-xl mx-auto">
-            <div className="grid sm:grid-cols-2 gap-3 mb-3">
-              {["Ваше имя", "Телефон / Telegram / WhatsApp"].map((ph) => (
-                <input key={ph} type="text" placeholder={ph}
-                  className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
-                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
-              ))}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto text-left">
+            <div>
+              <div className="grid sm:grid-cols-2 gap-3 mb-3">
+                {["Ваше имя", "Телефон / Telegram / WhatsApp"].map((ph) => (
+                  <input key={ph} type="text" placeholder={ph}
+                    className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
+                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
+                ))}
+              </div>
+              <textarea placeholder="Опишите ваш проект и задачи..." rows={3}
+                className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
+              <button className="btn-press btn-accent w-full px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
+                style={{ background: ACCENT }}>Получить консультацию</button>
             </div>
-            <textarea placeholder="Опишите ваш проект и задачи..." rows={3}
-              className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
-              style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
-            <button className="btn-press btn-accent w-full sm:w-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
-              style={{ background: ACCENT }}>Получить консультацию</button>
-            <div className="flex flex-wrap justify-center gap-6 mt-9 pt-9" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+            <div className="flex flex-col gap-4">
               {contacts.map((c) => (
-                <div key={c.text} className="flex items-center gap-2 text-sm" style={{ color: "#9CA3AF" }}>
+                <div key={c.text} className="flex items-center gap-3 text-sm" style={{ color: "#9CA3AF" }}>
                   <Icon name={c.icon as "Mail"} size={16} style={{ color: ACCENT }} />
                   {c.text}
                 </div>
               ))}
-            </div>
-            <div className="flex flex-col items-center gap-3 mt-8">
-              <div className="p-3 rounded-2xl bg-white">
-                <img src="/wechat-qr.png" alt="WeChat QR" className="w-32 h-32" />
+              <div className="flex flex-col items-start gap-3 mt-2 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+                <div className="p-3 rounded-2xl bg-white">
+                  <img src="/wechat-qr.png" alt="WeChat QR" className="w-32 h-32" />
+                </div>
+                <p className="text-xs" style={{ color: "#9CA3AF" }}>Отсканируйте QR-код, чтобы добавить нас в WeChat</p>
               </div>
-              <p className="text-xs" style={{ color: "#9CA3AF" }}>Отсканируйте QR-код, чтобы добавить нас в WeChat</p>
             </div>
           </div>
         </div>
