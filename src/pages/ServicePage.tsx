@@ -98,6 +98,28 @@ export default function ServicePage() {
           </div>
         </section>
 
+        {/* OTHER SERVICES */}
+        <section className="section-reveal mt-12 md:mt-16">
+          <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>Другие услуги</h2>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {services.filter((o) => o.slug !== service.slug).map((o) => (
+              <Link key={o.slug} to={`/service/${o.slug}`}
+                className="card flex items-center gap-4 p-5 rounded-2xl group"
+                style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: PANEL, border: `1px solid ${LINE}` }}>
+                  <Icon name={o.icon as "Globe"} size={20} style={{ color: ACCENT }} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="font-bold text-sm mb-0.5" style={{ color: INK }}>{o.title}</div>
+                  <div className="text-xs" style={{ color: SUB }}>{o.price} · {o.term}</div>
+                </div>
+                <Icon name="ArrowRight" size={16} className="arrow-slide flex-shrink-0" style={{ color: ACCENT }} />
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="section-reveal mt-12 md:mt-16">
           <div className="rounded-3xl p-6 md:p-12 text-center" style={{ background: INK, boxShadow: "0 24px 60px rgba(17,19,24,0.2)" }}>
@@ -128,6 +150,8 @@ export default function ServicePage() {
         .btn-press:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(17,19,24,0.18); }
         .btn-press:active { transform: translateY(0); }
         .btn-accent:hover { box-shadow: 0 10px 24px rgba(255,90,31,0.35) !important; }
+        .arrow-slide { transition: transform 0.25s ease; }
+        .card:hover .arrow-slide { transform: translateX(4px); }
         .section-reveal { opacity: 1; }
       `}</style>
     </div>
