@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 import { INK, ACCENT } from "./theme";
 
 const contacts = [
-  { icon: "MessageCircle", text: "Telegram / Max", href: "https://max.ru/u/f9LHodD0cOI1V0FgyQPvD3KYqH0JhZ9FjlJOLtmC6aBl0py9u_CJcZ6G-7w" },
+  { icon: "MessageCircle", text: "Напишите в Max", href: "https://max.ru/u/f9LHodD0cOI1V0FgyQPvD3KYqH0JhZ9FjlJOLtmC6aBl0py9u_CJcZ6G-7w" },
   { icon: "Mail", text: "info@bsmnv.ru", href: "mailto:info@bsmnv.ru" },
   { icon: "Phone", text: "+7 (919) 186-12-22", href: "tel:+79191861222" },
 ];
