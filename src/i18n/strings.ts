@@ -120,7 +120,7 @@ const dict = {
     register: "注册",
     cabinet: "个人中心",
     heroBadge: "网站一站式建设 · 5 天起",
-    heroTitlePre: "网站一站式建设，仅需 ",
+    heroTitlePre: "网站一站式建设，\n仅需 ",
     heroTitleAccent: "5 天",
     heroDesc: "我们提供专业的一站式建站服务，仅需 5 天——从简单落地页到大型网上商城和企业门户。不只是好看的网站，更是助力销售增长的高效工具。",
     heroBtnChat: "在线咨询 →",

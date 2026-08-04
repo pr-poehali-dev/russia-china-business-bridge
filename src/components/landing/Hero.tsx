@@ -21,7 +21,7 @@ export default function Hero() {
               {t("heroBadge")}
             </div>
             <h1 className="font-black leading-[1.05] mb-5 md:mb-6 tracking-tight"
-              style={{ fontSize: "clamp(2rem,7vw,4.2rem)", color: INK }}>
+              style={{ fontSize: "clamp(2rem,7vw,4.2rem)", color: INK, whiteSpace: "pre-line" }}>
               {t("heroTitlePre")}
               <span style={{ color: ACCENT }}>{t("heroTitleAccent")}</span>
             </h1>
