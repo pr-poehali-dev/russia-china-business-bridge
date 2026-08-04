@@ -7,11 +7,10 @@
       "expectedStatus": 200
     },
     {
-      "name": "Validation error on empty body",
-      "method": "POST",
+      "name": "Unauthorized without password",
+      "method": "GET",
       "path": "/",
-      "body": {},
-      "expectedStatus": 400
+      "expectedStatus": 401
     }
   ]
 }
