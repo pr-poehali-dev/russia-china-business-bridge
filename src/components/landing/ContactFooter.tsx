@@ -12,10 +12,10 @@ export default function ContactFooter() {
     <>
       {/* ── CONTACT / CTA ── */}
       <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
-        <div className="section-reveal rounded-3xl p-6 md:p-14 text-center" style={{ background: INK, boxShadow: "0 24px 60px rgba(17,19,24,0.2)" }}>
+        <div className="section-reveal rounded-3xl p-6 md:p-14 text-left" style={{ background: INK, boxShadow: "0 24px 60px rgba(17,19,24,0.2)" }}>
           <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: ACCENT }}>Готовы начать?</p>
           <h2 className="text-2xl md:text-5xl font-black mb-4 tracking-tight text-white">Создаём сайты, которые продают!</h2>
-          <p className="text-sm md:text-base mb-8 md:mb-9 max-w-xl mx-auto" style={{ color: "#9CA3AF" }}>
+          <p className="text-sm md:text-base mb-8 md:mb-9 max-w-xl" style={{ color: "#9CA3AF" }}>
             Если вам нужен современный сайт, который будет работать на ваш бизнес и приносить клиентов, свяжитесь с нами уже сегодня. Мы бесплатно проконсультируем и предложим лучшее решение.
           </p>
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto text-left">
