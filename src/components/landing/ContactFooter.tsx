@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, LOGO, BRAND } from "./theme";
+import { INK, LINE, ACCENT, LOGO, BRAND } from "./theme";
 
 const contacts = [
   { icon: "MessageCircle", text: "Telegram / WhatsApp" },
@@ -56,7 +56,6 @@ export default function ContactFooter() {
             />
             <span className="font-bold text-sm" style={{ color: INK }}>{BRAND}</span>
           </div>
-          <p className="text-sm" style={{ color: SUB }}>© 2024 {BRAND}. Все права защищены</p>
           <div className="flex gap-2">
             {["Globe", "MessageCircle", "Phone"].map((ic) => (
               <div key={ic} className="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors hover:bg-gray-50"
