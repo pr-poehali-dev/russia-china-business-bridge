@@ -5,10 +5,10 @@ export const LINE = "#E5E7EB";
 export const ACCENT = "#FF5A1F";
 export const PANEL = "#F6F7F8";
 
-export const LOGO = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/360c52f3-d923-4d28-abd8-b5f706cdd927.jpg";
+export const LOGO = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/81ba0f62-7e71-4363-9e38-2b8a82d4a109.jpg";
 export const HERO_IMG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0eb4df43-93ee-4a68-b660-d73657e2db76.jpg";
 
-export const BRAND = "Веб-Студия";
+export const BRAND = "AltDel";
 
 /* ── nav ── */
 export const navLinks = [
