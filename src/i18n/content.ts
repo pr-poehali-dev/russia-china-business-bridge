@@ -252,7 +252,6 @@ const advantagesZh = [
   { icon: "Layers", title: "任意复杂度的项目" },
   { icon: "Cpu", title: "现代化技术" },
   { icon: "Search", title: "建站即做 SEO" },
-  { icon: "ShieldCheck", title: "质量保证" },
   { icon: "Headphones", title: "支持与陪跑" },
   { icon: "Palette", title: "无模板的定制设计" },
 ];

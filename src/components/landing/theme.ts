@@ -271,7 +271,6 @@ export const advantages = [
   { icon: "Layers", title: "Любая сложность проектов" },
   { icon: "Cpu", title: "Современные технологии" },
   { icon: "Search", title: "SEO уже при создании сайта" },
-  { icon: "ShieldCheck", title: "Гарантия качества" },
   { icon: "Headphones", title: "Поддержка и сопровождение" },
   { icon: "Palette", title: "Индивидуальный дизайн без шаблонов" },
 ];
