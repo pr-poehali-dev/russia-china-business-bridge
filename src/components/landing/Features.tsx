@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { INK, SUB, LINE, ACCENT, PANEL, included, promotion, whyUs } from "./theme";
 
@@ -27,14 +28,17 @@ export default function Features() {
 
       {/* ── ПРОДВИЖЕНИЕ ── */}
       <section id="promotion" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
-        <div className="section-reveal card rounded-3xl p-6 md:p-12" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+        <Link to="/promotion" className="section-reveal card group block rounded-3xl p-6 md:p-12" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             <div className="md:w-2/5">
               <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Продвижение</p>
               <h2 className="text-2xl md:text-4xl font-black tracking-tight mb-4" style={{ color: INK }}>Продвижение сайтов</h2>
-              <p className="text-sm md:text-base leading-relaxed" style={{ color: SUB }}>
+              <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: SUB }}>
                 Создать сайт — это только первый шаг. Чтобы он приносил прибыль, его необходимо продвигать. Мы работаем на результат и помогаем вашему бизнесу получать больше заявок и клиентов.
               </p>
+              <span className="inline-flex items-center gap-1 text-sm font-semibold" style={{ color: ACCENT }}>
+                Подробнее об услуге <Icon name="ArrowRight" size={14} className="arrow-slide" />
+              </span>
             </div>
             <div className="md:w-3/5 grid sm:grid-cols-2 gap-3">
               {promotion.map((p, i) => (
@@ -45,7 +49,7 @@ export default function Features() {
               ))}
             </div>
           </div>
-        </div>
+        </Link>
       </section>
 
       {/* ── ПОЧЕМУ ВЫБИРАЮТ НАС ── */}
