@@ -13,14 +13,19 @@ export default function Process() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {steps.map((s, i) => (
-            <div key={i} className="card section-reveal p-6 rounded-2xl"
+            <div key={i} className="card section-reveal rounded-2xl overflow-hidden flex flex-col"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 text-lg font-black"
-                style={{ background: PANEL, border: `1px solid ${LINE}`, color: ACCENT }}>
-                {s.num}
+              <div className="relative" style={{ background: PANEL }}>
+                <img src={s.img} alt={s.title} className="w-full" style={{ aspectRatio: "1 / 1", objectFit: "cover", mixBlendMode: "multiply" }} />
+                <div className="absolute top-3 left-3 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black"
+                  style={{ background: ACCENT, color: "#fff", boxShadow: "0 4px 12px rgba(255,90,31,0.35)" }}>
+                  {s.num}
+                </div>
               </div>
-              <h3 className="font-bold text-sm mb-1.5" style={{ color: INK }}>{s.title}</h3>
-              <p className="text-xs leading-relaxed" style={{ color: SUB }}>{s.desc}</p>
+              <div className="p-5">
+                <h3 className="font-bold text-sm mb-1.5" style={{ color: INK }}>{s.title}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: SUB }}>{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
