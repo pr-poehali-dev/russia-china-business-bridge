@@ -16,9 +16,9 @@ export default function SiteHeader() {
         <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2.5">
             <img
-              src={LOGO}
+              src="/logo.png"
               alt={BRAND}
-              style={{ width: 42, height: 42, objectFit: "contain", mixBlendMode: "multiply" }}
+              style={{ width: 42, height: 42, objectFit: "contain" }}
             />
             <span className="font-bold text-lg" style={{ color: INK }}>{BRAND}</span>
           </Link>
