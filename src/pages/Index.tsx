@@ -4,7 +4,6 @@ import SiteHeader from "@/components/landing/SiteHeader";
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import Process from "@/components/landing/Process";
-import BlogPreview from "@/components/landing/BlogPreview";
 import ContactFooter from "@/components/landing/ContactFooter";
 import SiteFooter from "@/components/landing/SiteFooter";
 import { INK, PANEL } from "@/components/landing/theme";
@@ -39,7 +38,6 @@ export default function Index() {
       <Hero />
       <Features />
       <Process />
-      <BlogPreview />
       <ContactFooter />
       <SiteFooter />
     </div>
