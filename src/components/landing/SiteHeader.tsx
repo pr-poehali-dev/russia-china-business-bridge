@@ -18,9 +18,9 @@ export default function SiteHeader() {
             <img
               src={LOGO}
               alt={BRAND}
-              style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }}
+              style={{ width: 42, height: 42, objectFit: "contain", mixBlendMode: "multiply" }}
             />
-            <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
+            <span className="font-bold text-lg" style={{ color: INK }}>{BRAND}</span>
           </Link>
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map((l) => (
