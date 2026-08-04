@@ -1,5 +1,8 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { INK, ACCENT } from "./theme";
+
+const SEND_LEAD_URL = "https://functions.poehali.dev/1100be7f-4dcd-40b5-9c02-827ddf22ef61";
 
 const contacts = [
   { icon: "MessageCircle", text: "Напишите в Max", href: "https://max.ru/u/f9LHodD0cOI1V0FgyQPvD3KYqH0JhZ9FjlJOLtmC6aBl0py9u_CJcZ6G-7w" },
@@ -8,6 +11,33 @@ const contacts = [
 ];
 
 export default function ContactFooter() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+
+  const submit = async () => {
+    if (!name.trim() || !email.trim()) {
+      setStatus("error");
+      return;
+    }
+    setStatus("sending");
+    try {
+      const res = await fetch(SEND_LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("ok");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <>
       {/* ── CONTACT / CTA ── */}
@@ -21,17 +51,21 @@ export default function ContactFooter() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left">
             <div className="flex flex-col">
               <div className="grid sm:grid-cols-2 gap-3 mb-3">
-                {["Ваше имя", "Email"].map((ph) => (
-                  <input key={ph} type="text" placeholder={ph}
-                    className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
-                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
-                ))}
+                <input type="text" placeholder="Ваше имя" value={name} onChange={(e) => setName(e.target.value)}
+                  className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
+                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
               </div>
-              <textarea placeholder="Опишите ваш проект и задачи..." rows={3}
+              <textarea placeholder="Опишите ваш проект и задачи..." rows={3} value={message} onChange={(e) => setMessage(e.target.value)}
                 className="w-full px-5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40 py-[63px]"
                 style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
-              <button className="btn-press btn-accent w-full mt-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
-                style={{ background: ACCENT }}>Получить консультацию</button>
+              <button onClick={submit} disabled={status === "sending"}
+                className="btn-press btn-accent w-full mt-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white disabled:opacity-60"
+                style={{ background: ACCENT }}>{status === "sending" ? "Отправляем..." : "Получить консультацию"}</button>
+              {status === "ok" && <p className="text-sm mt-3" style={{ color: "#4ade80" }}>Спасибо! Заявка отправлена.</p>}
+              {status === "error" && <p className="text-sm mt-3" style={{ color: "#f87171" }}>Заполните имя и email или попробуйте ещё раз.</p>}
             </div>
             <div className="flex flex-col gap-4">
               {contacts.map((c) => (
