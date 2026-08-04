@@ -39,11 +39,21 @@ export default function Hero() {
             <img src="/hero-illustration-v3.png"
               alt="Создание сайтов" className="w-full hero-float"
               style={{ objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(17,19,24,0.12))" }} />
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-semibold"
-              style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
-              <span className="w-6 h-6 rounded-md flex items-center justify-center font-black text-white text-base"
-                style={{ background: "#FC3F1D" }}>Я</span>
-              Работаем с Яндекс
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-semibold"
+                style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
+                <span className="w-6 h-6 rounded-md flex items-center justify-center font-black text-white text-base"
+                  style={{ background: "#FC3F1D" }}>Я</span>
+                Работаем с Яндекс
+              </div>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-semibold"
+                style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
+                <span className="w-6 h-6 rounded-md flex items-center justify-center font-black text-base"
+                  style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+                  <span style={{ color: "#4285F4" }}>G</span>
+                </span>
+                Работаем с Google
+              </div>
             </div>
           </div>
         </div>
