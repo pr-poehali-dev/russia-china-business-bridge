@@ -41,6 +41,12 @@ export default function ContactFooter() {
                 </div>
               ))}
             </div>
+            <div className="flex flex-col items-center gap-3 mt-8">
+              <div className="p-3 rounded-2xl bg-white">
+                <img src="/wechat-qr.png" alt="WeChat QR" className="w-32 h-32" />
+              </div>
+              <p className="text-xs" style={{ color: "#9CA3AF" }}>Отсканируйте QR-код, чтобы добавить нас в WeChat</p>
+            </div>
           </div>
         </div>
       </section>
