@@ -20,8 +20,8 @@ export default function Hero() {
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
               {t("heroBadge")}
             </div>
-            <h1 className="font-black leading-[1.05] mb-5 md:mb-6 tracking-tight text-4xl"
-              style={{ fontSize: "clamp(2rem,7vw,4.2rem)", color: INK }}>
+            <h1 className="font-black leading-[1.05] mb-5 md:mb-6 tracking-tight"
+              style={{ fontSize: 50, color: INK }}>
               {t("heroTitlePre")}
               <span style={{ color: ACCENT }}>{t("heroTitleAccent")}</span>
             </h1>
