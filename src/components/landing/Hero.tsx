@@ -35,10 +35,16 @@ export default function Hero() {
               </a>
             </div>
           </div>
-          <div className="flex-1 w-full section-reveal">
-            <img src="/hero-illustration-v2.png"
+          <div className="flex-1 w-full section-reveal flex flex-col items-center gap-4">
+            <img src="/hero-illustration-v3.png"
               alt="Создание сайтов" className="w-full hero-float"
               style={{ objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(17,19,24,0.12))" }} />
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-semibold"
+              style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
+              <span className="w-6 h-6 rounded-md flex items-center justify-center font-black text-white text-base"
+                style={{ background: "#FC3F1D" }}>Я</span>
+              Работаем с Яндекс
+            </div>
           </div>
         </div>
       </section>
