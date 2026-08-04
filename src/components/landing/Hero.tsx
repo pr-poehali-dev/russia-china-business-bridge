@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import { INK, SUB, LINE, ACCENT, PANEL, LOGO, BRAND, navLinks, services } from "./theme";
 
@@ -104,15 +105,18 @@ export default function Hero() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((s, i) => (
-            <div key={i} className="card section-reveal p-6 rounded-2xl"
+            <Link key={i} to={`/service/${s.slug}`} className="card section-reveal p-6 rounded-2xl flex flex-col group"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
               <div className="card-icon w-11 h-11 rounded-xl flex items-center justify-center mb-4"
                 style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <Icon name={s.icon as "Globe"} size={20} style={{ color: ACCENT }} />
               </div>
               <h3 className="font-bold text-base mb-1.5" style={{ color: INK }}>{s.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: SUB }}>{s.desc}</p>
-            </div>
+              <p className="text-sm leading-relaxed flex-1" style={{ color: SUB }}>{s.desc}</p>
+              <span className="inline-flex items-center gap-1 text-sm font-semibold mt-4" style={{ color: ACCENT }}>
+                Подробнее <Icon name="ArrowRight" size={14} className="arrow-slide" />
+              </span>
+            </Link>
           ))}
         </div>
       </section>
