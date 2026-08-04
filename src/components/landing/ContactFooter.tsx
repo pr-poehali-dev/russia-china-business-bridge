@@ -28,7 +28,7 @@ export default function ContactFooter() {
                 ))}
               </div>
               <textarea placeholder="Опишите ваш проект и задачи..." rows={3}
-                className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
+                className="w-full px-5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40 py-[63px]"
                 style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
               <button className="btn-press btn-accent w-full mt-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
                 style={{ background: ACCENT }}>Получить консультацию</button>
