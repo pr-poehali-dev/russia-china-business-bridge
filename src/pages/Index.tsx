@@ -30,6 +30,13 @@ const T = {
     svcLabel: "我们的服务", svcTitle: "俄罗斯市场，一站式搞定", svcDesc: "从建站到投放，从内容到数据，帮您用最短路径拿到订单。",
     svcItems: ["网站开发","Яндекс广告","社交媒体运营","市场推广","内容营销","数据分析"],
     svcDescs: ["为俄罗斯市场打造专业网站，SEO优化、移动端适配。","俄罗斯最大搜索引擎精准广告，快速获客。","管理VK、Telegram等主流俄罗斯社交平台。","全方位俄罗斯市场推广策略，帮助品牌落地。","中俄双语内容营销，提升品牌信任度。","全面分析推广效果，持续优化ROI。"],
+    priceLabel: "价格套餐", priceTitle: "透明的价格", priceDesc: "选择适合您的套餐，随时可升级。",
+    priceMonth: "/月", pricePopular: "最受欢迎", priceCta: "开始合作",
+    plans: [
+      { name: "入门版", price: "59 000 ₽", feats: ["企业官网建设", "基础SEO优化", "1个广告渠道", "每月数据报告"] },
+      { name: "标准版", price: "149 000 ₽", feats: ["网站 + 落地页", "Яндекс广告投放", "VK / Telegram运营", "双语内容营销", "专属项目经理"] },
+      { name: "旗舰版", price: "договорная", feats: ["全渠道推广方案", "全套广告投放", "PR与品牌建设", "7×24专家支持", "定制化增长策略"] },
+    ],
     teamLabel: "专业团队", teamTitle: "了解我们的团队", teamDesc: "深耕俄中商业领域，精通两国文化与市场",
     blogLabel: "知识博客", blogTitle: "行业洞察", blogDesc: "中俄商业推广实用指南", blogMore: "阅读更多",
     revLabel: "客户评价", revTitle: "他们信任我们",
@@ -55,6 +62,13 @@ const T = {
     svcLabel: "Наши услуги", svcTitle: "Рынок России — под ключ", svcDesc: "От сайта до рекламы, от контента до аналитики — ведём вас к заказам кратчайшим путём.",
     svcItems: ["Создание сайтов","Яндекс реклама","Ведение соцсетей","Маркетинг","Контент","Аналитика"],
     svcDescs: ["Профессиональные сайты для российского рынка, SEO и мобильная адаптация.","Точная реклама в крупнейшей поисковой системе России, быстрое привлечение клиентов.","Ведение VK, Telegram и других популярных российских платформ.","Комплексная стратегия продвижения на российском рынке.","Двуязычный контент-маркетинг для повышения доверия к бренду.","Полный анализ эффективности и оптимизация ROI."],
+    priceLabel: "Тарифы", priceTitle: "Прозрачные цены", priceDesc: "Выберите подходящий пакет — расширить можно в любой момент.",
+    priceMonth: "/мес", pricePopular: "Популярный", priceCta: "Начать работу",
+    plans: [
+      { name: "Старт", price: "59 000 ₽", feats: ["Сайт компании", "Базовое SEO", "1 рекламный канал", "Отчёт раз в месяц"] },
+      { name: "Стандарт", price: "149 000 ₽", feats: ["Сайт + лендинги", "Реклама в Яндексе", "Ведение VK / Telegram", "Двуязычный контент", "Личный менеджер"] },
+      { name: "Премиум", price: "договорная", feats: ["Продвижение по всем каналам", "Полный пакет рекламы", "PR и брендинг", "Поддержка 24/7", "Индивидуальная стратегия"] },
+    ],
     teamLabel: "Команда", teamTitle: "Наша команда", teamDesc: "Эксперты в российско-китайском бизнесе, знаем культуру обеих стран",
     blogLabel: "Блог", blogTitle: "Отраслевые insights", blogDesc: "Практические советы по продвижению в России", blogMore: "Читать далее",
     revLabel: "Отзывы", revTitle: "Нам доверяют",
@@ -331,6 +345,56 @@ export default function Index() {
               <Icon name="ArrowUpRight" size={18} className="arrow-slide" style={{ color: ACCENT, flexShrink: 0 }} />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── PRICING ── */}
+      <section id="pricing" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10 text-center">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.priceLabel}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.priceTitle}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl mx-auto" style={{ color: SUB }}>{t.priceDesc}</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4 md:items-stretch">
+          {t.plans.map((plan, i) => {
+            const featured = i === 1;
+            return (
+              <div key={i}
+                className="card section-reveal p-6 md:p-7 rounded-2xl flex flex-col relative"
+                style={featured
+                  ? { background: INK, border: `1px solid ${INK}`, boxShadow: "0 18px 40px rgba(17,19,24,0.18)" }
+                  : { background: "#fff", border: `1px solid ${LINE}` }
+                }>
+                {featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap"
+                    style={{ background: ACCENT }}>{t.pricePopular}</span>
+                )}
+                <h3 className="font-bold text-base mb-3" style={{ color: featured ? "#fff" : INK }}>{plan.name}</h3>
+                <div className="flex items-end gap-1 mb-5">
+                  <span className="text-3xl font-black tracking-tight" style={{ color: featured ? "#fff" : INK }}>{plan.price}</span>
+                  {plan.price !== "договорная" && (
+                    <span className="text-sm mb-1" style={{ color: featured ? "#9CA3AF" : SUB }}>{t.priceMonth}</span>
+                  )}
+                </div>
+                <ul className="flex flex-col gap-2.5 mb-7 flex-1">
+                  {plan.feats.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm" style={{ color: featured ? "#D1D5DB" : SUB }}>
+                      <Icon name="Check" size={16} style={{ color: ACCENT, flexShrink: 0, marginTop: 2 }} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact"
+                  className="btn-press w-full py-3 rounded-full text-sm font-semibold text-center transition-all"
+                  style={featured
+                    ? { background: ACCENT, color: "#fff" }
+                    : { background: PANEL, color: INK, border: `1px solid ${LINE}` }
+                  }>
+                  {t.priceCta}
+                </a>
+              </div>
+            );
+          })}
         </div>
       </section>
 
