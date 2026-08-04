@@ -59,7 +59,7 @@ export const services: Service[] = [
     ],
     price: "10 000 ₽/год",
     term: "от 5 дней",
-    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/6e4bc517-b9b6-41e6-bfda-8be28a7fc898.jpg",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/14baf5be-d117-4e25-b720-53f0714eaeba.jpg",
   },
   {
     slug: "corporate",
@@ -84,7 +84,7 @@ export const services: Service[] = [
     ],
     price: "от 59 000 ₽",
     term: "от 7 дней",
-    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/c275d1a1-5502-4213-8137-29e4d5c22cab.jpg",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/ca2a94d3-24e3-48e8-b077-a15f5dc5fb7d.jpg",
   },
   {
     slug: "shop",
@@ -109,7 +109,7 @@ export const services: Service[] = [
     ],
     price: "договорная",
     term: "от 14 дней",
-    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/40e6d293-1210-42b9-a6ab-2185b68e2d34.jpg",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/a6fb9845-3b69-4873-bf11-a521f4cac277.jpg",
   },
   {
     slug: "catalog",
@@ -134,7 +134,7 @@ export const services: Service[] = [
     ],
     price: "от 45 000 ₽",
     term: "от 7 дней",
-    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/b004de2d-15ac-47f0-ac2e-73e401019c6c.jpg",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/701b3f48-d471-4d42-bf9a-99f1c7d22b74.jpg",
   },
   {
     slug: "custom",
@@ -159,7 +159,7 @@ export const services: Service[] = [
     ],
     price: "договорная",
     term: "обсуждается",
-    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/1ccc4666-cfc8-43bc-8fe2-7d617ca444fe.jpg",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f579e663-94e7-4651-a550-b5fc88692547.jpg",
   },
 ];
 
@@ -235,7 +235,7 @@ export const promotionPage = {
     { niche: "Магазин межкомнатных дверей", traffic: "×11 переходов", top: "−70% цена клика", term: "контекст" },
     { niche: "Шиномонтаж", traffic: "+86% трафика", top: "+25 запросов в топ-10", term: "за 30 дней" },
   ],
-  preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/e3d0423c-359c-4741-b54b-189b5804f98f.jpg",
+  preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/4687bf83-b401-4e09-ac73-5578ad6bf31a.jpg",
 };
 
 /* ── почему выбирают нас ── */
@@ -251,11 +251,11 @@ export const whyUs = [
 
 /* ── этапы работы ── */
 export const steps = [
-  { num: "1", title: "Бесплатная консультация", desc: "Обсуждаем ваш проект, задачи и пожелания.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/2d4855cc-b37c-4f51-807b-0e6d7c5034a1.jpg" },
-  { num: "2", title: "Подготовка проекта", desc: "Создаём структуру сайта и согласовываем дизайн.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/502169a8-1170-4818-b335-bf766658c77f.jpg" },
-  { num: "3", title: "Разработка", desc: "Верстаем, программируем и наполняем сайт контентом.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/13e320fd-eb22-4446-ace0-bc5bff68fc16.jpg" },
-  { num: "4", title: "Тестирование", desc: "Проверяем работу сайта на всех устройствах и устраняем ошибки.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/3aa77882-7560-483a-8000-22cde9f6ea58.jpg" },
-  { num: "5", title: "Запуск", desc: "Подключаем домен, размещаем сайт на хостинге и передаём готовый проект заказчику.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/733c4562-d164-4538-89b3-e4b217073500.jpg" },
+  { num: "1", title: "Бесплатная консультация", desc: "Обсуждаем ваш проект, задачи и пожелания.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/ccbd2bf7-e31d-42c1-b389-306ff064c006.jpg" },
+  { num: "2", title: "Подготовка проекта", desc: "Создаём структуру сайта и согласовываем дизайн.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/757a32b1-e012-4914-b49c-5990b12e7a74.jpg" },
+  { num: "3", title: "Разработка", desc: "Верстаем, программируем и наполняем сайт контентом.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0e56b463-71cc-47a5-8e8e-213f36d83b05.jpg" },
+  { num: "4", title: "Тестирование", desc: "Проверяем работу сайта на всех устройствах и устраняем ошибки.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/92879d14-ab2e-47dc-9905-7d5457e3e960.jpg" },
+  { num: "5", title: "Запуск", desc: "Подключаем домен, размещаем сайт на хостинге и передаём готовый проект заказчику.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/7a22be7e-efbf-4cfe-8baf-211c8030ff35.jpg" },
 ];
 
 /* ── тарифы ── */
