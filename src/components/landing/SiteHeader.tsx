@@ -1,13 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, PANEL, LOGO, BRAND, navLinks } from "./theme";
+import { INK, SUB, LINE, PANEL, BRAND } from "./theme";
+import { useLang } from "@/i18n/LanguageContext";
+import { useT } from "@/i18n/strings";
+import { useContent } from "@/i18n/content";
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const isLoggedIn = typeof window !== "undefined" && !!localStorage.getItem("client_token");
+  const { lang, toggle } = useLang();
+  const t = useT(lang);
+  const { navLinks } = useContent(lang);
 
   const linkTo = (href: string) => (href.startsWith("#") ? `/${href}` : href);
+
+  const LangSwitch = ({ className = "" }: { className?: string }) => (
+    <button onClick={toggle}
+      className={`px-3 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-80 flex items-center gap-1.5 ${className}`}
+      style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}
+      aria-label="Сменить язык">
+      <Icon name="Globe" size={15} style={{ color: SUB }} />
+      {lang === "ru" ? "中文" : "RU"}
+    </button>
+  );
 
   return (
     <>
@@ -31,9 +47,10 @@ export default function SiteHeader() {
             ))}
           </div>
           <div className="flex items-center gap-2">
+            <LangSwitch className="hidden md:flex" />
             <Link to={isLoggedIn ? "/cabinet" : "/register"}
               className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: INK }}>{isLoggedIn ? "Кабинет" : "Регистрация"}</Link>
+              style={{ background: INK }}>{isLoggedIn ? t("cabinet") : t("register")}</Link>
             <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
@@ -52,9 +69,12 @@ export default function SiteHeader() {
               style={{ color: INK, borderBottom: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(false)}>{l.label}</Link>
           ))}
-          <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
+          <div className="mt-4 flex items-center gap-2">
+            <LangSwitch />
+          </div>
+          <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-3 py-3.5 rounded-full text-center font-semibold text-white"
             style={{ background: INK }} onClick={() => setMenuOpen(false)}>
-            {isLoggedIn ? "Кабинет" : "Регистрация"}
+            {isLoggedIn ? t("cabinet") : t("register")}
           </Link>
         </div>
       )}

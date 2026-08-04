@@ -1,15 +1,21 @@
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, steps, advantages, plans } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL } from "./theme";
+import { useLang } from "@/i18n/LanguageContext";
+import { useT } from "@/i18n/strings";
+import { useContent } from "@/i18n/content";
 
 export default function Process() {
+  const { lang } = useLang();
+  const t = useT(lang);
+  const { steps, advantages, plans } = useContent(lang);
   return (
     <>
       {/* ── ЭТАПЫ РАБОТЫ ── */}
       <section id="process" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Как мы работаем</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Этапы работы</h2>
-          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>Прозрачный процесс — от идеи до запуска.</p>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("processTag")}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("processTitle")}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t("processSubtitle")}</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {steps.map((s, i) => (
@@ -34,9 +40,9 @@ export default function Process() {
       {/* ── ЦЕНЫ ── */}
       <section id="pricing" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Тарифы</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Прозрачные цены</h2>
-          <p className="mt-3 text-sm md:text-base max-w-xl mx-auto" style={{ color: SUB }}>Честные цены без скрытых платежей — точную стоимость назовём после консультации.</p>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("pricingTag")}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("pricingTitle")}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl mx-auto" style={{ color: SUB }}>{t("pricingSubtitle")}</p>
         </div>
         <div className="grid md:grid-cols-3 gap-4 md:items-stretch">
           {plans.map((plan, i) => {
@@ -50,7 +56,7 @@ export default function Process() {
                 }>
                 {featured && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap"
-                    style={{ background: ACCENT }}>Популярный</span>
+                    style={{ background: ACCENT }}>{t("popular")}</span>
                 )}
                 <h3 className="font-bold text-base mb-3" style={{ color: featured ? "#fff" : INK }}>{plan.name}</h3>
                 <div className="mb-5">
@@ -70,7 +76,7 @@ export default function Process() {
                     ? { background: ACCENT, color: "#fff" }
                     : { background: PANEL, color: INK, border: `1px solid ${LINE}` }
                   }>
-                  Заказать
+                  {t("order")}
                 </a>
               </div>
             );
@@ -81,8 +87,8 @@ export default function Process() {
       {/* ── НАШИ ПРЕИМУЩЕСТВА ── */}
       <section id="advantages" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Наши преимущества</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Работаем на результат</h2>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("advTag")}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("advTitle")}</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {advantages.map((a, i) => (

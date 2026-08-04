@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Icon from "@/components/ui/icon";
 import { INK, ACCENT, SUB, LINE } from "@/components/landing/theme";
+import { useLang } from "@/i18n/LanguageContext";
+import { useT } from "@/i18n/strings";
 
 const CHAT_URL = "https://functions.poehali.dev/84fb9523-59f1-442a-9de7-ea2cd18437f3";
 
@@ -25,6 +27,8 @@ interface ChatBoxProps {
 }
 
 export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) {
+  const { lang } = useLang();
+  const t = useT(lang);
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
@@ -37,7 +41,7 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
     setFileError("");
     if (!f) { setFile(null); return; }
     if (f.size > MAX_FILE_MB * 1024 * 1024) {
-      setFileError(`Файл больше ${MAX_FILE_MB} МБ. Выберите файл поменьше.`);
+      setFileError(t("fileTooBig", { n: MAX_FILE_MB }));
       setFile(null);
       if (fileRef.current) fileRef.current.value = "";
       return;
@@ -116,7 +120,7 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
         {messages.length === 0 && (
           <div className="h-full flex flex-col items-center justify-center text-center py-10" style={{ color: SUB }}>
             <Icon name="MessageCircle" size={36} className="mb-2" />
-            <p className="text-sm">Сообщений пока нет</p>
+            <p className="text-sm">{t("noMessages")}</p>
           </div>
         )}
         {messages.map((m) => {
@@ -170,14 +174,14 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
             onChange={(e) => pickFile(e.target.files?.[0] || null)} />
           <button onClick={() => fileRef.current?.click()}
             className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 hover:bg-gray-100"
-            style={{ color: SUB }} aria-label="Прикрепить файл">
+            style={{ color: SUB }} aria-label={t("attachFile")}>
             <Icon name="Paperclip" size={19} />
           </button>
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && send()}
-            placeholder="Написать сообщение..."
+            placeholder={t("phWriteMessage")}
             className="flex-1 px-4 py-2.5 rounded-full text-sm outline-none focus:border-gray-400"
             style={{ border: `1px solid ${LINE}` }}
           />

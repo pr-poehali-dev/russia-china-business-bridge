@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, included, promotion, whyUs } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL } from "./theme";
+import { useLang } from "@/i18n/LanguageContext";
+import { useT } from "@/i18n/strings";
+import { useContent } from "@/i18n/content";
 
 export default function Features() {
+  const { lang } = useLang();
+  const t = useT(lang);
+  const { included, promotion, whyUs } = useContent(lang);
   return (
     <>
       {/* ── ПРОДВИЖЕНИЕ ── */}
@@ -10,13 +16,13 @@ export default function Features() {
         <Link to="/promotion" className="section-reveal card group block rounded-3xl p-6 md:p-12" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             <div className="md:w-2/5">
-              <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Продвижение</p>
-              <h2 className="text-2xl md:text-4xl font-black tracking-tight mb-4" style={{ color: INK }}>Продвижение сайтов</h2>
+              <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("promoTag")}</p>
+              <h2 className="text-2xl md:text-4xl font-black tracking-tight mb-4" style={{ color: INK }}>{t("promoTitle")}</h2>
               <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: SUB }}>
-                Создать сайт — это только первый шаг. Чтобы он приносил прибыль, его необходимо продвигать. Мы работаем на результат и помогаем вашему бизнесу получать больше заявок и клиентов.
+                {t("promoDesc")}
               </p>
               <span className="inline-flex items-center gap-1 text-sm font-semibold" style={{ color: ACCENT }}>
-                Подробнее об услуге <Icon name="ArrowRight" size={14} className="arrow-slide" />
+                {t("promoMore")} <Icon name="ArrowRight" size={14} className="arrow-slide" />
               </span>
             </div>
             <div className="md:w-3/5 grid sm:grid-cols-2 gap-3">
@@ -34,9 +40,9 @@ export default function Features() {
       {/* ── ЧТО ВХОДИТ ── */}
       <section id="included" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Что входит</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Что входит в разработку сайта</h2>
-          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>Полный набор — без скрытых доплат.</p>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("includedTag")}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("includedTitle")}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t("includedSubtitle")}</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {included.map((f, i) => (
@@ -55,8 +61,8 @@ export default function Features() {
       {/* ── ПОЧЕМУ ВЫБИРАЮТ НАС ── */}
       <section id="why" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Преимущества</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Почему выбирают нас</h2>
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("whyTag")}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("whyTitle")}</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {whyUs.map((w, i) => (
