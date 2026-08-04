@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Register validation error",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "register", "email": "", "password": ""},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Login with wrong credentials",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "email": "nobody@example.com", "password": "wrongpass"},
+      "expectedStatus": 401
+    },
+    {
+      "name": "Profile without token",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 401
+    }
+  ]
+}

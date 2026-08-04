@@ -1,0 +1,98 @@
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Icon from "@/components/ui/icon";
+import { INK, ACCENT, SUB, LINE, LOGO, BRAND } from "@/components/landing/theme";
+
+const AUTH_URL = "https://functions.poehali.dev/6d242237-1045-4f33-8502-7385b80072c9";
+
+interface Profile {
+  id: number;
+  name: string;
+  email: string;
+  created_at: string | null;
+}
+
+export default function Cabinet() {
+  const navigate = useNavigate();
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("client_token");
+    if (!token) {
+      navigate("/register");
+      return;
+    }
+    fetch(AUTH_URL, { headers: { "X-Auth-Token": token } })
+      .then((r) => {
+        if (!r.ok) throw new Error();
+        return r.json();
+      })
+      .then((data) => setProfile(data))
+      .catch(() => {
+        localStorage.removeItem("client_token");
+        navigate("/register");
+      })
+      .finally(() => setLoading(false));
+  }, [navigate]);
+
+  const logout = () => {
+    localStorage.removeItem("client_token");
+    localStorage.removeItem("client_name");
+    navigate("/");
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "#F6F7F8" }}>
+        <Icon name="LoaderCircle" size={32} className="animate-spin" style={{ color: SUB }} />
+      </div>
+    );
+  }
+
+  if (!profile) return null;
+
+  const fmt = (iso: string | null) => (iso ? new Date(iso).toLocaleDateString("ru-RU", { day: "2-digit", month: "long", year: "numeric" }) : "");
+
+  return (
+    <div className="min-h-screen" style={{ background: "#F6F7F8" }}>
+      <nav className="sticky top-0 z-50" style={{ background: "rgba(246,247,248,0.8)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
+        <div className="max-w-4xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center gap-2.5">
+            <img src={LOGO} alt={BRAND} style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }} />
+            <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
+          </Link>
+          <button onClick={logout} className="flex items-center gap-1.5 text-sm hover:opacity-70" style={{ color: SUB }}>
+            <Icon name="LogOut" size={16} /> Выйти
+          </button>
+        </div>
+      </nav>
+
+      <main className="max-w-4xl mx-auto px-4 md:px-8 py-8">
+        <div className="bg-white rounded-3xl p-6 md:p-8 mb-5 flex items-center gap-5" style={{ border: `1px solid ${LINE}` }}>
+          <div className="w-20 h-20 rounded-full flex items-center justify-center shrink-0 text-2xl font-bold text-white" style={{ background: ACCENT }}>
+            {profile.name.trim()[0]?.toUpperCase() || "?"}
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold" style={{ color: INK }}>{profile.name}</h1>
+            <p className="text-sm mt-0.5" style={{ color: SUB }}>{profile.email}</p>
+            <p className="text-xs mt-1" style={{ color: SUB }}>С нами с {fmt(profile.created_at)}</p>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-white rounded-2xl p-6" style={{ border: `1px solid ${LINE}` }}>
+            <Icon name="FolderKanban" size={24} style={{ color: ACCENT }} />
+            <h3 className="font-semibold mt-3" style={{ color: INK }}>Мои проекты</h3>
+            <p className="text-sm mt-1" style={{ color: SUB }}>Здесь появятся ваши заказанные сайты и их статус.</p>
+          </div>
+          <Link to="/#contact" className="bg-white rounded-2xl p-6 hover:shadow-sm transition-shadow" style={{ border: `1px solid ${LINE}` }}>
+            <Icon name="Plus" size={24} style={{ color: ACCENT }} />
+            <h3 className="font-semibold mt-3" style={{ color: INK }}>Новая заявка</h3>
+            <p className="text-sm mt-1" style={{ color: SUB }}>Оставьте заявку на разработку нового сайта.</p>
+          </Link>
+        </div>
+      </main>
+    </div>
+  );
+}

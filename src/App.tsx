@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import ServicePage from "./pages/ServicePage";
 import PromotionPage from "./pages/PromotionPage";
 import Admin from "./pages/Admin";
+import Register from "./pages/Register";
+import Cabinet from "./pages/Cabinet";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/service/:slug" element={<ServicePage />} />
           <Route path="/promotion" element={<PromotionPage />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cabinet" element={<Cabinet />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
