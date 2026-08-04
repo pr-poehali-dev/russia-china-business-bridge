@@ -21,7 +21,7 @@ export default function ContactFooter() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left">
             <div className="flex flex-col">
               <div className="grid sm:grid-cols-2 gap-3 mb-3">
-                {["Ваше имя", "Телефон / Telegram / WhatsApp"].map((ph) => (
+                {["Ваше имя", "Email"].map((ph) => (
                   <input key={ph} type="text" placeholder={ph}
                     className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
                     style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
