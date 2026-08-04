@@ -51,6 +51,13 @@ export default function SiteHeader() {
             <Link to={isLoggedIn ? "/cabinet" : "/register"}
               className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
               style={{ background: INK }}>{isLoggedIn ? t("cabinet") : t("register")}</Link>
+            <button onClick={toggle}
+              className="md:hidden h-9 px-3 flex items-center justify-center gap-1 rounded-full text-sm font-semibold transition-all"
+              style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}
+              aria-label="Сменить язык">
+              <Icon name="Globe" size={15} style={{ color: SUB }} />
+              {lang === "ru" ? "中文" : "RU"}
+            </button>
             <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
@@ -69,10 +76,7 @@ export default function SiteHeader() {
               style={{ color: INK, borderBottom: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(false)}>{l.label}</Link>
           ))}
-          <div className="mt-4 flex items-center gap-2">
-            <LangSwitch />
-          </div>
-          <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-3 py-3.5 rounded-full text-center font-semibold text-white"
+          <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
             style={{ background: INK }} onClick={() => setMenuOpen(false)}>
             {isLoggedIn ? t("cabinet") : t("register")}
           </Link>
