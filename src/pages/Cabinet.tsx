@@ -14,6 +14,15 @@ interface Profile {
   unread?: number;
 }
 
+const cabinetServices = [
+  { icon: "Rocket", title: "Экспресс-запуск сайта", desc: "Готовый сайт за 3 дня под ключ с базовым наполнением.", price: "от 15 000 ₽" },
+  { icon: "Search", title: "SEO-продвижение", desc: "Выведем сайт в топ поисковиков и приведём клиентов.", price: "от 20 000 ₽/мес" },
+  { icon: "Megaphone", title: "Реклама и таргет", desc: "Настройка контекстной и таргетированной рекламы.", price: "от 12 000 ₽" },
+  { icon: "Palette", title: "Редизайн сайта", desc: "Обновим внешний вид и повысим конверсию.", price: "от 25 000 ₽" },
+  { icon: "Wrench", title: "Техподдержка", desc: "Обновления, правки и защита сайта каждый месяц.", price: "от 5 000 ₽/мес" },
+  { icon: "FileText", title: "Наполнение контентом", desc: "Тексты, фото и статьи для вашего сайта.", price: "от 8 000 ₽" },
+];
+
 export default function Cabinet() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -126,7 +135,28 @@ export default function Cabinet() {
           </Link>
         </div>
 
-        <div ref={chatRef} className="bg-white rounded-3xl mt-5 overflow-hidden flex flex-col" style={{ border: `1px solid ${LINE}`, height: 520 }}>
+        <div className="mt-8">
+          <h2 className="text-lg font-bold mb-4" style={{ color: INK }}>Услуги для вас</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cabinetServices.map((s) => (
+              <div key={s.title} className="bg-white rounded-2xl p-6 flex flex-col hover:shadow-sm transition-shadow" style={{ border: `1px solid ${LINE}` }}>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(255,90,31,0.1)" }}>
+                  <Icon name={s.icon as "Rocket"} size={22} style={{ color: ACCENT }} />
+                </div>
+                <h3 className="font-semibold" style={{ color: INK }}>{s.title}</h3>
+                <p className="text-sm mt-1.5 flex-1" style={{ color: SUB }}>{s.desc}</p>
+                <div className="flex items-center justify-between mt-4">
+                  <span className="text-sm font-bold" style={{ color: INK }}>{s.price}</span>
+                  <button onClick={() => { setUnread(0); chatRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+                    className="text-sm font-semibold px-4 py-1.5 rounded-full text-white transition-all hover:opacity-90"
+                    style={{ background: ACCENT }}>Заказать</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div ref={chatRef} className="bg-white rounded-3xl mt-8 overflow-hidden flex flex-col" style={{ border: `1px solid ${LINE}`, height: 520 }}>
           <div className="px-6 py-4 flex items-center gap-2" style={{ borderBottom: `1px solid ${LINE}` }}>
             <Icon name="MessageCircle" size={18} style={{ color: ACCENT }} />
             <h3 className="font-semibold" style={{ color: INK }}>Чат с менеджером</h3>
