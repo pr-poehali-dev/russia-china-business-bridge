@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, steps, advantages } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, steps, advantages, plans } from "./theme";
 
 export default function Process() {
   return (
@@ -26,8 +26,55 @@ export default function Process() {
         </div>
       </section>
 
-      {/* ── НАШИ ПРЕИМУЩЕСТВА ── */}
+      {/* ── ЦЕНЫ ── */}
       <section id="pricing" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10 text-center">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Тарифы</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Прозрачные цены</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl mx-auto" style={{ color: SUB }}>Честные цены без скрытых платежей — точную стоимость назовём после консультации.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4 md:items-stretch">
+          {plans.map((plan, i) => {
+            const featured = i === 1;
+            return (
+              <div key={i}
+                className="card section-reveal p-6 md:p-7 rounded-2xl flex flex-col relative"
+                style={featured
+                  ? { background: INK, border: `1px solid ${INK}`, boxShadow: "0 18px 40px rgba(17,19,24,0.18)" }
+                  : { background: "#fff", border: `1px solid ${LINE}` }
+                }>
+                {featured && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap"
+                    style={{ background: ACCENT }}>Популярный</span>
+                )}
+                <h3 className="font-bold text-base mb-3" style={{ color: featured ? "#fff" : INK }}>{plan.name}</h3>
+                <div className="mb-5">
+                  <span className="text-3xl font-black tracking-tight" style={{ color: featured ? "#fff" : INK }}>{plan.price}</span>
+                </div>
+                <ul className="flex flex-col gap-2.5 mb-7 flex-1">
+                  {plan.feats.map((f, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm" style={{ color: featured ? "#D1D5DB" : SUB }}>
+                      <Icon name="Check" size={16} style={{ color: ACCENT, flexShrink: 0, marginTop: 2 }} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact"
+                  className="btn-press w-full py-3 rounded-full text-sm font-semibold text-center transition-all"
+                  style={featured
+                    ? { background: ACCENT, color: "#fff" }
+                    : { background: PANEL, color: INK, border: `1px solid ${LINE}` }
+                  }>
+                  Заказать
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── НАШИ ПРЕИМУЩЕСТВА ── */}
+      <section id="advantages" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>Наши преимущества</p>
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>Работаем на результат</h2>
