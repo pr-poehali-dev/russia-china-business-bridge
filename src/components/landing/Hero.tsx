@@ -25,9 +25,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start">
               <a href="#contact"
                 className="btn-press btn-accent px-6 py-3.5 rounded-full text-[15px] font-semibold text-white text-center"
-                style={{ background: INK }}>
-                Получить консультацию →
-              </a>
+                style={{ background: INK }}>Написать менеджеру →</a>
               <a href="#services"
                 className="btn-press px-6 py-3.5 rounded-full text-[15px] font-semibold text-center"
                 style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
