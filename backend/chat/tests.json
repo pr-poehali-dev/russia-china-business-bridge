@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS CORS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Unauthorized without credentials",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 401
+    },
+    {
+      "name": "Send without credentials",
+      "method": "POST",
+      "path": "/",
+      "body": {"text": "hello"},
+      "expectedStatus": 401
+    }
+  ]
+}

@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Icon from "@/components/ui/icon";
+import ChatBox from "@/components/ChatBox";
 
 const ADMIN_LEADS_URL = "https://functions.poehali.dev/d388196c-10ff-4159-b333-d4d8ae169390";
+const CHAT_URL = "https://functions.poehali.dev/84fb9523-59f1-442a-9de7-ea2cd18437f3";
 
 interface Lead {
   id: number;
@@ -11,23 +13,37 @@ interface Lead {
   created_at: string | null;
 }
 
-const menu = [
-  { icon: "User", label: "Профиль", active: true },
-  { icon: "Inbox", label: "Заявки" },
-  { icon: "MessageCircle", label: "Мессенджер", badge: 10 },
-  { icon: "Phone", label: "Звонки" },
-  { icon: "Users", label: "Клиенты" },
-  { icon: "BarChart3", label: "Статистика" },
-  { icon: "Image", label: "Материалы" },
-  { icon: "Settings", label: "Настройки" },
-];
+interface Dialog {
+  client_id: number;
+  name: string;
+  email: string;
+  last_text: string;
+  last_at: string | null;
+  unread: number;
+}
+
+type Tab = "leads" | "chat";
 
 export default function Admin() {
   const [password, setPassword] = useState(() => localStorage.getItem("admin_pw") || "");
   const [authed, setAuthed] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
+  const [dialogs, setDialogs] = useState<Dialog[]>([]);
+  const [activeChat, setActiveChat] = useState<Dialog | null>(null);
+  const [tab, setTab] = useState<Tab>("leads");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const loadDialogs = useCallback(async (pw: string) => {
+    try {
+      const res = await fetch(CHAT_URL, { headers: { "X-Admin-Password": pw } });
+      if (!res.ok) return;
+      const data = await res.json();
+      setDialogs(data.dialogs || []);
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
   const load = async (pw: string) => {
     setLoading(true);
@@ -47,6 +63,7 @@ export default function Admin() {
       setLeads(data.leads || []);
       setAuthed(true);
       localStorage.setItem("admin_pw", pw);
+      loadDialogs(pw);
     } catch {
       setError("Не удалось загрузить заявки");
     } finally {
@@ -58,12 +75,26 @@ export default function Admin() {
     if (password) load(password);
   }, []);
 
+  useEffect(() => {
+    if (!authed) return;
+    const t = setInterval(() => loadDialogs(password), 6000);
+    return () => clearInterval(t);
+  }, [authed, password, loadDialogs]);
+
   const logout = () => {
     localStorage.removeItem("admin_pw");
     setAuthed(false);
     setPassword("");
     setLeads([]);
+    setDialogs([]);
+    setActiveChat(null);
   };
+
+  const totalUnread = dialogs.reduce((s, d) => s + d.unread, 0);
+  const menu = [
+    { icon: "Inbox", label: "Заявки", tab: "leads" as Tab },
+    { icon: "MessageCircle", label: "Сообщения", tab: "chat" as Tab, badge: totalUnread || undefined },
+  ];
 
   const fmt = (iso: string | null) => {
     if (!iso) return "";
@@ -113,8 +144,9 @@ export default function Admin() {
             {menu.map((m) => (
               <button
                 key={m.label}
+                onClick={() => setTab(m.tab)}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${
-                  m.active ? "bg-white/10 text-white font-medium" : "text-gray-400 hover:bg-white/5 hover:text-white"
+                  tab === m.tab ? "bg-white/10 text-white font-medium" : "text-gray-400 hover:bg-white/5 hover:text-white"
                 }`}
               >
                 <Icon name={m.icon as "User"} size={20} />
@@ -153,60 +185,125 @@ export default function Admin() {
             </button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4">
-              <p className="text-2xl font-bold">{leads.length}</p>
-              <p className="text-xs text-gray-400 mt-0.5">Всего заявок</p>
-            </div>
-            <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4">
-              <p className="text-2xl font-bold">{leads.filter((l) => l.created_at && new Date(l.created_at).toDateString() === new Date().toDateString()).length}</p>
-              <p className="text-xs text-gray-400 mt-0.5">Сегодня</p>
-            </div>
-            <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4">
-              <p className="text-2xl font-bold">{new Set(leads.map((l) => l.email)).size}</p>
-              <p className="text-xs text-gray-400 mt-0.5">Уникальных</p>
-            </div>
-          </div>
-
-          {/* Leads */}
-          <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4 md:p-5">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-semibold flex items-center gap-2">
-                <Icon name="Inbox" size={18} /> Заявки
-              </h2>
-              <button onClick={() => load(password)} className="sm:hidden text-gray-400 hover:text-white">
-                <Icon name="RefreshCw" size={16} />
-              </button>
-            </div>
-
-            {leads.length === 0 ? (
-              <div className="text-center py-16 text-gray-500">
-                <Icon name="Inbox" size={40} className="mx-auto mb-3" />
-                <p>Заявок пока нет</p>
+          {tab === "leads" && (
+            <>
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-3">
+                <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4">
+                  <p className="text-2xl font-bold">{leads.length}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">Всего заявок</p>
+                </div>
+                <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4">
+                  <p className="text-2xl font-bold">{leads.filter((l) => l.created_at && new Date(l.created_at).toDateString() === new Date().toDateString()).length}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">Сегодня</p>
+                </div>
+                <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4">
+                  <p className="text-2xl font-bold">{new Set(leads.map((l) => l.email)).size}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">Уникальных</p>
+                </div>
               </div>
-            ) : (
-              <div className="space-y-3">
-                {leads.map((l) => (
-                  <div key={l.id} className="bg-white/[0.03] rounded-xl border border-white/5 p-4 hover:border-white/10 transition-colors">
-                    <div className="flex items-start gap-3">
-                      <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 text-sm font-semibold">
-                        {initials(l.name)}
+
+              {/* Leads */}
+              <div className="bg-[#17171a] rounded-2xl border border-white/10 p-4 md:p-5">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="font-semibold flex items-center gap-2">
+                    <Icon name="Inbox" size={18} /> Заявки
+                  </h2>
+                  <button onClick={() => load(password)} className="sm:hidden text-gray-400 hover:text-white">
+                    <Icon name="RefreshCw" size={16} />
+                  </button>
+                </div>
+
+                {leads.length === 0 ? (
+                  <div className="text-center py-16 text-gray-500">
+                    <Icon name="Inbox" size={40} className="mx-auto mb-3" />
+                    <p>Заявок пока нет</p>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {leads.map((l) => (
+                      <div key={l.id} className="bg-white/[0.03] rounded-xl border border-white/5 p-4 hover:border-white/10 transition-colors">
+                        <div className="flex items-start gap-3">
+                          <div className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 text-sm font-semibold">
+                            {initials(l.name)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-3">
+                              <p className="font-semibold truncate">{l.name}</p>
+                              <span className="text-xs text-gray-500 whitespace-nowrap">{fmt(l.created_at)}</span>
+                            </div>
+                            <a href={`mailto:${l.email}`} className="text-sm text-blue-400 hover:underline">{l.email}</a>
+                            {l.message && <p className="text-sm text-gray-300 whitespace-pre-wrap mt-2">{l.message}</p>}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+
+          {tab === "chat" && (
+            <div className="bg-[#17171a] rounded-2xl border border-white/10 overflow-hidden grid md:grid-cols-[300px_1fr]" style={{ height: 600 }}>
+              {/* Dialogs list */}
+              <div className={`border-white/10 md:border-r overflow-y-auto ${activeChat ? "hidden md:block" : "block"}`}>
+                <div className="px-4 py-3 border-b border-white/10 font-semibold text-sm">Диалоги</div>
+                {dialogs.length === 0 ? (
+                  <div className="text-center py-16 text-gray-500 text-sm px-4">Пока нет клиентов</div>
+                ) : (
+                  dialogs.map((d) => (
+                    <button
+                      key={d.client_id}
+                      onClick={() => setActiveChat(d)}
+                      className={`w-full text-left px-4 py-3 flex items-start gap-3 hover:bg-white/5 transition-colors ${activeChat?.client_id === d.client_id ? "bg-white/10" : ""}`}
+                    >
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shrink-0 text-xs font-semibold">
+                        {initials(d.name)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-3">
-                          <p className="font-semibold truncate">{l.name}</p>
-                          <span className="text-xs text-gray-500 whitespace-nowrap">{fmt(l.created_at)}</span>
+                        <div className="flex items-center justify-between gap-2">
+                          <p className="font-medium text-sm truncate">{d.name}</p>
+                          {d.unread > 0 && <span className="text-[11px] bg-blue-600 rounded-full px-1.5 py-0.5 shrink-0">{d.unread}</span>}
                         </div>
-                        <a href={`mailto:${l.email}`} className="text-sm text-blue-400 hover:underline">{l.email}</a>
-                        {l.message && <p className="text-sm text-gray-300 whitespace-pre-wrap mt-2">{l.message}</p>}
+                        <p className="text-xs text-gray-500 truncate mt-0.5">{d.last_text || "Нет сообщений"}</p>
+                      </div>
+                    </button>
+                  ))
+                )}
+              </div>
+
+              {/* Active chat */}
+              <div className={`bg-white text-gray-900 flex flex-col ${activeChat ? "flex" : "hidden md:flex"}`}>
+                {activeChat ? (
+                  <>
+                    <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-3">
+                      <button onClick={() => setActiveChat(null)} className="md:hidden text-gray-500">
+                        <Icon name="ArrowLeft" size={18} />
+                      </button>
+                      <div>
+                        <p className="font-semibold text-sm">{activeChat.name}</p>
+                        <p className="text-xs text-gray-400">{activeChat.email}</p>
                       </div>
                     </div>
+                    <div className="flex-1 min-h-0">
+                      <ChatBox
+                        role="admin"
+                        auth={{ password }}
+                        clientId={activeChat.client_id}
+                        onSent={() => loadDialogs(password)}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <div className="flex-1 flex flex-col items-center justify-center text-gray-400">
+                    <Icon name="MessageCircle" size={40} className="mb-2" />
+                    <p className="text-sm">Выберите диалог</p>
                   </div>
-                ))}
+                )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

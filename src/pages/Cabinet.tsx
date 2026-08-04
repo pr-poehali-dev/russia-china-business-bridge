@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import ChatBox from "@/components/ChatBox";
 import { INK, ACCENT, SUB, LINE, LOGO, BRAND } from "@/components/landing/theme";
 
 const AUTH_URL = "https://functions.poehali.dev/6d242237-1045-4f33-8502-7385b80072c9";
@@ -91,6 +92,16 @@ export default function Cabinet() {
             <h3 className="font-semibold mt-3" style={{ color: INK }}>Новая заявка</h3>
             <p className="text-sm mt-1" style={{ color: SUB }}>Оставьте заявку на разработку нового сайта.</p>
           </Link>
+        </div>
+
+        <div className="bg-white rounded-3xl mt-5 overflow-hidden flex flex-col" style={{ border: `1px solid ${LINE}`, height: 520 }}>
+          <div className="px-6 py-4 flex items-center gap-2" style={{ borderBottom: `1px solid ${LINE}` }}>
+            <Icon name="MessageCircle" size={18} style={{ color: ACCENT }} />
+            <h3 className="font-semibold" style={{ color: INK }}>Чат с менеджером</h3>
+          </div>
+          <div className="flex-1 min-h-0">
+            <ChatBox role="client" auth={{ token: localStorage.getItem("client_token") || undefined }} />
+          </div>
         </div>
       </main>
     </div>
