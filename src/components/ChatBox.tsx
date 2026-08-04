@@ -15,6 +15,8 @@ interface Message {
 
 const isImage = (name?: string | null) => !!name && /\.(png|jpe?g|gif|webp|svg|bmp)$/i.test(name);
 
+const MAX_FILE_MB = 10;
+
 interface ChatBoxProps {
   role: "client" | "admin";
   auth: { token?: string; password?: string };
@@ -27,8 +29,21 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const pickFile = (f: File | null) => {
+    setFileError("");
+    if (!f) { setFile(null); return; }
+    if (f.size > MAX_FILE_MB * 1024 * 1024) {
+      setFileError(`Файл больше ${MAX_FILE_MB} МБ. Выберите файл поменьше.`);
+      setFile(null);
+      if (fileRef.current) fileRef.current.value = "";
+      return;
+    }
+    setFile(f);
+  };
 
   const authHeaders = useCallback((): Record<string, string> => {
     const h: Record<string, string> = { "Content-Type": "application/json" };
@@ -136,6 +151,9 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
       </div>
 
       <div style={{ borderTop: `1px solid ${LINE}` }}>
+        {fileError && (
+          <p className="px-4 pt-3 text-xs text-red-500">{fileError}</p>
+        )}
         {file && (
           <div className="px-3 pt-3 flex items-center gap-2">
             <div className="flex items-center gap-2 max-w-full px-3 py-1.5 rounded-full text-xs" style={{ background: "#F1F2F4", color: INK }}>
@@ -149,7 +167,7 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
         )}
         <div className="p-3 flex items-center gap-2">
           <input ref={fileRef} type="file" className="hidden"
-            onChange={(e) => setFile(e.target.files?.[0] || null)} />
+            onChange={(e) => pickFile(e.target.files?.[0] || null)} />
           <button onClick={() => fileRef.current?.click()}
             className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 hover:bg-gray-100"
             style={{ color: SUB }} aria-label="Прикрепить файл">
