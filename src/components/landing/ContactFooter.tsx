@@ -3,7 +3,7 @@ import { INK, ACCENT } from "./theme";
 
 const contacts = [
   { icon: "MessageCircle", text: "Telegram / WhatsApp" },
-  { icon: "Mail", text: "info@webstudio.ru" },
+  { icon: "Mail", text: "info@bsmnv.ru" },
   { icon: "Phone", text: "+7 (495) 000-00-00" },
 ];
 
