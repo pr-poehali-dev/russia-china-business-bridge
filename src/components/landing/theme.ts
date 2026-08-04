@@ -57,7 +57,7 @@ export const services: Service[] = [
       "SEO-оптимизация и высокая скорость загрузки",
       "Готовность к запуску рекламы за 5 дней",
     ],
-    price: "от 10 000 ₽",
+    price: "10 000 ₽/год",
     term: "от 5 дней",
     preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/6e4bc517-b9b6-41e6-bfda-8be28a7fc898.jpg",
   },
