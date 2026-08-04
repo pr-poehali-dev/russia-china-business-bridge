@@ -52,6 +52,14 @@ export default function ServicePage() {
           </div>
         </div>
 
+        {/* preview */}
+        <section className="section-reveal mt-10 md:mt-14">
+          <div className="card rounded-3xl overflow-hidden" style={{ background: "#fff", border: `1px solid ${LINE}`, boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
+            <img src={service.preview} alt={`Пример: ${service.title}`} className="w-full" style={{ objectFit: "cover" }} />
+          </div>
+          <p className="text-xs mt-3 text-center" style={{ color: SUB }}>Пример оформления · {service.title}</p>
+        </section>
+
         {/* what is */}
         <section className="section-reveal mt-12 md:mt-16">
           <h2 className="text-xl md:text-2xl font-black mb-4 tracking-tight" style={{ color: INK }}>Что это такое</h2>

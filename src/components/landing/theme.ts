@@ -31,6 +31,7 @@ export type Service = {
   features: string[];
   price: string;
   term: string;
+  preview: string;
 };
 
 export const services: Service[] = [
@@ -58,6 +59,7 @@ export const services: Service[] = [
     ],
     price: "от 29 000 ₽",
     term: "от 5 дней",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/6e4bc517-b9b6-41e6-bfda-8be28a7fc898.jpg",
   },
   {
     slug: "corporate",
@@ -82,6 +84,7 @@ export const services: Service[] = [
     ],
     price: "от 59 000 ₽",
     term: "от 7 дней",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/c275d1a1-5502-4213-8137-29e4d5c22cab.jpg",
   },
   {
     slug: "shop",
@@ -106,6 +109,7 @@ export const services: Service[] = [
     ],
     price: "договорная",
     term: "от 14 дней",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/40e6d293-1210-42b9-a6ab-2185b68e2d34.jpg",
   },
   {
     slug: "catalog",
@@ -130,6 +134,7 @@ export const services: Service[] = [
     ],
     price: "от 45 000 ₽",
     term: "от 7 дней",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/b004de2d-15ac-47f0-ac2e-73e401019c6c.jpg",
   },
   {
     slug: "custom",
@@ -154,6 +159,7 @@ export const services: Service[] = [
     ],
     price: "договорная",
     term: "обсуждается",
+    preview: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/1ccc4666-cfc8-43bc-8fe2-7d617ca444fe.jpg",
   },
 ];
 
