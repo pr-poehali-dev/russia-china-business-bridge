@@ -46,6 +46,16 @@ export default function Index() {
         .btn-accent:hover { box-shadow: 0 10px 24px rgba(255,90,31,0.35) !important; }
         .row-item { transition: background 0.18s ease, padding-left 0.2s ease; }
         .row-item:hover { background: #FAFAFA; padding-left: 26px; }
+
+        @keyframes hero-float {
+          0%   { transform: translateY(0) rotate(0deg); }
+          50%  { transform: translateY(-16px) rotate(-1deg); }
+          100% { transform: translateY(0) rotate(0deg); }
+        }
+        .hero-float { animation: hero-float 6s ease-in-out infinite; will-change: transform; }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-float { animation: none; }
+        }
       `}</style>
     </div>
   );

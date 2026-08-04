@@ -89,7 +89,7 @@ export default function Hero() {
           </div>
           <div className="flex-1 w-full section-reveal">
             <img src="/hero-illustration.png"
-              alt="Создание сайтов" className="w-full"
+              alt="Создание сайтов" className="w-full hero-float"
               style={{ objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(17,19,24,0.12))" }} />
           </div>
         </div>
