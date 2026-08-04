@@ -68,8 +68,8 @@ export default function Hero() {
             </div>
             <h1 className="font-black leading-[1.05] mb-5 md:mb-6 tracking-tight"
               style={{ fontSize: "clamp(2rem,7vw,4.2rem)", color: INK }}>
-              Современные сайты, которые{" "}
-              <span style={{ color: ACCENT }}>приносят клиентов</span>
+              Создание сайтов под ключ за{" "}
+              <span style={{ color: ACCENT }}>5 дней</span>
             </h1>
             <p className="text-base md:text-lg mb-7 md:mb-9 leading-relaxed max-w-lg mx-auto md:mx-0" style={{ color: SUB }}>
               Создаём профессиональные сайты под ключ всего за 5 дней — от простых лендингов до крупных интернет-магазинов и корпоративных порталов. Не просто красивый сайт, а эффективный инструмент для роста продаж.
