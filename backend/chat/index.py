@@ -1,6 +1,33 @@
 import json
 import os
+import smtplib
 import psycopg2
+from email.mime.text import MIMEText
+from email.header import Header
+
+
+def notify_client(email: str, name: str, text: str) -> None:
+    '''Отправляет клиенту письмо о новом сообщении от менеджера.'''
+    smtp_user = os.environ.get('SMTP_USER')
+    smtp_password = os.environ.get('SMTP_PASSWORD')
+    if not smtp_user or not smtp_password or not email:
+        return
+    body = (
+        f'Здравствуйте, {name}!\n\n'
+        f'Менеджер ответил вам в личном кабинете:\n\n'
+        f'«{text}»\n\n'
+        f'Зайдите в личный кабинет на сайте, чтобы ответить.\n'
+    )
+    msg = MIMEText(body, 'plain', 'utf-8')
+    msg['Subject'] = Header('Новое сообщение от менеджера', 'utf-8')
+    msg['From'] = smtp_user
+    msg['To'] = email
+    try:
+        with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
+            server.login(smtp_user, smtp_password)
+            server.sendmail(smtp_user, [email], msg.as_string())
+    except Exception:
+        pass
 
 
 def cors_headers() -> dict:
@@ -100,6 +127,13 @@ def handler(event: dict, context) -> dict:
         )
         row = cur.fetchone()
         conn.commit()
+
+        if sender == 'admin':
+            cur.execute("SELECT name, email FROM clients WHERE id = %s", (target_id,))
+            c = cur.fetchone()
+            if c:
+                notify_client(c[1], c[0], text)
+
         return {
             'statusCode': 200,
             'headers': cors_headers(),
