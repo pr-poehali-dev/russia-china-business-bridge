@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/f1e7a2ba-7373-4f6b-84ce-8b934720a6e8.jpg";
-const IMG_SERVICES = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0835f0e1-ed9b-4e80-a474-6cda7640370b.jpg";
-const IMG_TEAM = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/4dd28e09-598a-4a8d-8e21-4b356d3472fe.jpg";
-const IMG_BLOG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/7608446c-a5ea-4892-bd33-601a8849a2b5.jpg";
-const IMG_WECHAT = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/5fa91614-330c-4deb-9927-17ed121f6ba1.jpg";
-
 function useScrollReveal() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,7 +82,6 @@ const services = [
   { img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/adf47a2b-9914-4d0b-8e31-96febb5fe065.jpg", title: "数据分析", desc: "全面分析推广效果，持续优化ROI。", color: "#8B5CF6" },
 ];
 
-const categories = ["全部", "网站", "社媒", "广告", "内容", "分析"];
 
 const projects = [
   { cat: "电商", title: "华俄贸易中心 | 俄罗斯全渠道推广", sub: "chinatrade.ru | 评分: 5  项目数: 12  月收入: 429 815 руб.", price: "1 462 964 ₽", color: "#6366F1" },
@@ -113,17 +106,25 @@ const testimonials = [
 ];
 
 const team = [
-  { name: "亚历山大", role: "首席执行官", exp: "15年俄中商业", emoji: "👨‍💼", color: "#6366F1" },
-  { name: "陈美华", role: "中国市场总监", exp: "双语营销专家", emoji: "👩‍💼", color: "#EC4899" },
-  { name: "伊万", role: "数字营销专家", exp: "Яндекс认证", emoji: "👨‍💻", color: "#8B5CF6" },
-  { name: "刘芳", role: "开发负责人", exp: "100+项目经验", emoji: "👩‍💻", color: "#0EA5E9" },
+  { name: "亚历山大", role: "首席执行官", exp: "15年俄中商业", emoji: "👨‍💼" },
+  { name: "陈美华", role: "中国市场总监", exp: "双语营销专家", emoji: "👩‍💼" },
+  { name: "伊万", role: "数字营销专家", exp: "Яндекс认证", emoji: "👨‍💻" },
+  { name: "刘芳", role: "开发负责人", exp: "100+项目经验", emoji: "👩‍💻" },
 ];
 
 const blogPosts = [
-  { tag: "市场洞察", title: "2024年中国企业进入俄罗斯市场的5大关键策略", date: "2024年3月", color: "#6366F1" },
-  { tag: "广告技巧", title: "Яндекс广告入门：为什么它比Google更适合俄罗斯", date: "2024年2月", color: "#EC4899" },
-  { tag: "社媒运营", title: "VK与Telegram：如何选择适合业务的俄罗斯社交平台", date: "2024年1月", color: "#8B5CF6" },
+  { tag: "市场洞察", title: "2024年中国企业进入俄罗斯市场的5大关键策略", date: "2024年3月" },
+  { tag: "广告技巧", title: "Яндекс广告入门：为什么它比Google更适合俄罗斯", date: "2024年2月" },
+  { tag: "社媒运营", title: "VK与Telegram：如何选择适合业务的俄罗斯社交平台", date: "2024年1月" },
 ];
+
+/* palette */
+const INK = "#111318";
+const SUB = "#6B7280";
+const LINE = "#E5E7EB";
+const ACCENT = "#FF5A1F";
+const PANEL = "#F6F7F8";
+const ICONS = ["Globe", "Megaphone", "Users", "TrendingUp", "FileText", "BarChart3"];
 
 export default function Index() {
   useScrollReveal();
@@ -138,44 +139,43 @@ export default function Index() {
   }));
 
   return (
-    <div className="min-h-screen font-chinese" style={{ background: "#F8F7FF", color: "#1A1A2E" }}>
+    <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
 
       {/* ── NAV ── */}
-      <nav className="sticky top-0 z-50 glass" style={{ borderBottom: "1px solid rgba(99,102,241,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
+      <nav className="sticky top-0 z-50" style={{ background: "rgba(246,247,248,0.8)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
+        <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+          <div className="flex items-center gap-2.5">
             <img
               src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/27bcabe1-ea65-48e0-962d-384f43f698b1.jpg"
               alt="logo"
-              style={{ width: 40, height: 40, objectFit: "contain", mixBlendMode: "multiply" }}
+              style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }}
             />
-            <span className="font-black text-lg" style={{ color: "#1A1A2E" }}>俄中推广</span>
+            <span className="font-bold text-[15px]" style={{ color: INK }}>俄中推广</span>
           </div>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="text-sm font-medium transition-all hover:text-violet-600"
-                style={{ color: "#6B7280" }}>
+              <a key={l.href} href={l.href} className="text-sm transition-colors hover:opacity-70"
+                style={{ color: SUB }}>
                 {l.label}
               </a>
             ))}
           </div>
           <div className="flex items-center gap-2">
-            {/* lang toggle */}
             <button onClick={() => setLang(lang === "zh" ? "ru" : "zh")}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all hover:scale-105"
-              style={{ background: "rgba(99,102,241,0.08)", color: "#6366F1", border: "1.5px solid rgba(99,102,241,0.15)" }}>
+              className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all"
+              style={{ background: "#fff", color: INK, border: `1px solid ${LINE}` }}>
               <span>{lang === "zh" ? "🇷🇺" : "🇨🇳"}</span>
               <span>{lang === "zh" ? "RU" : "中文"}</span>
             </button>
             <a href="#contact"
-              className="hidden md:block px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90 hover:scale-105"
-              style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 20px rgba(99,102,241,0.35)" }}>
+              className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: INK }}>
               {t.navCta}
             </a>
-            <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg"
-              style={{ background: "rgba(99,102,241,0.08)" }}
+            <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
-              <Icon name={menuOpen ? "X" : "Menu"} size={20} style={{ color: "#6366F1" }} />
+              <Icon name={menuOpen ? "X" : "Menu"} size={18} style={{ color: INK }} />
             </button>
           </div>
         </div>
@@ -183,335 +183,196 @@ export default function Index() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 glass pt-20 px-6 flex flex-col gap-2">
+        <div className="fixed inset-0 z-40 pt-20 px-6 flex flex-col gap-1" style={{ background: PANEL }}>
           {navLinks.map((l) => (
             <a key={l.href} href={l.href}
-              className="text-xl font-bold py-4 border-b"
-              style={{ color: "#1A1A2E", borderColor: "rgba(99,102,241,0.1)" }}
+              className="text-lg font-semibold py-4"
+              style={{ color: INK, borderBottom: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(false)}>{l.label}</a>
           ))}
-          <a href="#contact" className="mt-4 py-4 rounded-2xl text-center font-bold text-white"
-            style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)" }}>
-            免费咨询
+          <a href="#contact" className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
+            style={{ background: INK }} onClick={() => setMenuOpen(false)}>
+            {t.navCta}
           </a>
         </div>
       )}
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{
-        background: "linear-gradient(135deg, #E8EEFF 0%, #F0F4FF 40%, #EEF0FF 70%, #F5F0FF 100%)",
-        minHeight: "95vh",
-      }}>
-
-        {/* ── background layers ── */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* blue-purple top-left orb */}
-          <div className="absolute animate-float" style={{
-            width: 700, height: 700, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 65%)",
-            top: "-20%", left: "-15%", filter: "blur(10px)",
-          }} />
-          {/* blue right orb */}
-          <div className="absolute animate-float" style={{
-            width: 500, height: 500, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 65%)",
-            bottom: "-10%", right: "-5%", animationDelay: "2s", filter: "blur(12px)",
-          }} />
-          {/* yellow center accent — как монеты на картинке */}
-          <div className="absolute" style={{
-            width: 350, height: 350, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(251,191,36,0.12) 0%, transparent 70%)",
-            top: "50%", left: "55%", filter: "blur(6px)",
-          }} />
-          {/* sharp grid */}
-          <div className="absolute inset-0" style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px)",
-            backgroundSize: "64px 64px",
-          }} />
-          {/* top highlight line */}
-          <div className="absolute top-0 left-0 right-0 h-px" style={{
-            background: "linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.4) 30%, rgba(139,92,246,0.4) 70%, transparent 100%)",
-          }} />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-16 py-10 md:py-16">
-          <div className="flex-1">
-            {/* badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full mb-10 text-xs font-bold tracking-[0.15em]"
-              style={{
-                background: "rgba(99,102,241,0.1)",
-                border: "1px solid rgba(99,102,241,0.3)",
-                color: "#6366F1",
-              }}>
-              <div className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
+      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 section-reveal">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7 text-xs font-semibold"
+              style={{ background: "#fff", border: `1px solid ${LINE}`, color: SUB }}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
               {t.heroBadge}
             </div>
-
-            <h1 className="font-black leading-[1.02] mb-8"
-              style={{ fontSize: "clamp(3rem,8vw,5.5rem)", letterSpacing: "-0.03em", color: "#1A1A2E" }}>
-              {t.heroH1a}<br />
-              <span style={{
-                background: "linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}>{t.heroH1b}</span><br />
-              {t.heroH1c}
+            <h1 className="font-black leading-[1.05] mb-6 tracking-tight"
+              style={{ fontSize: "clamp(2.4rem,6vw,4.2rem)", color: INK }}>
+              {t.heroH1a} {t.heroH1b}{" "}
+              <span style={{ color: ACCENT }}>{t.heroH1c}</span>
             </h1>
-
-            <p className="text-lg mb-12 leading-relaxed max-w-lg" style={{ color: "#6B7280" }}>
+            <p className="text-base md:text-lg mb-9 leading-relaxed max-w-lg" style={{ color: SUB }}>
               {t.heroDesc}
             </p>
-
-            <div className="flex flex-wrap gap-4 mb-16">
+            <div className="flex flex-wrap gap-3">
               <a href="#contact"
-                className="px-8 py-4 rounded-2xl text-base font-black text-white transition-all hover:scale-105 hover:opacity-95"
-                style={{
-                  background: "linear-gradient(135deg,#6366F1,#8B5CF6)",
-                  boxShadow: "0 8px 32px rgba(99,102,241,0.4)",
-                }}>
+                className="px-6 py-3.5 rounded-full text-[15px] font-semibold text-white transition-all hover:opacity-90"
+                style={{ background: INK }}>
                 {t.heroCta1}
               </a>
               <a href="#portfolio"
-                className="px-8 py-4 rounded-2xl text-base font-black transition-all hover:scale-105"
-                style={{
-                  background: "white",
-                  border: "1.5px solid rgba(99,102,241,0.2)",
-                  color: "#6366F1",
-                  boxShadow: "0 4px 16px rgba(99,102,241,0.1)",
-                }}>
+                className="px-6 py-3.5 rounded-full text-[15px] font-semibold transition-all hover:bg-white"
+                style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
                 {t.heroCta2}
               </a>
             </div>
-
-
           </div>
-
-          {/* image */}
-          <div className="relative flex-shrink-0">
-            {/* soft glow under image */}
-            <div className="absolute animate-float" style={{
-              width: "90%", height: "60%",
-              background: "radial-gradient(ellipse, rgba(99,102,241,0.25) 0%, transparent 70%)",
-              bottom: "-10%", left: "5%", filter: "blur(20px)", zIndex: 0,
-            }} />
-            <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/17eced6a-1ff7-4f5e-b174-66c123a02581.jpg"
-              alt="Яндекс Реклама"
-              className="relative animate-float"
-              style={{
-                width: "clamp(280px,32vw,460px)",
-                objectFit: "contain",
-                zIndex: 2,
-                display: "block",
-                mixBlendMode: "multiply",
-                filter: "drop-shadow(0 24px 48px rgba(99,102,241,0.25))",
-              }} />
-            {/* floating chip top-right */}
-            <div className="absolute -top-4 -right-4 px-4 py-2 rounded-2xl text-xs font-black z-10"
-              style={{
-                background: "linear-gradient(135deg,#6366F1,#8B5CF6)",
-                boxShadow: "0 8px 24px rgba(99,102,241,0.5)",
-                color: "#fff",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}>
-              🇷🇺 × 🇨🇳
-            </div>
-            {/* floating chip bottom-left */}
-            <div className="absolute -bottom-4 -left-4 px-4 py-2 rounded-2xl text-xs font-black z-10"
-              style={{
-                background: "rgba(15,10,30,0.9)",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
-                color: "#fff",
-                border: "1px solid rgba(99,102,241,0.3)",
-                backdropFilter: "blur(12px)",
-              }}>
-              ✦ 7年经验
+          <div className="flex-1 w-full section-reveal">
+            <div className="rounded-3xl overflow-hidden" style={{ border: `1px solid ${LINE}`, background: "#fff", boxShadow: "0 20px 50px rgba(17,19,24,0.06)" }}>
+              <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/17eced6a-1ff7-4f5e-b174-66c123a02581.jpg"
+                alt="hero" className="w-full" style={{ objectFit: "cover", mixBlendMode: "multiply" }} />
             </div>
           </div>
         </div>
       </section>
 
       {/* ── STATS ── */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 -mt-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {stats.map((s, i) => (
-            <div key={i} className="section-reveal stat-card p-7 text-center">
-              <img src={s.img} alt={s.num}
-                className="mx-auto mb-3"
-                style={{ width: 64, height: 64, objectFit: "contain", mixBlendMode: "multiply" }} />
-              <div className="text-4xl font-black mb-1" style={{ color: s.color }}>{s.num}</div>
-              <p className="text-xs leading-snug mt-1" style={{ color: "#9CA3AF" }}>{t.statsDesc[i]}</p>
+            <div key={i} className="section-reveal p-6 rounded-2xl text-center"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div className="text-3xl md:text-4xl font-black mb-1.5" style={{ color: INK }}>{s.num}</div>
+              <p className="text-xs leading-snug" style={{ color: SUB }}>{t.statsDesc[i]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── SERVICES ── */}
+      <section id="services" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal mb-10">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.svcLabel}</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.svcTitle}</h2>
+          <p className="mt-3 text-base max-w-xl" style={{ color: SUB }}>{t.svcDesc}</p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((_s, i) => (
+            <div key={i} className="section-reveal p-6 rounded-2xl transition-all"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
+                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
+                <Icon name={ICONS[i] as "Globe"} size={20} style={{ color: ACCENT }} />
+              </div>
+              <h3 className="font-bold text-base mb-1.5" style={{ color: INK }}>{t.svcItems[i]}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: SUB }}>{t.svcDescs[i]}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── PORTFOLIO ── */}
-      <section id="portfolio" className="py-20 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="section-reveal flex items-end justify-between mb-8">
+      <section id="portfolio" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal flex flex-wrap items-end justify-between gap-4 mb-8">
           <div>
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.portLabel}</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.portTitle}</h2>
+            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.portLabel}</p>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.portTitle}</h2>
           </div>
-          <a href="#contact"
-            className="hidden md:flex items-center gap-2 px-5 py-3 rounded-2xl text-sm font-bold text-white"
-            style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 20px rgba(99,102,241,0.3)" }}>
+          <a href="#contact" className="text-sm font-semibold flex items-center gap-1.5" style={{ color: INK }}>
             {t.portCta} <Icon name="ArrowRight" size={15} />
           </a>
         </div>
         <div className="section-reveal flex flex-wrap gap-2 mb-6">
           {t.cats.map((c, i) => (
             <button key={i} onClick={() => setActiveTab(i)}
-              className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
+              className="px-4 py-2 rounded-full text-sm font-medium transition-all"
               style={activeTab === i
-                ? { background: "linear-gradient(135deg,#6366F1,#8B5CF6)", color: "white", boxShadow: "0 4px 16px rgba(99,102,241,0.35)" }
-                : { background: "white", color: "#9CA3AF", border: "1px solid #E5E7EB" }
+                ? { background: INK, color: "#fff" }
+                : { background: "#fff", color: SUB, border: `1px solid ${LINE}` }
               }>{c}</button>
           ))}
         </div>
-        <div className="section-reveal list-card">
+        <div className="section-reveal rounded-2xl overflow-hidden" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
           {projects.map((p, i) => (
-            <div key={i} className="list-row flex items-center justify-between px-6 py-5 cursor-pointer group">
-              <div className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-2xl flex items-center justify-center text-white text-xs font-black flex-shrink-0"
-                  style={{ background: `linear-gradient(135deg,${p.color},${p.color}cc)`, boxShadow: `0 4px 12px ${p.color}40` }}>
+            <div key={i} className="flex items-center justify-between px-5 py-4 cursor-pointer transition-colors hover:bg-gray-50"
+              style={{ borderBottom: i < projects.length - 1 ? `1px solid ${LINE}` : "none" }}>
+              <div className="flex items-center gap-3.5 min-w-0">
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0"
+                  style={{ background: PANEL, color: ACCENT, border: `1px solid ${LINE}` }}>
                   {p.cat[0]}
                 </div>
-                <div>
-                  <div className="font-bold text-sm mb-0.5 group-hover:text-violet-600 transition-colors" style={{ color: "#1A1A2E" }}>{p.title}</div>
-                  <div className="text-xs" style={{ color: "#9CA3AF" }}>{p.sub}</div>
+                <div className="min-w-0">
+                  <div className="font-semibold text-sm mb-0.5 truncate" style={{ color: INK }}>{p.title}</div>
+                  <div className="text-xs truncate" style={{ color: SUB }}>{p.sub}</div>
                 </div>
               </div>
-              <div className="text-sm font-black ml-4 flex-shrink-0 px-3 py-1.5 rounded-xl"
-                style={{ color: p.color, background: `${p.color}10` }}>{p.price}</div>
+              <div className="text-sm font-bold ml-4 flex-shrink-0" style={{ color: INK }}>{p.price}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── SOLUTIONS ── */}
-      <section className="py-12" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="section-reveal mb-10">
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.solLabel}</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.solTitle}</h2>
-            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.solDesc}</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-4 mb-4">
-            {solutions.slice(0, 3).map((s, i) => (
-              <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <img src={s.img} alt={s.title}
-                    className="mb-4"
-                    style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
-                  <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{t.solItems[i]}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{t.solDescs[i]}</p>
-                </div>
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${s.color}10` }}>
-                  <Icon name="ArrowUpRight" size={16} style={{ color: s.color }} />
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            {solutions.slice(3).map((s, i) => (
-              <div key={i} className="section-reveal card-sharp p-7 cursor-pointer flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <img src={s.img} alt={t.solItems[i+3]}
-                    className="mb-4"
-                    style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
-                  <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{t.solItems[i+3]}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{t.solDescs[i+3]}</p>
-                </div>
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${s.color}10` }}>
-                  <Icon name="ArrowUpRight" size={16} style={{ color: s.color }} />
-                </div>
-              </div>
-            ))}
-          </div>
+      <section className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal mb-10">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.solLabel}</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.solTitle}</h2>
+          <p className="mt-3 text-base" style={{ color: SUB }}>{t.solDesc}</p>
         </div>
-      </section>
-
-      {/* ── SERVICES ── */}
-      <section id="services" className="py-20 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="section-reveal flex flex-col md:flex-row items-center gap-8 mb-12">
-          <div className="flex-1">
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.svcLabel}</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.svcTitle}</h2>
-            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.svcDesc}</p>
-          </div>
-          <img src={IMG_SERVICES} alt="services" className="w-40 h-40 rounded-3xl object-cover flex-shrink-0 card-hover"
-            style={{ boxShadow: "0 16px 48px rgba(99,102,241,0.18)" }} />
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => (
-            <div key={i} className="section-reveal card-sharp p-7 cursor-pointer group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-[0.06] translate-x-10 -translate-y-10"
-                style={{ background: `radial-gradient(circle, ${s.color} 0%, transparent 70%)` }} />
-              <img src={s.img} alt={s.title}
-                className="mb-5"
-                style={{ width: 72, height: 72, objectFit: "contain", mixBlendMode: "multiply" }} />
-              <h3 className="font-black text-base mb-2" style={{ color: "#1A1A2E" }}>{t.svcItems[i]}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>{t.svcDescs[i]}</p>
+        <div className="grid md:grid-cols-3 gap-4">
+          {solutions.map((_s, i) => (
+            <div key={i} className="section-reveal p-6 rounded-2xl cursor-pointer flex items-start justify-between gap-4 transition-all"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div>
+                <h3 className="font-bold text-base mb-1.5" style={{ color: INK }}>{t.solItems[i]}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: SUB }}>{t.solDescs[i]}</p>
+              </div>
+              <Icon name="ArrowUpRight" size={18} style={{ color: ACCENT, flexShrink: 0 }} />
             </div>
           ))}
         </div>
       </section>
 
       {/* ── TEAM ── */}
-      <section id="team" className="py-20" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="section-reveal flex flex-col md:flex-row items-center gap-8 mb-12">
-            <img src={IMG_TEAM} alt="team" className="w-40 h-40 rounded-3xl object-cover flex-shrink-0 card-hover"
-              style={{ boxShadow: "0 16px 48px rgba(99,102,241,0.15)" }} />
-            <div>
-              <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.teamLabel}</p>
-              <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.teamTitle}</h2>
-              <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.teamDesc}</p>
+      <section id="team" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal mb-10">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.teamLabel}</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.teamTitle}</h2>
+          <p className="mt-3 text-base max-w-xl" style={{ color: SUB }}>{t.teamDesc}</p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {team.map((member, i) => (
+            <div key={i} className="section-reveal p-6 rounded-2xl text-center"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div className="w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
+                style={{ background: PANEL, border: `1px solid ${LINE}` }}>{member.emoji}</div>
+              <div className="font-bold text-sm mb-1" style={{ color: INK }}>{member.name}</div>
+              <div className="text-xs mb-1.5" style={{ color: ACCENT }}>{member.role}</div>
+              <div className="text-xs" style={{ color: SUB }}>{member.exp}</div>
             </div>
-          </div>
-          <div className="grid md:grid-cols-4 gap-5">
-            {team.map((member, i) => (
-              <div key={i} className="section-reveal card-sharp p-7 text-center">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5"
-                  style={{ background: `${member.color}10`, border: `1.5px solid ${member.color}20` }}>{member.emoji}</div>
-                <div className="font-black text-sm mb-1" style={{ color: "#1A1A2E" }}>{member.name}</div>
-                <div className="text-xs font-bold mb-2 px-3 py-1 rounded-full inline-block"
-                  style={{ background: `${member.color}10`, color: member.color }}>{member.role}</div>
-                <div className="text-xs block mt-1" style={{ color: "#9CA3AF" }}>{member.exp}</div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 
       {/* ── BLOG ── */}
-      <section id="blog" className="py-20 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="section-reveal flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-          <div>
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.blogLabel}</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.blogTitle}</h2>
-            <p className="mt-2 text-base" style={{ color: "#9CA3AF" }}>{t.blogDesc}</p>
-          </div>
-          <img src={IMG_BLOG} alt="blog" className="w-36 h-36 rounded-3xl object-cover flex-shrink-0 card-hover"
-            style={{ boxShadow: "0 16px 48px rgba(99,102,241,0.15)" }} />
+      <section id="blog" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal mb-10">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.blogLabel}</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.blogTitle}</h2>
+          <p className="mt-3 text-base" style={{ color: SUB }}>{t.blogDesc}</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-4">
           {blogPosts.map((b, i) => (
-            <div key={i} className="section-reveal card-sharp overflow-hidden cursor-pointer group">
-              <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${b.color}, ${b.color}80)` }} />
-              <div className="p-7">
-                <span className="text-xs font-bold px-3 py-1.5 rounded-full"
-                  style={{ background: `${b.color}12`, color: b.color, border: `1px solid ${b.color}20` }}>{b.tag}</span>
-                <h3 className="font-black text-base mt-5 mb-5 leading-snug group-hover:text-violet-600 transition-colors"
-                  style={{ color: "#1A1A2E" }}>{b.title}</h3>
-                <div className="flex items-center justify-between pt-4"
-                  style={{ borderTop: "1px solid rgba(99,102,241,0.07)" }}>
-                  <span className="text-xs" style={{ color: "#9CA3AF" }}>{b.date}</span>
-                  <span className="text-xs font-bold flex items-center gap-1" style={{ color: b.color }}>
-                    {t.blogMore} <Icon name="ArrowRight" size={12} />
-                  </span>
-                </div>
+            <div key={i} className="section-reveal p-6 rounded-2xl cursor-pointer transition-all"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-full"
+                style={{ background: PANEL, color: SUB, border: `1px solid ${LINE}` }}>{b.tag}</span>
+              <h3 className="font-bold text-base mt-4 mb-5 leading-snug" style={{ color: INK }}>{b.title}</h3>
+              <div className="flex items-center justify-between pt-4" style={{ borderTop: `1px solid ${LINE}` }}>
+                <span className="text-xs" style={{ color: SUB }}>{b.date}</span>
+                <span className="text-xs font-semibold flex items-center gap-1" style={{ color: ACCENT }}>
+                  {t.blogMore} <Icon name="ArrowRight" size={12} />
+                </span>
               </div>
             </div>
           ))}
@@ -519,76 +380,67 @@ export default function Index() {
       </section>
 
       {/* ── REVIEWS ── */}
-      <section id="reviews" className="py-20" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="section-reveal text-center mb-12">
-            <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#6366F1" }}>{t.revLabel}</p>
-            <h2 className="text-3xl md:text-5xl font-black" style={{ color: "#1A1A2E" }}>{t.revTitle}</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            {testimonials.map((rev, i) => (
-              <div key={i} className="section-reveal card-sharp p-7 flex flex-col justify-between">
-                <div>
-                  <div className="flex gap-0.5 mb-5">
-                    {[...Array(rev.rating)].map((_, j) => (
-                      <span key={j} style={{ color: "#F59E0B", fontSize: 16 }}>★</span>
-                    ))}
-                  </div>
-                  <p className="text-sm leading-relaxed mb-7" style={{ color: "#6B7280" }}>"{t.revTexts[i]}"</p>
+      <section id="reviews" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal mb-10 text-center">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.revLabel}</p>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.revTitle}</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          {testimonials.map((rev, i) => (
+            <div key={i} className="section-reveal p-6 rounded-2xl flex flex-col justify-between"
+              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div>
+                <div className="flex gap-0.5 mb-4">
+                  {[...Array(rev.rating)].map((_, j) => (
+                    <span key={j} style={{ color: ACCENT, fontSize: 15 }}>★</span>
+                  ))}
                 </div>
-                <div className="flex items-center gap-3 pt-5"
-                  style={{ borderTop: "1px solid rgba(99,102,241,0.08)" }}>
-                  <div className="w-10 h-10 rounded-2xl flex items-center justify-center text-white font-black text-sm flex-shrink-0"
-                    style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 4px 12px rgba(99,102,241,0.35)" }}>
-                    {rev.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-bold text-sm" style={{ color: "#1A1A2E" }}>{rev.name}</div>
-                    <div className="text-xs" style={{ color: "#9CA3AF" }}>{rev.company}</div>
-                  </div>
+                <p className="text-sm leading-relaxed mb-6" style={{ color: INK }}>"{t.revTexts[i]}"</p>
+              </div>
+              <div className="flex items-center gap-3 pt-4" style={{ borderTop: `1px solid ${LINE}` }}>
+                <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+                  style={{ background: PANEL, color: ACCENT, border: `1px solid ${LINE}` }}>
+                  {rev.name[0]}
+                </div>
+                <div>
+                  <div className="font-semibold text-sm" style={{ color: INK }}>{rev.name}</div>
+                  <div className="text-xs" style={{ color: SUB }}>{rev.company}</div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
-
       {/* ── CONTACT ── */}
-      <section id="contact" className="py-12 px-4 md:px-8" style={{ background: "linear-gradient(180deg,#F8F7FF 0%,#EEF2FF 100%)" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="section-reveal glass rounded-3xl p-8 md:p-14 text-center"
-            style={{ boxShadow: "0 16px 60px rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.12)" }}>
-            <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: "#6366F1" }}>{t.ctaLabel}</p>
-            <h2 className="text-3xl md:text-5xl font-black mb-4" style={{ color: "#1A1A2E" }}>{t.ctaTitle}</h2>
-            <p className="text-base mb-10" style={{ color: "#9CA3AF" }}>{t.ctaDesc}</p>
+      <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
+        <div className="section-reveal rounded-3xl p-8 md:p-14 text-center" style={{ background: INK }}>
+          <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: ACCENT }}>{t.ctaLabel}</p>
+          <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight text-white">{t.ctaTitle}</h2>
+          <p className="text-base mb-9 max-w-lg mx-auto" style={{ color: "#9CA3AF" }}>{t.ctaDesc}</p>
+          <div className="max-w-xl mx-auto">
             <div className="grid md:grid-cols-2 gap-3 mb-3">
               {[t.f1, t.f2].map((ph) => (
                 <input key={ph} type="text" placeholder={ph}
-                  className="w-full px-5 py-4 rounded-2xl text-sm outline-none transition-all"
-                  style={{ background: "#F3F4F6", border: "2px solid transparent" }}
-                  onFocus={(e) => (e.target.style.borderColor = "#6366F1")}
-                  onBlur={(e) => (e.target.style.borderColor = "transparent")} />
+                  className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500"
+                  style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
               ))}
             </div>
             <textarea placeholder={t.f3} rows={3}
-              className="w-full px-5 py-4 rounded-2xl text-sm outline-none mb-5 resize-none transition-all"
-              style={{ background: "#F3F4F6", border: "2px solid transparent" }}
-              onFocus={(e) => (e.target.style.borderColor = "#6366F1")}
-              onBlur={(e) => (e.target.style.borderColor = "transparent")} />
-            <button className="w-full md:w-auto px-12 py-4 rounded-2xl text-base font-black text-white transition-all hover:scale-105 hover:opacity-90"
-              style={{ background: "linear-gradient(135deg,#6366F1,#8B5CF6)", boxShadow: "0 8px 32px rgba(99,102,241,0.4)" }}>
-              {t.fBtn} 🚀
+              className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500"
+              style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
+            <button className="w-full md:w-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: ACCENT }}>
+              {t.fBtn}
             </button>
-            <div className="flex flex-wrap justify-center gap-8 mt-10 pt-10"
-              style={{ borderTop: "1px solid rgba(99,102,241,0.1)" }}>
+            <div className="flex flex-wrap justify-center gap-6 mt-9 pt-9" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
               {[
                 { icon: "MessageCircle", text: t.contacts[0] },
                 { icon: "Mail", text: t.contacts[1] },
                 { icon: "Phone", text: t.contacts[2] },
               ].map((c) => (
-                <div key={c.text} className="flex items-center gap-2 text-sm font-medium" style={{ color: "#6B7280" }}>
-                  <Icon name={c.icon as "Mail"} size={16} style={{ color: "#6366F1" }} />
+                <div key={c.text} className="flex items-center gap-2 text-sm" style={{ color: "#9CA3AF" }}>
+                  <Icon name={c.icon as "Mail"} size={16} style={{ color: ACCENT }} />
                   {c.text}
                 </div>
               ))}
@@ -598,22 +450,22 @@ export default function Index() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="py-8 px-4 md:px-8" style={{ borderTop: "1px solid rgba(99,102,241,0.1)", background: "#F8F7FF" }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+      <footer className="py-8 px-4 md:px-8" style={{ borderTop: `1px solid ${LINE}` }}>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5">
             <img
               src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/27bcabe1-ea65-48e0-962d-384f43f698b1.jpg"
               alt="logo"
-              style={{ width: 36, height: 36, objectFit: "contain", mixBlendMode: "multiply" }}
+              style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "multiply" }}
             />
-            <span className="font-black" style={{ color: "#1A1A2E" }}>俄中推广机构</span>
+            <span className="font-bold text-sm" style={{ color: INK }}>俄中推广机构</span>
           </div>
-          <p className="text-sm" style={{ color: "#9CA3AF" }}>{t.footer}</p>
-          <div className="flex gap-3">
+          <p className="text-sm" style={{ color: SUB }}>{t.footer}</p>
+          <div className="flex gap-2">
             {["Globe", "MessageCircle", "Phone"].map((ic) => (
-              <div key={ic} className="w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer card-hover"
-                style={{ background: "rgba(99,102,241,0.08)" }}>
-                <Icon name={ic as "Globe"} size={15} style={{ color: "#6366F1" }} />
+              <div key={ic} className="w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-colors hover:bg-gray-50"
+                style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+                <Icon name={ic as "Globe"} size={15} style={{ color: INK }} />
               </div>
             ))}
           </div>
@@ -621,78 +473,6 @@ export default function Index() {
       </footer>
 
       <style>{`
-        @keyframes float {
-          0%,100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-float { animation: float 5s ease-in-out infinite; }
-        .text-gradient {
-          background: linear-gradient(135deg,#6366F1 0%,#8B5CF6 50%,#EC4899 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .glass {
-          background: rgba(255,255,255,0.75);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255,255,255,0.95);
-        }
-        .card-hover { transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(99,102,241,0.12); }
-        .section-reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
-        .section-reveal.visible { opacity:1; transform:translateY(0); }
-
-        /* ── sharper cards ── */
-        .card-sharp {
-          background: #fff;
-          border: 1.5px solid rgba(99,102,241,0.1);
-          border-radius: 20px;
-          box-shadow: 0 2px 0 rgba(99,102,241,0.06), 0 8px 24px rgba(99,102,241,0.07);
-          transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease, border-color 0.22s ease;
-        }
-        .card-sharp:hover {
-          transform: translateY(-5px);
-          border-color: rgba(99,102,241,0.25);
-          box-shadow: 0 2px 0 rgba(99,102,241,0.08), 0 20px 48px rgba(99,102,241,0.14);
-        }
-        .card-dark-sharp {
-          background: rgba(255,255,255,0.03);
-          border: 1.5px solid rgba(255,255,255,0.08);
-          border-radius: 20px;
-          box-shadow: 0 2px 0 rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.15);
-          transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease, border-color 0.22s ease;
-        }
-        .card-dark-sharp:hover {
-          transform: translateY(-5px);
-          border-color: rgba(99,102,241,0.3);
-          box-shadow: 0 2px 0 rgba(0,0,0,0.3), 0 20px 48px rgba(99,102,241,0.15);
-        }
-        .stat-card {
-          background: #fff;
-          border: 1.5px solid rgba(99,102,241,0.1);
-          border-radius: 20px;
-          box-shadow: 0 1px 0 rgba(99,102,241,0.08), 0 6px 20px rgba(99,102,241,0.08);
-          transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease;
-        }
-        .stat-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 1px 0 rgba(99,102,241,0.1), 0 16px 40px rgba(99,102,241,0.14);
-        }
-        .list-card {
-          background: #fff;
-          border: 1.5px solid rgba(99,102,241,0.08);
-          border-radius: 20px;
-          box-shadow: 0 2px 0 rgba(99,102,241,0.04), 0 8px 32px rgba(99,102,241,0.07);
-          overflow: hidden;
-        }
-        .list-row {
-          border-bottom: 1px solid rgba(99,102,241,0.06);
-          transition: background 0.15s ease;
-        }
-        .list-row:last-child { border-bottom: none; }
-        .list-row:hover { background: rgba(99,102,241,0.03); }
-
         @keyframes wc-in {
           from { opacity:0; transform: translateY(16px) scale(0.96); }
           to   { opacity:1; transform: translateY(0)   scale(1); }

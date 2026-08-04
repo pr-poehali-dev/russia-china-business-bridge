@@ -5,24 +5,24 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 220 13% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 13% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 224 76% 48%;
+    --popover-foreground: 220 13% 9%;
+    --primary: 24 95% 53%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 214 32% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 214 32% 91%;
-    --accent-foreground: 222 47% 11%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 224 76% 48%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24 95% 53%;
     --radius: 0.75rem;
   }
 }
@@ -32,7 +32,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-white text-foreground;
+    @apply text-foreground;
+    background: #f6f7f8;
     font-family: "Inter", "Noto Sans SC", sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -43,7 +44,7 @@
 
 @layer utilities {
   .font-chinese {
-    font-family: "Noto Sans SC", sans-serif;
+    font-family: "Inter", "Noto Sans SC", sans-serif;
   }
 
   @keyframes fade-up {
@@ -56,33 +57,14 @@
       transform: translateY(0);
     }
   }
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
 
   .animate-fade-up {
     animation: fade-up 0.6s ease forwards;
   }
-  .animate-float {
-    animation: float 5s ease-in-out infinite;
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
 
   .section-reveal {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
     transition:
       opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -90,22 +72,5 @@
   .section-reveal.visible {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  .glass {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.95);
-  }
-
-  .card-hover {
-    transition:
-      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.3s ease;
-  }
-  .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(99, 102, 241, 0.12);
   }
 }
