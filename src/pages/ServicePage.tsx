@@ -135,24 +135,7 @@ export default function ServicePage() {
 
       <SiteFooter />
 
-      <style>{`
-        .card {
-          transition: transform 0.28s cubic-bezier(.22,1,.36,1), box-shadow 0.28s ease, border-color 0.28s ease;
-          box-shadow: 0 1px 2px rgba(17,19,24,0.04);
-        }
-        .card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 18px 40px rgba(17,19,24,0.10);
-          border-color: rgba(255,90,31,0.35) !important;
-        }
-        .btn-press { transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease; }
-        .btn-press:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(17,19,24,0.18); }
-        .btn-press:active { transform: translateY(0); }
-        .btn-accent:hover { box-shadow: 0 10px 24px rgba(255,90,31,0.35) !important; }
-        .arrow-slide { transition: transform 0.25s ease; }
-        .card:hover .arrow-slide { transform: translateX(4px); }
-        .section-reveal { opacity: 1; }
-      `}</style>
+      <style>{`.section-reveal { opacity: 1; transform: none; }`}</style>
     </div>
   );
 }
