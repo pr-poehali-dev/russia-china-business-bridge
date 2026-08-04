@@ -229,7 +229,7 @@ export default function Index() {
           </div>
           <div className="flex-1 w-full section-reveal">
             <div className="rounded-3xl overflow-hidden" style={{ border: `1px solid ${LINE}`, background: "#fff", boxShadow: "0 20px 50px rgba(17,19,24,0.06)" }}>
-              <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/17eced6a-1ff7-4f5e-b174-66c123a02581.jpg"
+              <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0eb4df43-93ee-4a68-b660-d73657e2db76.jpg"
                 alt="hero" className="w-full" style={{ objectFit: "cover", mixBlendMode: "multiply" }} />
             </div>
           </div>
