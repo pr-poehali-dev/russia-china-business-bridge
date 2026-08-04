@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const ADMIN_LEADS_URL = "__ADMIN_LEADS_URL__";
+const ADMIN_LEADS_URL = "https://functions.poehali.dev/d388196c-10ff-4159-b333-d4d8ae169390";
 
 interface Lead {
   id: number;
