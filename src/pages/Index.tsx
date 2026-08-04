@@ -37,7 +37,7 @@ const T = {
     ctaLabel: "联系我们", ctaTitle: "准备好了吗？", ctaDesc: "免费获取您专属的俄罗斯市场推广方案，专家24小时内联系您",
     f1: "您的姓名", f2: "微信 / WhatsApp / 电话", f3: "描述您的业务和推广目标...", fBtn: "发送申请 — 免费咨询",
     contacts: ["微信: VITALY维塔利", "info@russia-china.ru", "+7 (495) 000-00-00"],
-    footer: "© 2024 俄中推广机构. 保留所有权利",
+    footer: "© 2024 Sino Marketing. 保留所有权利",
   },
   ru: {
     nav: ["Услуги", "Кейсы", "Команда", "Блог", "Отзывы", "Контакт"],
@@ -62,7 +62,7 @@ const T = {
     ctaLabel: "Контакты", ctaTitle: "Готовы начать?", ctaDesc: "Получите бесплатный план продвижения. Эксперт свяжется с вами в течение 24 часов",
     f1: "Ваше имя", f2: "WeChat / WhatsApp / Телефон", f3: "Опишите ваш бизнес и цели...", fBtn: "Отправить заявку — бесплатно",
     contacts: ["WeChat: VITALY维塔利", "info@russia-china.ru", "+7 (495) 000-00-00"],
-    footer: "© 2024 Агентство Россия-Китай. Все права защищены",
+    footer: "© 2024 Sino Marketing. Все права защищены",
   },
 };
 
@@ -146,11 +146,11 @@ export default function Index() {
         <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
           <div className="flex items-center gap-2.5">
             <img
-              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/27bcabe1-ea65-48e0-962d-384f43f698b1.jpg"
-              alt="logo"
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/360c52f3-d923-4d28-abd8-b5f706cdd927.jpg"
+              alt="Sino Marketing"
               style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }}
             />
-            <span className="font-bold text-[15px]" style={{ color: INK }}>俄中推广</span>
+            <span className="font-bold text-[15px]" style={{ color: INK }}>Sino Marketing</span>
           </div>
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map((l) => (
@@ -454,11 +454,11 @@ export default function Index() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
             <img
-              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/27bcabe1-ea65-48e0-962d-384f43f698b1.jpg"
-              alt="logo"
+              src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/360c52f3-d923-4d28-abd8-b5f706cdd927.jpg"
+              alt="Sino Marketing"
               style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "multiply" }}
             />
-            <span className="font-bold text-sm" style={{ color: INK }}>俄中推广机构</span>
+            <span className="font-bold text-sm" style={{ color: INK }}>Sino Marketing</span>
           </div>
           <p className="text-sm" style={{ color: SUB }}>{t.footer}</p>
           <div className="flex gap-2">
