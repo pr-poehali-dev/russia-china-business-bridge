@@ -30,9 +30,7 @@ export default function ContactFooter() {
               className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
               style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
             <button className="btn-press btn-accent w-full sm:w-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
-              style={{ background: ACCENT }}>
-              Получить бесплатную консультацию
-            </button>
+              style={{ background: ACCENT }}>Получить консультацию</button>
             <div className="flex flex-wrap justify-center gap-6 mt-9 pt-9" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
               {contacts.map((c) => (
                 <div key={c.text} className="flex items-center gap-2 text-sm" style={{ color: "#9CA3AF" }}>
