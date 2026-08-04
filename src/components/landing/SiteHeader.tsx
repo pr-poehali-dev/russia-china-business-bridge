@@ -33,7 +33,7 @@ export default function SiteHeader() {
           <div className="flex items-center gap-2">
             <Link to={isLoggedIn ? "/cabinet" : "/register"}
               className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: INK }}>{isLoggedIn ? "Личный кабинет" : "Регистрация"}</Link>
+              style={{ background: INK }}>{isLoggedIn ? "Кабинет" : "Регистрация"}</Link>
             <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
@@ -54,7 +54,7 @@ export default function SiteHeader() {
           ))}
           <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
             style={{ background: INK }} onClick={() => setMenuOpen(false)}>
-            {isLoggedIn ? "Личный кабинет" : "Регистрация"}
+            {isLoggedIn ? "Кабинет" : "Регистрация"}
           </Link>
         </div>
       )}
