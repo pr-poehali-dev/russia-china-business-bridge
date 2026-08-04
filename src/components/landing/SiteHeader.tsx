@@ -6,6 +6,8 @@ import { INK, SUB, LINE, PANEL, LOGO, BRAND, navLinks } from "./theme";
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const linkTo = (href: string) => (href.startsWith("#") ? `/${href}` : href);
+
   return (
     <>
       {/* ── NAV ── */}
@@ -21,7 +23,7 @@ export default function SiteHeader() {
           </Link>
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map((l) => (
-              <Link key={l.href} to={`/${l.href}`} className="text-sm transition-colors hover:opacity-70"
+              <Link key={l.href} to={linkTo(l.href)} className="text-sm transition-colors hover:opacity-70"
                 style={{ color: SUB }}>
                 {l.label}
               </Link>
@@ -46,7 +48,7 @@ export default function SiteHeader() {
       {menuOpen && (
         <div className="fixed inset-0 z-40 pt-20 px-6 flex flex-col gap-1" style={{ background: PANEL }}>
           {navLinks.map((l) => (
-            <Link key={l.href} to={`/${l.href}`}
+            <Link key={l.href} to={linkTo(l.href)}
               className="text-lg font-semibold py-4"
               style={{ color: INK, borderBottom: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(false)}>{l.label}</Link>

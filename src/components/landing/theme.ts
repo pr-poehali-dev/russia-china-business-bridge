@@ -13,7 +13,7 @@ export const BRAND = "Веб-Студия";
 /* ── nav ── */
 export const navLinks = [
   { href: "#services", label: "Услуги" },
-  { href: "#included", label: "Что входит" },
+  { href: "/promotion", label: "Продвижение" },
   { href: "#process", label: "Этапы" },
   { href: "#pricing", label: "Цены" },
   { href: "#contact", label: "Контакты" },
