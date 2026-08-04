@@ -18,8 +18,8 @@ export default function ContactFooter() {
           <p className="text-sm md:text-base mb-8 md:mb-9 max-w-xl" style={{ color: "#9CA3AF" }}>
             Если вам нужен современный сайт, который будет работать на ваш бизнес и приносить клиентов, свяжитесь с нами уже сегодня. Мы бесплатно проконсультируем и предложим лучшее решение.
           </p>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto text-left">
-            <div>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left">
+            <div className="flex flex-col">
               <div className="grid sm:grid-cols-2 gap-3 mb-3">
                 {["Ваше имя", "Телефон / Telegram / WhatsApp"].map((ph) => (
                   <input key={ph} type="text" placeholder={ph}
@@ -30,7 +30,7 @@ export default function ContactFooter() {
               <textarea placeholder="Опишите ваш проект и задачи..." rows={3}
                 className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
                 style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
-              <button className="btn-press btn-accent w-full px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
+              <button className="btn-press btn-accent w-full mt-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
                 style={{ background: ACCENT }}>Получить консультацию</button>
             </div>
             <div className="flex flex-col gap-4">
