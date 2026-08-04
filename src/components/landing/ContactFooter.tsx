@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 import { INK, ACCENT } from "./theme";
 
 const contacts = [
-  { icon: "MessageCircle", text: "Telegram / WhatsApp" },
+  { icon: "MessageCircle", text: "Telegram / Max" },
   { icon: "Mail", text: "info@bsmnv.ru" },
   { icon: "Phone", text: "+7 (919) 186-12-22" },
 ];
