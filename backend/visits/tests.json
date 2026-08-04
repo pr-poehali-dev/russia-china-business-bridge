@@ -1,0 +1,19 @@
+{
+  "tests": [
+    {
+      "name": "Track visit",
+      "method": "POST",
+      "path": "/",
+      "body": {"path": "/"},
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Stats without password unauthorized",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 401
+    }
+  ]
+}

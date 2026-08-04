@@ -11,9 +11,28 @@ import PromotionPage from "./pages/PromotionPage";
 import Admin from "./pages/Admin";
 import Register from "./pages/Register";
 import Cabinet from "./pages/Cabinet";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
+import useVisitTracker from "./hooks/useVisitTracker";
 
 const queryClient = new QueryClient();
+
+function AppRoutes() {
+  useVisitTracker();
+  return (
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/service/:slug" element={<ServicePage />} />
+      <Route path="/promotion" element={<PromotionPage />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/cabinet" element={<Cabinet />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -22,16 +41,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/service/:slug" element={<ServicePage />} />
-          <Route path="/promotion" element={<PromotionPage />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/cabinet" element={<Cabinet />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
     </LanguageProvider>

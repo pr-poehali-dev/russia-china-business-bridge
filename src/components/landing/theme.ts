@@ -16,6 +16,7 @@ export const navLinks = [
   { href: "/promotion", label: "Продвижение" },
   { href: "#process", label: "Этапы" },
   { href: "#pricing", label: "Цены" },
+  { href: "/blog", label: "Блог" },
   { href: "#contact", label: "Контакты" },
 ];
 

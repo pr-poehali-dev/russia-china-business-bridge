@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Icon from "@/components/ui/icon";
 import ChatBox from "@/components/ChatBox";
+import StatsPanel from "@/components/admin/StatsPanel";
+import BlogPanel from "@/components/admin/BlogPanel";
 
 const ADMIN_LEADS_URL = "https://functions.poehali.dev/d388196c-10ff-4159-b333-d4d8ae169390";
 const CHAT_URL = "https://functions.poehali.dev/84fb9523-59f1-442a-9de7-ea2cd18437f3";
@@ -22,7 +24,7 @@ interface Dialog {
   unread: number;
 }
 
-type Tab = "leads" | "chat";
+type Tab = "leads" | "chat" | "stats" | "blog";
 
 export default function Admin() {
   const [password, setPassword] = useState(() => localStorage.getItem("admin_pw") || "");
@@ -94,6 +96,8 @@ export default function Admin() {
   const menu = [
     { icon: "Inbox", label: "Заявки", tab: "leads" as Tab },
     { icon: "MessageCircle", label: "Сообщения", tab: "chat" as Tab, badge: totalUnread || undefined },
+    { icon: "BarChart3", label: "Статистика", tab: "stats" as Tab },
+    { icon: "Newspaper", label: "Блог", tab: "blog" as Tab },
   ];
 
   const fmt = (iso: string | null) => {
@@ -243,6 +247,10 @@ export default function Admin() {
               </div>
             </>
           )}
+
+          {tab === "stats" && <StatsPanel password={password} />}
+
+          {tab === "blog" && <BlogPanel password={password} />}
 
           {tab === "chat" && (
             <div className="bg-[#17171a] rounded-2xl border border-white/10 overflow-hidden grid md:grid-cols-[300px_1fr]" style={{ height: 600 }}>
