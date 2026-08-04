@@ -32,9 +32,7 @@ export default function SiteHeader() {
           <div className="flex items-center gap-2">
             <Link to="/#contact"
               className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: INK }}>
-              Заказать сайт
-            </Link>
+              style={{ background: INK }}>Регистрация</Link>
             <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
