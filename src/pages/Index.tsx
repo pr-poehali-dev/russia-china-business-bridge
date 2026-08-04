@@ -17,17 +17,17 @@ const T = {
   zh: {
     nav: ["服务", "案例", "团队", "博客", "评价", "联系"],
     navCta: "免费咨询",
-    heroBadge: "专业俄罗斯市场推广机构",
-    heroH1a: "在俄罗斯", heroH1b: "推广您的", heroH1c: "中国业务",
-    heroDesc: "网站开发、Яндекс广告、社交媒体运营 — 一站式解决方案，专为中国企业量身定制",
-    heroCta1: "免费获取方案 →", heroCta2: "查看案例",
+    heroBadge: "俄罗斯市场推广 · 7年经验 · 150+项目",
+    heroH1a: "让中国品牌", heroH1b: "在俄罗斯", heroH1c: "快速增长",
+    heroDesc: "网站、Яндекс广告、VK与Telegram运营 —— 一站式搞定俄罗斯市场获客，专为中国企业打造。",
+    heroCta1: "免费获取增长方案 →", heroCta2: "查看成功案例",
     statsDesc: ["帮助中国企业进入俄罗斯市场", "成功完成的推广项目", "客户满意度", "专家响应时间"],
     portLabel: "成功案例", portTitle: "热门推广项目", portCta: "查看全部",
     cats: ["全部", "网站", "社媒", "广告", "内容", "分析"],
     solLabel: "推广方案", solTitle: "不知从何开始？", solDesc: "根据您的目标选择最适合的方案",
     solItems: ["大型企业", "高回报项目", "初创企业", "社媒运营", "热门推荐"],
     solDescs: ["完整的市场进入方案，网站、广告、PR全套，专属顾问全程陪跑","ROI最高的推广组合，精准定位高价值客户群体","低成本高效入市方案，适合刚进入俄罗斯市场的中国企业","专业VK和Telegram账号运营，快速积累俄罗斯本地粉丝","当前最受欢迎、性价比最高的推广服务套餐"],
-    svcLabel: "我们的服务", svcTitle: "全方位推广服务", svcDesc: "从网站建设到广告投放，一站式搞定",
+    svcLabel: "我们的服务", svcTitle: "俄罗斯市场，一站式搞定", svcDesc: "从建站到投放，从内容到数据，帮您用最短路径拿到订单。",
     svcItems: ["网站开发","Яндекс广告","社交媒体运营","市场推广","内容营销","数据分析"],
     svcDescs: ["为俄罗斯市场打造专业网站，SEO优化、移动端适配。","俄罗斯最大搜索引擎精准广告，快速获客。","管理VK、Telegram等主流俄罗斯社交平台。","全方位俄罗斯市场推广策略，帮助品牌落地。","中俄双语内容营销，提升品牌信任度。","全面分析推广效果，持续优化ROI。"],
     teamLabel: "专业团队", teamTitle: "了解我们的团队", teamDesc: "深耕俄中商业领域，精通两国文化与市场",
@@ -42,17 +42,17 @@ const T = {
   ru: {
     nav: ["Услуги", "Кейсы", "Команда", "Блог", "Отзывы", "Контакт"],
     navCta: "Бесплатно",
-    heroBadge: "Профессиональное агентство продвижения в России",
-    heroH1a: "Продвигайте", heroH1b: "ваш бизнес", heroH1c: "в России",
-    heroDesc: "Создание сайтов, реклама в Яндексе, ведение соцсетей — всё под ключ для китайских компаний",
-    heroCta1: "Получить план →", heroCta2: "Смотреть кейсы",
+    heroBadge: "Продвижение в России · 7 лет · 150+ проектов",
+    heroH1a: "Растим китайские", heroH1b: "бренды", heroH1c: "на рынке России",
+    heroDesc: "Сайты, реклама в Яндексе, ведение VK и Telegram — приводим клиентов на российском рынке под ключ, специально для компаний из Китая.",
+    heroCta1: "Получить план роста →", heroCta2: "Смотреть кейсы",
     statsDesc: ["Помогаем китайским бизнесам выйти на рынок России", "Успешно завершённых проектов", "Удовлетворённость клиентов", "Время ответа эксперта"],
     portLabel: "Успешные кейсы", portTitle: "Популярные проекты", portCta: "Все кейсы",
     cats: ["Все", "Сайты", "Соцсети", "Реклама", "Контент", "Аналитика"],
     solLabel: "Решения", solTitle: "Не знаете с чего начать?", solDesc: "Выберите подходящее решение под ваши цели",
     solItems: ["Крупный бизнес", "Высокий ROI", "Стартап", "Соцсети", "Горячее предложение"],
     solDescs: ["Полный пакет выхода на рынок: сайт, реклама, PR и персональный консультант","Комбинация с наибольшей отдачей, точное попадание в целевую аудиторию","Эффективный выход при минимальных затратах для новичков на российском рынке","Профессиональное ведение VK и Telegram, быстрый набор местной аудитории","Самые популярные и выгодные пакеты прямо сейчас"],
-    svcLabel: "Наши услуги", svcTitle: "Полный спектр услуг", svcDesc: "От создания сайта до запуска рекламы — всё под ключ",
+    svcLabel: "Наши услуги", svcTitle: "Рынок России — под ключ", svcDesc: "От сайта до рекламы, от контента до аналитики — ведём вас к заказам кратчайшим путём.",
     svcItems: ["Создание сайтов","Яндекс реклама","Ведение соцсетей","Маркетинг","Контент","Аналитика"],
     svcDescs: ["Профессиональные сайты для российского рынка, SEO и мобильная адаптация.","Точная реклама в крупнейшей поисковой системе России, быстрое привлечение клиентов.","Ведение VK, Telegram и других популярных российских платформ.","Комплексная стратегия продвижения на российском рынке.","Двуязычный контент-маркетинг для повышения доверия к бренду.","Полный анализ эффективности и оптимизация ROI."],
     teamLabel: "Команда", teamTitle: "Наша команда", teamDesc: "Эксперты в российско-китайском бизнесе, знаем культуру обеих стран",
@@ -198,37 +198,37 @@ export default function Index() {
       )}
 
       {/* ── HERO ── */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-16 md:pt-24 pb-16">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 section-reveal">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-7 text-xs font-semibold"
+      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-12 md:pt-24 pb-14 md:pb-16">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          <div className="flex-1 section-reveal text-center md:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6 md:mb-7 text-xs font-semibold"
               style={{ background: "#fff", border: `1px solid ${LINE}`, color: SUB }}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: ACCENT }} />
               {t.heroBadge}
             </div>
-            <h1 className="font-black leading-[1.05] mb-6 tracking-tight"
-              style={{ fontSize: "clamp(2.4rem,6vw,4.2rem)", color: INK }}>
+            <h1 className="font-black leading-[1.05] mb-5 md:mb-6 tracking-tight"
+              style={{ fontSize: "clamp(2rem,7vw,4.2rem)", color: INK }}>
               {t.heroH1a} {t.heroH1b}{" "}
               <span style={{ color: ACCENT }}>{t.heroH1c}</span>
             </h1>
-            <p className="text-base md:text-lg mb-9 leading-relaxed max-w-lg" style={{ color: SUB }}>
+            <p className="text-base md:text-lg mb-7 md:mb-9 leading-relaxed max-w-lg mx-auto md:mx-0" style={{ color: SUB }}>
               {t.heroDesc}
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center md:justify-start">
               <a href="#contact"
-                className="px-6 py-3.5 rounded-full text-[15px] font-semibold text-white transition-all hover:opacity-90"
+                className="btn-press btn-accent px-6 py-3.5 rounded-full text-[15px] font-semibold text-white text-center"
                 style={{ background: INK }}>
                 {t.heroCta1}
               </a>
               <a href="#portfolio"
-                className="px-6 py-3.5 rounded-full text-[15px] font-semibold transition-all hover:bg-white"
+                className="btn-press px-6 py-3.5 rounded-full text-[15px] font-semibold text-center"
                 style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}>
                 {t.heroCta2}
               </a>
             </div>
           </div>
           <div className="flex-1 w-full section-reveal">
-            <div className="rounded-3xl overflow-hidden" style={{ border: `1px solid ${LINE}`, background: "#fff", boxShadow: "0 20px 50px rgba(17,19,24,0.06)" }}>
+            <div className="card rounded-3xl overflow-hidden" style={{ border: `1px solid ${LINE}`, background: "#fff", boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
               <img src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0eb4df43-93ee-4a68-b660-d73657e2db76.jpg"
                 alt="hero" className="w-full" style={{ objectFit: "cover", mixBlendMode: "multiply" }} />
             </div>
@@ -237,10 +237,10 @@ export default function Index() {
       </section>
 
       {/* ── STATS ── */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 pb-16">
+      <section className="max-w-6xl mx-auto px-4 md:px-8 pb-14 md:pb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {stats.map((s, i) => (
-            <div key={i} className="section-reveal p-6 rounded-2xl text-center"
+            <div key={i} className="card section-reveal p-5 md:p-6 rounded-2xl text-center"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
               <div className="text-3xl md:text-4xl font-black mb-1.5" style={{ color: INK }}>{s.num}</div>
               <p className="text-xs leading-snug" style={{ color: SUB }}>{t.statsDesc[i]}</p>
@@ -250,17 +250,17 @@ export default function Index() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal mb-10">
+      <section id="services" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.svcLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.svcTitle}</h2>
-          <p className="mt-3 text-base max-w-xl" style={{ color: SUB }}>{t.svcDesc}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.svcTitle}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t.svcDesc}</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((_s, i) => (
-            <div key={i} className="section-reveal p-6 rounded-2xl transition-all"
+            <div key={i} className="card section-reveal p-6 rounded-2xl"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
+              <div className="card-icon w-11 h-11 rounded-xl flex items-center justify-center mb-4"
                 style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <Icon name={ICONS[i] as "Globe"} size={20} style={{ color: ACCENT }} />
               </div>
@@ -272,31 +272,32 @@ export default function Index() {
       </section>
 
       {/* ── PORTFOLIO ── */}
-      <section id="portfolio" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal flex flex-wrap items-end justify-between gap-4 mb-8">
+      <section id="portfolio" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal flex flex-wrap items-end justify-between gap-4 mb-6 md:mb-8">
           <div>
             <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.portLabel}</p>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.portTitle}</h2>
+            <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.portTitle}</h2>
           </div>
           <a href="#contact" className="text-sm font-semibold flex items-center gap-1.5" style={{ color: INK }}>
             {t.portCta} <Icon name="ArrowRight" size={15} />
           </a>
         </div>
-        <div className="section-reveal flex flex-wrap gap-2 mb-6">
+        <div className="section-reveal flex gap-2 mb-6 overflow-x-auto pb-1 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap"
+          style={{ scrollbarWidth: "none" }}>
           {t.cats.map((c, i) => (
             <button key={i} onClick={() => setActiveTab(i)}
-              className="px-4 py-2 rounded-full text-sm font-medium transition-all"
+              className="px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap flex-shrink-0"
               style={activeTab === i
                 ? { background: INK, color: "#fff" }
                 : { background: "#fff", color: SUB, border: `1px solid ${LINE}` }
               }>{c}</button>
           ))}
         </div>
-        <div className="section-reveal rounded-2xl overflow-hidden" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+        <div className="section-reveal card rounded-2xl overflow-hidden" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
           {projects.map((p, i) => (
-            <div key={i} className="flex items-center justify-between px-5 py-4 cursor-pointer transition-colors hover:bg-gray-50"
+            <div key={i} className="row-item flex items-center justify-between px-4 md:px-5 py-4 cursor-pointer"
               style={{ borderBottom: i < projects.length - 1 ? `1px solid ${LINE}` : "none" }}>
-              <div className="flex items-center gap-3.5 min-w-0">
+              <div className="flex items-center gap-3 md:gap-3.5 min-w-0">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0"
                   style={{ background: PANEL, color: ACCENT, border: `1px solid ${LINE}` }}>
                   {p.cat[0]}
@@ -306,45 +307,45 @@ export default function Index() {
                   <div className="text-xs truncate" style={{ color: SUB }}>{p.sub}</div>
                 </div>
               </div>
-              <div className="text-sm font-bold ml-4 flex-shrink-0" style={{ color: INK }}>{p.price}</div>
+              <div className="text-xs md:text-sm font-bold ml-3 md:ml-4 flex-shrink-0" style={{ color: INK }}>{p.price}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── SOLUTIONS ── */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal mb-10">
+      <section className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.solLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.solTitle}</h2>
-          <p className="mt-3 text-base" style={{ color: SUB }}>{t.solDesc}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.solTitle}</h2>
+          <p className="mt-3 text-sm md:text-base" style={{ color: SUB }}>{t.solDesc}</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {solutions.map((_s, i) => (
-            <div key={i} className="section-reveal p-6 rounded-2xl cursor-pointer flex items-start justify-between gap-4 transition-all"
+            <div key={i} className="card section-reveal p-6 rounded-2xl cursor-pointer flex items-start justify-between gap-4"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
               <div>
                 <h3 className="font-bold text-base mb-1.5" style={{ color: INK }}>{t.solItems[i]}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: SUB }}>{t.solDescs[i]}</p>
               </div>
-              <Icon name="ArrowUpRight" size={18} style={{ color: ACCENT, flexShrink: 0 }} />
+              <Icon name="ArrowUpRight" size={18} className="arrow-slide" style={{ color: ACCENT, flexShrink: 0 }} />
             </div>
           ))}
         </div>
       </section>
 
       {/* ── TEAM ── */}
-      <section id="team" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal mb-10">
+      <section id="team" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.teamLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.teamTitle}</h2>
-          <p className="mt-3 text-base max-w-xl" style={{ color: SUB }}>{t.teamDesc}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.teamTitle}</h2>
+          <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t.teamDesc}</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {team.map((member, i) => (
-            <div key={i} className="section-reveal p-6 rounded-2xl text-center"
+            <div key={i} className="card section-reveal p-6 rounded-2xl text-center"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
+              <div className="card-icon w-14 h-14 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"
                 style={{ background: PANEL, border: `1px solid ${LINE}` }}>{member.emoji}</div>
               <div className="font-bold text-sm mb-1" style={{ color: INK }}>{member.name}</div>
               <div className="text-xs mb-1.5" style={{ color: ACCENT }}>{member.role}</div>
@@ -355,15 +356,15 @@ export default function Index() {
       </section>
 
       {/* ── BLOG ── */}
-      <section id="blog" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal mb-10">
+      <section id="blog" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.blogLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.blogTitle}</h2>
-          <p className="mt-3 text-base" style={{ color: SUB }}>{t.blogDesc}</p>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.blogTitle}</h2>
+          <p className="mt-3 text-sm md:text-base" style={{ color: SUB }}>{t.blogDesc}</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {blogPosts.map((b, i) => (
-            <div key={i} className="section-reveal p-6 rounded-2xl cursor-pointer transition-all"
+            <div key={i} className="card section-reveal p-6 rounded-2xl cursor-pointer"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
               <span className="text-xs font-semibold px-2.5 py-1 rounded-full"
                 style={{ background: PANEL, color: SUB, border: `1px solid ${LINE}` }}>{b.tag}</span>
@@ -371,7 +372,7 @@ export default function Index() {
               <div className="flex items-center justify-between pt-4" style={{ borderTop: `1px solid ${LINE}` }}>
                 <span className="text-xs" style={{ color: SUB }}>{b.date}</span>
                 <span className="text-xs font-semibold flex items-center gap-1" style={{ color: ACCENT }}>
-                  {t.blogMore} <Icon name="ArrowRight" size={12} />
+                  {t.blogMore} <Icon name="ArrowRight" size={12} className="arrow-slide" />
                 </span>
               </div>
             </div>
@@ -380,14 +381,14 @@ export default function Index() {
       </section>
 
       {/* ── REVIEWS ── */}
-      <section id="reviews" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal mb-10 text-center">
+      <section id="reviews" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal mb-8 md:mb-10 text-center">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t.revLabel}</p>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.revTitle}</h2>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t.revTitle}</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {testimonials.map((rev, i) => (
-            <div key={i} className="section-reveal p-6 rounded-2xl flex flex-col justify-between"
+            <div key={i} className="card section-reveal p-6 rounded-2xl flex flex-col justify-between"
               style={{ background: "#fff", border: `1px solid ${LINE}` }}>
               <div>
                 <div className="flex gap-0.5 mb-4">
@@ -413,23 +414,23 @@ export default function Index() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <div className="section-reveal rounded-3xl p-8 md:p-14 text-center" style={{ background: INK }}>
+      <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+        <div className="section-reveal rounded-3xl p-6 md:p-14 text-center" style={{ background: INK, boxShadow: "0 24px 60px rgba(17,19,24,0.2)" }}>
           <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: ACCENT }}>{t.ctaLabel}</p>
-          <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight text-white">{t.ctaTitle}</h2>
-          <p className="text-base mb-9 max-w-lg mx-auto" style={{ color: "#9CA3AF" }}>{t.ctaDesc}</p>
+          <h2 className="text-2xl md:text-5xl font-black mb-4 tracking-tight text-white">{t.ctaTitle}</h2>
+          <p className="text-sm md:text-base mb-8 md:mb-9 max-w-lg mx-auto" style={{ color: "#9CA3AF" }}>{t.ctaDesc}</p>
           <div className="max-w-xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-3 mb-3">
+            <div className="grid sm:grid-cols-2 gap-3 mb-3">
               {[t.f1, t.f2].map((ph) => (
                 <input key={ph} type="text" placeholder={ph}
-                  className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500"
+                  className="w-full px-5 py-3.5 rounded-xl text-sm outline-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
                   style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
               ))}
             </div>
             <textarea placeholder={t.f3} rows={3}
-              className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500"
+              className="w-full px-5 py-3.5 rounded-xl text-sm outline-none mb-4 resize-none text-white placeholder:text-gray-500 transition-all focus:border-white/40"
               style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }} />
-            <button className="w-full md:w-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white transition-all hover:opacity-90"
+            <button className="btn-press btn-accent w-full sm:w-auto px-10 py-3.5 rounded-full text-[15px] font-semibold text-white"
               style={{ background: ACCENT }}>
               {t.fBtn}
             </button>
@@ -451,7 +452,7 @@ export default function Index() {
 
       {/* ── FOOTER ── */}
       <footer className="py-8 px-4 md:px-8" style={{ borderTop: `1px solid ${LINE}` }}>
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
           <div className="flex items-center gap-2.5">
             <img
               src="https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/360c52f3-d923-4d28-abd8-b5f706cdd927.jpg"
@@ -473,6 +474,26 @@ export default function Index() {
       </footer>
 
       <style>{`
+        .card {
+          transition: transform 0.28s cubic-bezier(.22,1,.36,1), box-shadow 0.28s ease, border-color 0.28s ease;
+          box-shadow: 0 1px 2px rgba(17,19,24,0.04);
+        }
+        .card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 40px rgba(17,19,24,0.10);
+          border-color: rgba(255,90,31,0.35) !important;
+        }
+        .card-icon { transition: transform 0.28s cubic-bezier(.22,1,.36,1), background 0.28s ease; }
+        .card:hover .card-icon { transform: scale(1.08) rotate(-4deg); background: #FFF1EA; }
+        .arrow-slide { transition: transform 0.25s ease; }
+        .card:hover .arrow-slide { transform: translate(3px,-3px); }
+        .btn-press { transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease; }
+        .btn-press:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(17,19,24,0.18); }
+        .btn-press:active { transform: translateY(0); }
+        .btn-accent:hover { box-shadow: 0 10px 24px rgba(255,90,31,0.35) !important; }
+        .row-item { transition: background 0.18s ease, padding-left 0.2s ease; }
+        .row-item:hover { background: #FAFAFA; padding-left: 26px; }
+
         @keyframes wc-in {
           from { opacity:0; transform: translateY(16px) scale(0.96); }
           to   { opacity:1; transform: translateY(0)   scale(1); }
