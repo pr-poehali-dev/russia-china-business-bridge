@@ -1,9 +1,29 @@
 import json
 import os
+import base64
+import uuid
 import smtplib
+import boto3
 import psycopg2
 from email.mime.text import MIMEText
 from email.header import Header
+
+
+def upload_file(data_b64: str, file_name: str, content_type: str) -> str:
+    '''Загружает файл в S3 и возвращает публичную ссылку.'''
+    raw = base64.b64decode(data_b64)
+    ext = ''
+    if '.' in file_name:
+        ext = '.' + file_name.rsplit('.', 1)[-1].lower()
+    key = f'chat/{uuid.uuid4().hex}{ext}'
+    s3 = boto3.client(
+        's3',
+        endpoint_url='https://bucket.poehali.dev',
+        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
+    )
+    s3.put_object(Bucket='files', Key=key, Body=raw, ContentType=content_type or 'application/octet-stream')
+    return f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}"
 
 
 def notify_client(email: str, name: str, text: str) -> None:
@@ -94,11 +114,12 @@ def handler(event: dict, context) -> dict:
 
             target_id = int(params['client_id']) if role == 'admin' else client_id
             cur.execute(
-                "SELECT id, sender, text, created_at FROM messages WHERE client_id = %s ORDER BY created_at ASC",
+                "SELECT id, sender, text, created_at, file_url, file_name FROM messages WHERE client_id = %s ORDER BY created_at ASC",
                 (target_id,),
             )
             messages = [
-                {'id': r[0], 'sender': r[1], 'text': r[2], 'created_at': r[3].isoformat() if r[3] else None}
+                {'id': r[0], 'sender': r[1], 'text': r[2], 'created_at': r[3].isoformat() if r[3] else None,
+                 'file_url': r[4], 'file_name': r[5]}
                 for r in cur.fetchall()
             ]
             opposite = 'client' if role == 'admin' else 'admin'
@@ -111,7 +132,15 @@ def handler(event: dict, context) -> dict:
 
         body = json.loads(event.get('body') or '{}')
         text = (body.get('text') or '').strip()
-        if not text:
+
+        file_url = None
+        file_name = None
+        file_data = body.get('file_data')
+        if file_data:
+            file_name = (body.get('file_name') or 'file').strip()
+            file_url = upload_file(file_data, file_name, body.get('file_type', ''))
+
+        if not text and not file_url:
             return {'statusCode': 400, 'headers': cors_headers(), 'body': json.dumps({'error': 'Пустое сообщение'})}
 
         if role == 'admin':
@@ -122,8 +151,8 @@ def handler(event: dict, context) -> dict:
             sender = 'client'
 
         cur.execute(
-            "INSERT INTO messages (client_id, sender, text) VALUES (%s, %s, %s) RETURNING id, created_at",
-            (target_id, sender, text),
+            "INSERT INTO messages (client_id, sender, text, file_url, file_name) VALUES (%s, %s, %s, %s, %s) RETURNING id, created_at",
+            (target_id, sender, text, file_url, file_name),
         )
         row = cur.fetchone()
         conn.commit()
@@ -132,12 +161,13 @@ def handler(event: dict, context) -> dict:
             cur.execute("SELECT name, email FROM clients WHERE id = %s", (target_id,))
             c = cur.fetchone()
             if c:
-                notify_client(c[1], c[0], text)
+                notify_client(c[1], c[0], text or ('Файл: ' + (file_name or '')))
 
         return {
             'statusCode': 200,
             'headers': cors_headers(),
-            'body': json.dumps({'id': row[0], 'sender': sender, 'text': text, 'created_at': row[1].isoformat() if row[1] else None}),
+            'body': json.dumps({'id': row[0], 'sender': sender, 'text': text, 'created_at': row[1].isoformat() if row[1] else None,
+                                'file_url': file_url, 'file_name': file_name}),
         }
     finally:
         cur.close()

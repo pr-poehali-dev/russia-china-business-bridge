@@ -9,7 +9,11 @@ interface Message {
   sender: "client" | "admin";
   text: string;
   created_at: string | null;
+  file_url?: string | null;
+  file_name?: string | null;
 }
+
+const isImage = (name?: string | null) => !!name && /\.(png|jpe?g|gif|webp|svg|bmp)$/i.test(name);
 
 interface ChatBoxProps {
   role: "client" | "admin";
@@ -22,7 +26,9 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const authHeaders = useCallback((): Record<string, string> => {
     const h: Record<string, string> = { "Content-Type": "application/json" };
@@ -53,18 +59,33 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const readFile = (f: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve((reader.result as string).split(",")[1] || "");
+      reader.onerror = reject;
+      reader.readAsDataURL(f);
+    });
+
   const send = async () => {
     const value = text.trim();
-    if (!value || sending) return;
+    if ((!value && !file) || sending) return;
     setSending(true);
     try {
       const body: Record<string, unknown> = { text: value };
       if (role === "admin" && clientId) body.client_id = clientId;
+      if (file) {
+        body.file_data = await readFile(file);
+        body.file_name = file.name;
+        body.file_type = file.type;
+      }
       const res = await fetch(CHAT_URL, { method: "POST", headers: authHeaders(), body: JSON.stringify(body) });
       if (res.ok) {
         const msg = await res.json();
         setMessages((prev) => [...prev, msg]);
         setText("");
+        setFile(null);
+        if (fileRef.current) fileRef.current.value = "";
         onSent?.();
       }
     } finally {
@@ -92,6 +113,18 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
                   className="px-4 py-2.5 rounded-2xl text-sm whitespace-pre-wrap break-words"
                   style={mine ? { background: ACCENT, color: "#fff", borderBottomRightRadius: 6 } : { background: "#F1F2F4", color: INK, borderBottomLeftRadius: 6 }}
                 >
+                  {m.file_url && isImage(m.file_name) && (
+                    <a href={m.file_url} target="_blank" rel="noopener noreferrer" className="block">
+                      <img src={m.file_url} alt={m.file_name || ""} className="rounded-xl max-h-56 mb-1.5" />
+                    </a>
+                  )}
+                  {m.file_url && !isImage(m.file_name) && (
+                    <a href={m.file_url} target="_blank" rel="noopener noreferrer"
+                      className="flex items-center gap-2 mb-1.5 underline break-all"
+                      style={{ color: mine ? "#fff" : INK }}>
+                      <Icon name="Paperclip" size={15} /> {m.file_name || "Файл"}
+                    </a>
+                  )}
                   {m.text}
                 </div>
                 <p className="text-[11px] mt-1 px-1" style={{ color: SUB, textAlign: mine ? "right" : "left" }}>{fmt(m.created_at)}</p>
@@ -102,20 +135,40 @@ export default function ChatBox({ role, auth, clientId, onSent }: ChatBoxProps) 
         <div ref={endRef} />
       </div>
 
-      <div className="p-3 flex items-center gap-2" style={{ borderTop: `1px solid ${LINE}` }}>
-        <input
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && send()}
-          placeholder="Написать сообщение..."
-          className="flex-1 px-4 py-2.5 rounded-full text-sm outline-none focus:border-gray-400"
-          style={{ border: `1px solid ${LINE}` }}
-        />
-        <button onClick={send} disabled={sending || !text.trim()}
-          className="w-10 h-10 rounded-full flex items-center justify-center text-white shrink-0 disabled:opacity-50"
-          style={{ background: ACCENT }}>
-          <Icon name="Send" size={17} />
-        </button>
+      <div style={{ borderTop: `1px solid ${LINE}` }}>
+        {file && (
+          <div className="px-3 pt-3 flex items-center gap-2">
+            <div className="flex items-center gap-2 max-w-full px-3 py-1.5 rounded-full text-xs" style={{ background: "#F1F2F4", color: INK }}>
+              <Icon name={isImage(file.name) ? "Image" : "Paperclip"} size={14} />
+              <span className="truncate max-w-[180px]">{file.name}</span>
+              <button onClick={() => { setFile(null); if (fileRef.current) fileRef.current.value = ""; }} className="shrink-0">
+                <Icon name="X" size={14} />
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="p-3 flex items-center gap-2">
+          <input ref={fileRef} type="file" className="hidden"
+            onChange={(e) => setFile(e.target.files?.[0] || null)} />
+          <button onClick={() => fileRef.current?.click()}
+            className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 hover:bg-gray-100"
+            style={{ color: SUB }} aria-label="Прикрепить файл">
+            <Icon name="Paperclip" size={19} />
+          </button>
+          <input
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && send()}
+            placeholder="Написать сообщение..."
+            className="flex-1 px-4 py-2.5 rounded-full text-sm outline-none focus:border-gray-400"
+            style={{ border: `1px solid ${LINE}` }}
+          />
+          <button onClick={send} disabled={sending || (!text.trim() && !file)}
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white shrink-0 disabled:opacity-50"
+            style={{ background: ACCENT }}>
+            <Icon name={sending ? "LoaderCircle" : "Send"} size={17} className={sending ? "animate-spin" : ""} />
+          </button>
+        </div>
       </div>
     </div>
   );
