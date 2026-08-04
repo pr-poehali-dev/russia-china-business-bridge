@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ChatBox from "@/components/ChatBox";
@@ -11,12 +11,23 @@ interface Profile {
   name: string;
   email: string;
   created_at: string | null;
+  unread?: number;
 }
 
 export default function Cabinet() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [unread, setUnread] = useState(0);
+  const chatRef = useRef<HTMLDivElement>(null);
+
+  const fetchProfile = useCallback(async () => {
+    const token = localStorage.getItem("client_token");
+    if (!token) return null;
+    const res = await fetch(AUTH_URL, { headers: { "X-Auth-Token": token } });
+    if (!res.ok) throw new Error();
+    return res.json();
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("client_token");
@@ -24,18 +35,29 @@ export default function Cabinet() {
       navigate("/register");
       return;
     }
-    fetch(AUTH_URL, { headers: { "X-Auth-Token": token } })
-      .then((r) => {
-        if (!r.ok) throw new Error();
-        return r.json();
+    fetchProfile()
+      .then((data) => {
+        setProfile(data);
+        setUnread(data.unread || 0);
       })
-      .then((data) => setProfile(data))
       .catch(() => {
         localStorage.removeItem("client_token");
         navigate("/register");
       })
       .finally(() => setLoading(false));
-  }, [navigate]);
+  }, [navigate, fetchProfile]);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      fetchProfile().then((data) => data && setUnread(data.unread || 0)).catch(() => {});
+    }, 6000);
+    return () => clearInterval(t);
+  }, [fetchProfile]);
+
+  const openChat = () => {
+    setUnread(0);
+    chatRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const logout = () => {
     localStorage.removeItem("client_token");
@@ -63,9 +85,19 @@ export default function Cabinet() {
             <img src={LOGO} alt={BRAND} style={{ width: 30, height: 30, objectFit: "contain", mixBlendMode: "multiply" }} />
             <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
           </Link>
-          <button onClick={logout} className="flex items-center gap-1.5 text-sm hover:opacity-70" style={{ color: SUB }}>
-            <Icon name="LogOut" size={16} /> Выйти
-          </button>
+          <div className="flex items-center gap-4">
+            <button onClick={openChat} className="relative hover:opacity-70" style={{ color: INK }} aria-label="Сообщения">
+              <Icon name="MessageCircle" size={22} />
+              {unread > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 rounded-full text-[11px] font-bold text-white flex items-center justify-center" style={{ background: ACCENT }}>
+                  {unread > 9 ? "9+" : unread}
+                </span>
+              )}
+            </button>
+            <button onClick={logout} className="flex items-center gap-1.5 text-sm hover:opacity-70" style={{ color: SUB }}>
+              <Icon name="LogOut" size={16} /> Выйти
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -94,12 +126,17 @@ export default function Cabinet() {
           </Link>
         </div>
 
-        <div className="bg-white rounded-3xl mt-5 overflow-hidden flex flex-col" style={{ border: `1px solid ${LINE}`, height: 520 }}>
+        <div ref={chatRef} className="bg-white rounded-3xl mt-5 overflow-hidden flex flex-col" style={{ border: `1px solid ${LINE}`, height: 520 }}>
           <div className="px-6 py-4 flex items-center gap-2" style={{ borderBottom: `1px solid ${LINE}` }}>
             <Icon name="MessageCircle" size={18} style={{ color: ACCENT }} />
             <h3 className="font-semibold" style={{ color: INK }}>Чат с менеджером</h3>
+            {unread > 0 && (
+              <span className="min-w-[20px] h-5 px-1.5 rounded-full text-[11px] font-bold text-white flex items-center justify-center" style={{ background: ACCENT }}>
+                {unread}
+              </span>
+            )}
           </div>
-          <div className="flex-1 min-h-0">
+          <div className="flex-1 min-h-0" onClick={() => setUnread(0)}>
             <ChatBox role="client" auth={{ token: localStorage.getItem("client_token") || undefined }} />
           </div>
         </div>

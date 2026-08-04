@@ -40,10 +40,15 @@ def handler(event: dict, context) -> dict:
             row = cur.fetchone()
             if not row:
                 return {'statusCode': 401, 'headers': cors_headers(), 'body': json.dumps({'error': 'Сессия недействительна'})}
+            cur.execute(
+                "SELECT COUNT(*) FROM messages WHERE client_id = %s AND sender = 'admin' AND is_read = FALSE",
+                (row[0],),
+            )
+            unread = cur.fetchone()[0]
             return {
                 'statusCode': 200,
                 'headers': cors_headers(),
-                'body': json.dumps({'id': row[0], 'name': row[1], 'email': row[2], 'created_at': row[3].isoformat() if row[3] else None}),
+                'body': json.dumps({'id': row[0], 'name': row[1], 'email': row[2], 'created_at': row[3].isoformat() if row[3] else None, 'unread': unread}),
             }
 
         body = json.loads(event.get('body') or '{}')
