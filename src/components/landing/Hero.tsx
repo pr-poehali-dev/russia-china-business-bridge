@@ -36,7 +36,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="flex-1 w-full section-reveal flex flex-col items-center gap-4">
-            <img src="/hero-illustration-v3.png"
+            <img src="/hero-seo.png"
               alt="Создание сайтов" className="w-full hero-float"
               style={{ objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(17,19,24,0.12))" }} />
             <div className="flex flex-wrap items-center justify-center gap-3">
