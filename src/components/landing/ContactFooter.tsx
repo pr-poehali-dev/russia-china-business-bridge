@@ -2,9 +2,9 @@ import Icon from "@/components/ui/icon";
 import { INK, ACCENT } from "./theme";
 
 const contacts = [
-  { icon: "MessageCircle", text: "Telegram / Max" },
-  { icon: "Mail", text: "info@bsmnv.ru" },
-  { icon: "Phone", text: "+7 (919) 186-12-22" },
+  { icon: "MessageCircle", text: "Telegram / Max", href: "https://max.ru/u/f9LHodD0cOI1V0FgyQPvD3KYqH0JhZ9FjlJOLtmC6aBl0py9u_CJcZ6G-7w" },
+  { icon: "Mail", text: "info@bsmnv.ru", href: "mailto:info@bsmnv.ru" },
+  { icon: "Phone", text: "+7 (919) 186-12-22", href: "tel:+79191861222" },
 ];
 
 export default function ContactFooter() {
@@ -35,10 +35,11 @@ export default function ContactFooter() {
             </div>
             <div className="flex flex-col gap-4">
               {contacts.map((c) => (
-                <div key={c.text} className="flex items-center gap-3 text-sm" style={{ color: "#9CA3AF" }}>
+                <a key={c.text} href={c.href} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm transition-colors hover:text-white" style={{ color: "#9CA3AF" }}>
                   <Icon name={c.icon as "Mail"} size={16} style={{ color: ACCENT }} />
                   {c.text}
-                </div>
+                </a>
               ))}
               <div className="flex flex-col items-start gap-3 mt-2 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
                 <div className="p-3 rounded-2xl bg-white">
