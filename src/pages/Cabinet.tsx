@@ -103,27 +103,34 @@ export default function Cabinet() {
             <img src={LOGO} alt={BRAND} style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "multiply" }} />
             <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
           </Link>
-          <nav className="space-y-1 sticky top-4">
-            {menu.map((m) => (
+          <nav className="space-y-1.5 sticky top-4">
+            {menu.map((m) => {
+              const active = tab === m.tab;
+              return (
+                <button
+                  key={m.label}
+                  onClick={() => { setTab(m.tab); if (m.tab === "chat") setUnread(0); }}
+                  className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm transition-all"
+                  style={active
+                    ? { background: INK, color: "#fff", fontWeight: 600, boxShadow: "0 6px 16px rgba(17,19,24,0.18)" }
+                    : { color: SUB }}
+                >
+                  <Icon name={m.icon as "User"} size={19} style={{ color: active ? ACCENT : SUB }} />
+                  <span className="flex-1 text-left">{m.label}</span>
+                  {m.badge && <span className="text-xs text-white rounded-full px-1.5 py-0.5" style={{ background: ACCENT }}>{m.badge}</span>}
+                </button>
+              );
+            })}
+            <div className="pt-2 mt-2" style={{ borderTop: `1px solid ${LINE}` }}>
               <button
-                key={m.label}
-                onClick={() => { setTab(m.tab); if (m.tab === "chat") setUnread(0); }}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors"
-                style={tab === m.tab ? { background: "#fff", color: INK, fontWeight: 600, border: `1px solid ${LINE}` } : { color: SUB }}
+                onClick={logout}
+                className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm transition-colors hover:bg-white"
+                style={{ color: SUB }}
               >
-                <Icon name={m.icon as "User"} size={20} />
-                <span className="flex-1 text-left">{m.label}</span>
-                {m.badge && <span className="text-xs text-white rounded-full px-1.5 py-0.5" style={{ background: ACCENT }}>{m.badge}</span>}
+                <Icon name="LogOut" size={19} />
+                <span className="flex-1 text-left">Выйти</span>
               </button>
-            ))}
-            <button
-              onClick={logout}
-              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors hover:bg-white"
-              style={{ color: SUB }}
-            >
-              <Icon name="LogOut" size={20} />
-              <span className="flex-1 text-left">Выйти</span>
-            </button>
+            </div>
           </nav>
         </aside>
 
@@ -149,25 +156,32 @@ export default function Cabinet() {
         {/* Main */}
         <div className="flex-1 min-w-0 space-y-4 pt-14 md:pt-0">
           {/* Profile header */}
-          <div className="bg-white rounded-2xl p-5 md:p-6 flex items-center gap-5" style={{ border: `1px solid ${LINE}` }}>
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shrink-0 text-3xl font-bold text-white" style={{ background: ACCENT }}>
-              {profile.name.trim()[0]?.toUpperCase() || "?"}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-xl md:text-2xl font-bold" style={{ color: INK }}>{profile.name}</h1>
-              <p className="text-sm mt-0.5" style={{ color: SUB }}>{profile.email}</p>
-              <p className="text-xs mt-1 flex items-center gap-1.5" style={{ color: SUB }}>
-                <Icon name="Calendar" size={13} /> С нами с {fmt(profile.created_at)}
-              </p>
+          <div className="relative bg-white rounded-3xl overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(17,19,24,0.06)" }}>
+            <div className="h-20 md:h-24" style={{ background: `linear-gradient(120deg, ${INK} 0%, #262a33 100%)` }} />
+            <div className="px-5 md:px-8 pb-6 flex flex-col sm:flex-row sm:items-end gap-4 -mt-12">
+              <div className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 text-3xl font-bold text-white ring-4 ring-white" style={{ background: ACCENT }}>
+                {profile.name.trim()[0]?.toUpperCase() || "?"}
+              </div>
+              <div className="flex-1 min-w-0 sm:pb-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h1 className="text-xl md:text-2xl font-bold tracking-tight" style={{ color: INK }}>{profile.name}</h1>
+                  <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full" style={{ background: "rgba(255,90,31,0.12)", color: ACCENT }}>Клиент</span>
+                </div>
+                <p className="text-sm mt-1" style={{ color: SUB }}>{profile.email}</p>
+                <p className="text-xs mt-1.5 flex items-center gap-1.5" style={{ color: SUB }}>
+                  <Icon name="Calendar" size={13} /> С нами с {fmt(profile.created_at)}
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Mobile tabs */}
-          <div className="md:hidden flex gap-1 p-1 rounded-full" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+          <div className="md:hidden flex gap-1 p-1 rounded-2xl" style={{ background: "#fff", boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
             {menu.map((m) => (
               <button key={m.label} onClick={() => { setTab(m.tab); if (m.tab === "chat") setUnread(0); }}
-                className="flex-1 py-2 rounded-full text-xs font-semibold transition-all flex items-center justify-center gap-1"
-                style={tab === m.tab ? { background: ACCENT, color: "#fff" } : { color: SUB }}>
+                className="flex-1 py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1"
+                style={tab === m.tab ? { background: INK, color: "#fff" } : { color: SUB }}>
+                <Icon name={m.icon as "User"} size={15} style={{ color: tab === m.tab ? ACCENT : SUB }} />
                 {m.label}
                 {m.badge && <span className="text-[10px]">({m.badge})</span>}
               </button>
@@ -176,15 +190,22 @@ export default function Cabinet() {
 
           {tab === "profile" && (
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-white rounded-2xl p-6" style={{ border: `1px solid ${LINE}` }}>
-                <Icon name="FolderKanban" size={24} style={{ color: ACCENT }} />
-                <h3 className="font-semibold mt-3" style={{ color: INK }}>Мои проекты</h3>
-                <p className="text-sm mt-1" style={{ color: SUB }}>Здесь появятся ваши заказанные сайты и их статус.</p>
+              <div className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(255,90,31,0.1)" }}>
+                  <Icon name="FolderKanban" size={22} style={{ color: ACCENT }} />
+                </div>
+                <h3 className="font-semibold text-[15px]" style={{ color: INK }}>Мои проекты</h3>
+                <p className="text-sm mt-1.5" style={{ color: SUB }}>Здесь появятся ваши заказанные сайты и их статус.</p>
               </div>
-              <button onClick={() => setTab("chat")} className="bg-white rounded-2xl p-6 text-left hover:shadow-sm transition-shadow" style={{ border: `1px solid ${LINE}` }}>
-                <Icon name="Plus" size={24} style={{ color: ACCENT }} />
-                <h3 className="font-semibold mt-3" style={{ color: INK }}>Новая заявка</h3>
-                <p className="text-sm mt-1" style={{ color: SUB }}>Оставьте заявку на разработку нового сайта.</p>
+              <button onClick={() => setTab("chat")} className="group bg-white rounded-2xl p-6 text-left transition-all hover:-translate-y-0.5" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(255,90,31,0.1)" }}>
+                  <Icon name="Plus" size={22} style={{ color: ACCENT }} />
+                </div>
+                <h3 className="font-semibold text-[15px] flex items-center gap-1.5" style={{ color: INK }}>
+                  Новая заявка
+                  <Icon name="ArrowRight" size={15} className="transition-transform group-hover:translate-x-1" style={{ color: ACCENT }} />
+                </h3>
+                <p className="text-sm mt-1.5" style={{ color: SUB }}>Оставьте заявку на разработку нового сайта.</p>
               </button>
             </div>
           )}
@@ -192,16 +213,16 @@ export default function Cabinet() {
           {tab === "services" && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cabinetServices.map((s) => (
-                <div key={s.title} className="bg-white rounded-2xl p-6 flex flex-col hover:shadow-sm transition-shadow" style={{ border: `1px solid ${LINE}` }}>
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(255,90,31,0.1)" }}>
+                <div key={s.title} className="group bg-white rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors" style={{ background: "rgba(255,90,31,0.1)" }}>
                     <Icon name={s.icon as "Rocket"} size={22} style={{ color: ACCENT }} />
                   </div>
-                  <h3 className="font-semibold" style={{ color: INK }}>{s.title}</h3>
-                  <p className="text-sm mt-1.5 flex-1" style={{ color: SUB }}>{s.desc}</p>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="text-sm font-bold" style={{ color: INK }}>{s.price}</span>
+                  <h3 className="font-semibold text-[15px]" style={{ color: INK }}>{s.title}</h3>
+                  <p className="text-sm mt-1.5 flex-1 leading-relaxed" style={{ color: SUB }}>{s.desc}</p>
+                  <div className="flex items-center justify-between mt-5 pt-4" style={{ borderTop: `1px solid ${LINE}` }}>
+                    <span className="text-[15px] font-bold" style={{ color: INK }}>{s.price}</span>
                     <button onClick={openChat}
-                      className="text-sm font-semibold px-4 py-1.5 rounded-full text-white transition-all hover:opacity-90"
+                      className="text-sm font-semibold px-4 py-2 rounded-full text-white transition-all hover:opacity-90 active:scale-95"
                       style={{ background: ACCENT }}>Заказать</button>
                   </div>
                 </div>
@@ -210,10 +231,15 @@ export default function Cabinet() {
           )}
 
           {tab === "chat" && (
-            <div className="bg-white rounded-2xl overflow-hidden flex flex-col" style={{ border: `1px solid ${LINE}`, height: 560 }}>
-              <div className="px-6 py-4 flex items-center gap-2" style={{ borderBottom: `1px solid ${LINE}` }}>
-                <Icon name="MessageCircle" size={18} style={{ color: ACCENT }} />
-                <h3 className="font-semibold" style={{ color: INK }}>Чат с менеджером</h3>
+            <div className="bg-white rounded-2xl overflow-hidden flex flex-col" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)", height: 560 }}>
+              <div className="px-6 py-4 flex items-center gap-2.5" style={{ borderBottom: `1px solid ${LINE}` }}>
+                <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "rgba(255,90,31,0.1)" }}>
+                  <Icon name="Headset" size={17} style={{ color: ACCENT }} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[15px] leading-tight" style={{ color: INK }}>Чат с менеджером</h3>
+                  <p className="text-xs" style={{ color: SUB }}>Обычно отвечаем в течение часа</p>
+                </div>
               </div>
               <div className="flex-1 min-h-0" onClick={() => setUnread(0)}>
                 <ChatBox role="client" auth={{ token: localStorage.getItem("client_token") || undefined }} />
