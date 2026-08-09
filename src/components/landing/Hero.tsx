@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, ACCENT, PANEL, MINT, DARK } from "./theme";
+import { INK, SUB, ACCENT, PANEL, MINT, DARK, HERO_IMG } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -15,8 +15,8 @@ export default function Hero() {
       <section className="max-w-6xl mx-auto px-4 md:px-8 pt-4 md:pt-8 pb-8">
         <div className="section-reveal relative overflow-hidden rounded-[28px] md:rounded-[36px]"
           style={{ background: DARK, minHeight: 460 }}>
-          <img src="/hero-seo.png" alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-40" />
+          <img src={HERO_IMG} alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-70" />
           <div className="absolute inset-0"
             style={{ background: `linear-gradient(100deg, ${DARK} 8%, rgba(20,19,32,0.85) 45%, rgba(20,19,32,0.35) 100%)` }} />
           <div className="relative p-7 md:p-14 lg:p-16 max-w-2xl">
