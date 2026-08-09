@@ -92,7 +92,7 @@ export default function Cabinet() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "#F6F7F8" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "#F4F1FB" }}>
         <Icon name="LoaderCircle" size={32} className="animate-spin" style={{ color: SUB }} />
       </div>
     );
@@ -109,7 +109,7 @@ export default function Cabinet() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: "#F6F7F8", color: INK }}>
+    <div className="min-h-screen" style={{ background: "#F4F1FB", color: INK }}>
       <div className="max-w-6xl mx-auto flex gap-4 px-3 md:px-4 py-4">
         {/* Sidebar */}
         <aside className="hidden md:block w-56 shrink-0">
@@ -149,7 +149,7 @@ export default function Cabinet() {
         </aside>
 
         {/* Mobile top bar */}
-        <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-14 px-4" style={{ background: "rgba(246,247,248,0.9)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
+        <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-14 px-4" style={{ background: "rgba(244,241,251,0.92)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
           <Link to="/" className="flex items-center gap-2">
             <img src={LOGO} alt={BRAND} style={{ width: 26, height: 26, objectFit: "contain", mixBlendMode: "multiply" }} />
             <span className="font-bold text-sm" style={{ color: INK }}>{BRAND}</span>

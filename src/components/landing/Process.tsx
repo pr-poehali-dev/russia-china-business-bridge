@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, MINT, DARK } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -22,14 +22,14 @@ export default function Process() {
             const featured = i === 1;
             return (
               <div key={i}
-                className="card section-reveal p-6 md:p-7 rounded-2xl flex flex-col relative"
+                className="card section-reveal p-6 md:p-8 rounded-[26px] flex flex-col relative"
                 style={featured
-                  ? { background: INK, border: `1px solid ${INK}`, boxShadow: "0 18px 40px rgba(17,19,24,0.18)" }
+                  ? { background: DARK, border: `1px solid ${DARK}`, boxShadow: "0 22px 50px rgba(18,16,28,0.22)" }
                   : { background: "#fff", border: `1px solid ${LINE}` }
                 }>
                 {featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold text-white whitespace-nowrap"
-                    style={{ background: ACCENT }}>{t("popular")}</span>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap"
+                    style={{ background: MINT, color: INK }}>{t("popular")}</span>
                 )}
                 <h3 className="font-bold text-base mb-3" style={{ color: featured ? "#fff" : INK }}>{plan.name}</h3>
                 <div className="mb-5">
@@ -38,7 +38,7 @@ export default function Process() {
                 <ul className="flex flex-col gap-2.5 mb-7 flex-1">
                   {plan.feats.map((f, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm" style={{ color: featured ? "#D1D5DB" : SUB }}>
-                      <Icon name="Check" size={16} style={{ color: ACCENT, flexShrink: 0, marginTop: 2 }} />
+                      <Icon name="Check" size={16} style={{ color: featured ? MINT : ACCENT, flexShrink: 0, marginTop: 2 }} />
                       {f}
                     </li>
                   ))}
@@ -46,7 +46,7 @@ export default function Process() {
                 <a href="#contact"
                   className="btn-press w-full py-3 rounded-full text-sm font-semibold text-center transition-all"
                   style={featured
-                    ? { background: ACCENT, color: "#fff" }
+                    ? { background: MINT, color: INK }
                     : { background: PANEL, color: INK, border: `1px solid ${LINE}` }
                   }>
                   {t("order")}
@@ -64,16 +64,21 @@ export default function Process() {
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("advTitle")}</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {advantages.map((a, i) => (
-            <div key={i} className="card section-reveal flex items-center gap-4 p-6 rounded-2xl"
-              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
-              <div className="card-icon w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
-                <Icon name={a.icon as "Globe"} size={20} style={{ color: ACCENT }} />
+          {advantages.map((a, i) => {
+            const dark = i % 3 === 1;
+            return (
+              <div key={i} className="card section-reveal flex items-center gap-4 p-6 rounded-[24px]"
+                style={dark
+                  ? { background: DARK, border: `1px solid ${DARK}` }
+                  : { background: "#fff", border: `1px solid ${LINE}` }}>
+                <div className="card-icon w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={dark ? { background: "rgba(255,255,255,0.12)" } : { background: PANEL }}>
+                  <Icon name={a.icon as "Globe"} size={20} style={{ color: dark ? MINT : ACCENT }} />
+                </div>
+                <span className="font-bold text-sm md:text-base" style={{ color: dark ? "#fff" : INK }}>{a.title}</span>
               </div>
-              <span className="font-bold text-sm md:text-base" style={{ color: INK }}>{a.title}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </>

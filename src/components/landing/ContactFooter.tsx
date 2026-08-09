@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
-import { INK, ACCENT } from "./theme";
+import { ACCENT, MINT, DARK } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 
@@ -45,8 +45,8 @@ export default function ContactFooter() {
     <>
       {/* ── CONTACT / CTA ── */}
       <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
-        <div className="section-reveal rounded-3xl p-6 md:p-14 text-left" style={{ background: INK, boxShadow: "0 24px 60px rgba(17,19,24,0.2)" }}>
-          <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: ACCENT }}>{t("ctaTag")}</p>
+        <div className="section-reveal rounded-[32px] p-6 md:p-14 text-left" style={{ background: DARK, boxShadow: "0 24px 60px rgba(18,16,28,0.24)" }}>
+          <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: MINT }}>{t("ctaTag")}</p>
           <h2 className="text-2xl md:text-5xl font-black mb-4 tracking-tight text-white">{t("ctaTitle")}</h2>
           <p className="text-sm md:text-base mb-8 md:mb-9 max-w-xl" style={{ color: "#9CA3AF" }}>
             {t("ctaDesc")}
@@ -104,7 +104,7 @@ export default function ContactFooter() {
                 <a key={c.text} href={c.href} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all hover:bg-white/[0.06] group"
                   style={{ color: "#D1D5DB", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <span className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors" style={{ background: "rgba(255,90,31,0.12)" }}>
+                  <span className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors" style={{ background: "rgba(124,92,255,0.18)" }}>
                     <Icon name={c.icon as "Mail"} size={17} style={{ color: ACCENT }} />
                   </span>
                   <span className="flex-1 group-hover:text-white transition-colors">{c.text}</span>

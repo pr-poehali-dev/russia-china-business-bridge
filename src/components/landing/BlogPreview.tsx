@@ -56,7 +56,7 @@ export default function BlogPreview() {
             {p.cover_url ? (
               <img src={p.cover_url} alt={p.title} className="w-full h-44 object-cover" />
             ) : (
-              <div className="w-full h-44 flex items-center justify-center" style={{ background: "#F6F7F8" }}>
+              <div className="w-full h-44 flex items-center justify-center" style={{ background: "#F4F1FB" }}>
                 <Icon name="Newspaper" size={36} style={{ color: SUB }} />
               </div>
             )}

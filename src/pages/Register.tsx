@@ -43,7 +43,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#F6F7F8" }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#F4F1FB" }}>
       <div className="w-full max-w-md">
         <Link to="/" className="flex items-center justify-center gap-2.5 mb-8">
           <img src={LOGO} alt={BRAND} style={{ width: 34, height: 34, objectFit: "contain", mixBlendMode: "multiply" }} />
@@ -51,7 +51,7 @@ export default function Register() {
         </Link>
 
         <div className="bg-white rounded-3xl p-8 shadow-sm" style={{ border: `1px solid ${LINE}` }}>
-          <div className="flex gap-2 p-1 rounded-full mb-6" style={{ background: "#F6F7F8" }}>
+          <div className="flex gap-2 p-1 rounded-full mb-6" style={{ background: "#F4F1FB" }}>
             {(["register", "login"] as const).map((m) => (
               <button
                 key={m}
