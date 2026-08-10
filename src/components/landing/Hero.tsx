@@ -45,7 +45,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="section-reveal -mt-10 md:-mt-14 relative mx-1 md:mx-6 rounded-[24px] md:rounded-[32px] p-6 md:p-9 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
+        <div className="section-reveal -mt-4 md:-mt-5 relative mx-1 md:mx-6 rounded-[24px] md:rounded-[32px] p-6 md:p-9 flex flex-col md:flex-row md:items-center gap-6 md:gap-10"
           style={{ background: "#fff", boxShadow: "0 24px 60px rgba(18,16,28,0.12)" }}>
           <div className="flex-1">
             <h2 className="text-2xl md:text-3xl font-black tracking-tight mb-4" style={{ color: INK }}>
