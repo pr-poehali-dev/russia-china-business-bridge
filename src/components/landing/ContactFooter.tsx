@@ -44,7 +44,7 @@ export default function ContactFooter() {
   return (
     <>
       {/* ── CONTACT / CTA ── */}
-      <section id="contact" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="contact" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <div className="section-reveal rounded-[32px] p-6 md:p-14 text-left" style={{ background: DARK, boxShadow: "0 24px 60px rgba(18,16,28,0.24)" }}>
           <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: MINT }}>{t("ctaTag")}</p>
           <h2 className="text-2xl md:text-5xl font-black mb-4 tracking-tight text-white">{t("ctaTitle")}</h2>

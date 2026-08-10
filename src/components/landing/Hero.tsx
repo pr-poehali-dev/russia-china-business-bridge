@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="max-w-6xl mx-auto px-4 md:px-8 pt-4 md:pt-8 pb-8">
+      <section className="w-full px-4 md:px-10 lg:px-16 pt-4 md:pt-8 pb-8">
         <div className="section-reveal relative overflow-hidden rounded-[28px] md:rounded-[36px]"
           style={{ background: DARK, minHeight: 460 }}>
           <img src={HERO_IMG} alt=""
@@ -73,7 +73,7 @@ export default function Hero() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="services" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("servicesTag")}</p>
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("servicesTitle")}</h2>

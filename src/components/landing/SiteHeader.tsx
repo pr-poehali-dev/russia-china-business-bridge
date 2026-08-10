@@ -29,7 +29,7 @@ export default function SiteHeader() {
     <>
       {/* ── NAV ── */}
       <nav className="sticky top-0 z-50" style={{ background: "rgba(244,241,251,0.82)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
-        <div className="max-w-6xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
+        <div className="w-full px-4 md:px-10 lg:px-16 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2.5">
             <img
               src="/logo.png"

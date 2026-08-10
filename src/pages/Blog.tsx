@@ -36,7 +36,7 @@ export default function Blog() {
     <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
       <SiteHeader />
 
-      <main className="max-w-4xl mx-auto px-4 md:px-8 py-12 md:py-16">
+      <main className="w-full px-4 md:px-10 lg:px-16 py-12 md:py-16">
         {active ? (
           <article>
             <button onClick={() => setActive(null)} className="flex items-center gap-2 text-sm mb-6 hover:opacity-70" style={{ color: SUB }}>

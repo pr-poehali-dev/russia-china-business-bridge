@@ -8,7 +8,7 @@ export default function ProcessSteps() {
   const t = useT(lang);
   const { steps } = useContent(lang);
   return (
-    <section id="process" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+    <section id="process" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
       <div className="section-reveal mb-8 md:mb-10">
         <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("processTag")}</p>
         <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("processTitle")}</h2>

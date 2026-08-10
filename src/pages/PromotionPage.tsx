@@ -22,7 +22,7 @@ export default function PromotionPage() {
     <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
       <SiteHeader />
 
-      <article className="max-w-4xl mx-auto px-4 md:px-8 py-10 md:py-16">
+      <article className="w-full px-4 md:px-10 lg:px-16 py-10 md:py-16">
         {/* breadcrumb */}
         <Link to="/#promotion" className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors hover:opacity-70" style={{ color: SUB }}>
           <Icon name="ArrowLeft" size={15} /> {t("toHome")}

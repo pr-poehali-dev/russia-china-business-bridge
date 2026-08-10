@@ -32,7 +32,7 @@ export default function BlogPreview() {
     iso ? new Date(iso).toLocaleDateString(zh ? "zh-CN" : "ru-RU", { day: "numeric", month: "long", year: "numeric" }) : "";
 
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+    <section className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
       <div className="section-reveal flex items-end justify-between mb-8 md:mb-10 gap-4">
         <div>
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{zh ? "博客" : "Блог"}</p>

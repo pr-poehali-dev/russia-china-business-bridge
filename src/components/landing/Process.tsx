@@ -11,7 +11,7 @@ export default function Process() {
   return (
     <>
       {/* ── ЦЕНЫ ── */}
-      <section id="pricing" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="pricing" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("pricingTag")}</p>
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("pricingTitle")}</h2>
@@ -58,7 +58,7 @@ export default function Process() {
       </section>
 
       {/* ── НАШИ ПРЕИМУЩЕСТВА ── */}
-      <section id="advantages" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="advantages" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("advTag")}</p>
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("advTitle")}</h2>

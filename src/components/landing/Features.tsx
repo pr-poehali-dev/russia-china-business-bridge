@@ -12,7 +12,7 @@ export default function Features() {
   return (
     <>
       {/* ── ЧТО ВХОДИТ ── */}
-      <section id="included" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="included" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("includedTag")}</p>
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("includedTitle")}</h2>
@@ -33,7 +33,7 @@ export default function Features() {
       </section>
 
       {/* ── ПРОДВИЖЕНИЕ ── */}
-      <section id="promotion" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="promotion" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <Link to="/promotion" className="section-reveal card group block rounded-[32px] p-6 md:p-12" style={{ background: DARK, border: `1px solid ${DARK}` }}>
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             <div className="md:w-2/5">
@@ -60,7 +60,7 @@ export default function Features() {
       </section>
 
       {/* ── ПОЧЕМУ ВЫБИРАЮТ НАС ── */}
-      <section id="why" className="max-w-6xl mx-auto px-4 md:px-8 py-14 md:py-16">
+      <section id="why" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
         <div className="section-reveal mb-8 md:mb-10 text-center">
           <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("whyTag")}</p>
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("whyTitle")}</h2>
