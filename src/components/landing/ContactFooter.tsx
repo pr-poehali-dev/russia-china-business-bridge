@@ -45,12 +45,8 @@ export default function ContactFooter() {
     <>
       {/* ── CONTACT / CTA ── */}
       <section id="contact" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
-        <div className="section-reveal rounded-[32px] p-6 md:p-14 text-left" style={{ background: DARK, boxShadow: "0 24px 60px rgba(18,16,28,0.24)" }}>
-          <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: MINT }}>{t("ctaTag")}</p>
-          <h2 className="text-2xl md:text-5xl font-black mb-4 tracking-tight text-white">{t("ctaTitle")}</h2>
-          <p className="text-sm md:text-base mb-8 md:mb-9 max-w-xl" style={{ color: "#9CA3AF" }}>
-            {t("ctaDesc")}
-          </p>
+        <div className="section-reveal rounded-[32px] p-6 md:p-12 text-left" style={{ background: DARK, border: "1px solid rgba(255,255,255,0.08)" }}>
+          <p className="text-xs font-bold tracking-widest uppercase mb-6" style={{ color: MINT }}>{t("ctaTag")}</p>
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left">
             {status === "ok" ? (
               <div className="flex flex-col items-start justify-center rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
