@@ -48,7 +48,7 @@ export default function PromotionPage() {
 
         {/* preview */}
         <section className="section-reveal mt-10 md:mt-14">
-          <div className="card rounded-[28px] overflow-hidden" style={{ background: "#fff", border: `1px solid ${LINE}`, boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
+          <div className="card rounded-[28px] overflow-hidden" style={{ background: PANEL, border: `1px solid ${LINE}`, boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
             <img src={p.preview} alt={t("analyticsAlt")} className="w-full" style={{ objectFit: "cover" }} />
           </div>
           <p className="text-xs mt-3 text-center" style={{ color: SUB }}>{t("analyticsCaption")}</p>
@@ -65,7 +65,7 @@ export default function PromotionPage() {
           <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>{t("adChannels")}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {p.channels.map((c, i) => (
-              <div key={i} className="card p-6 rounded-[24px]" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div key={i} className="card p-6 rounded-[24px]" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <div className="card-icon w-11 h-11 rounded-full flex items-center justify-center mb-4"
                   style={{ background: PANEL }}>
                   <Icon name={c.icon as "Globe"} size={20} style={{ color: ACCENT }} />
@@ -82,7 +82,7 @@ export default function PromotionPage() {
           <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>{t("forWhomUseful")}</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {p.audience.map((a, i) => (
-              <div key={i} className="card p-6 rounded-[24px]" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div key={i} className="card p-6 rounded-[24px]" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ background: PANEL }}>
@@ -108,7 +108,7 @@ export default function PromotionPage() {
           <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>{t("whyProfit")}</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {p.benefits.map((b, i) => (
-              <div key={i} className="card flex items-start gap-4 p-6 rounded-[24px]" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div key={i} className="card flex items-start gap-4 p-6 rounded-[24px]" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <div className="card-icon w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: PANEL }}>
                   <Icon name={b.icon as "Globe"} size={20} style={{ color: ACCENT }} />
@@ -127,7 +127,7 @@ export default function PromotionPage() {
           <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>{t("clientResults")}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {p.cases.map((c, i) => (
-              <div key={i} className="card p-6 rounded-[24px]" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div key={i} className="card p-6 rounded-[24px]" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <h3 className="font-bold text-sm mb-4" style={{ color: INK }}>{c.niche}</h3>
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-2 text-sm font-bold" style={{ color: ACCENT }}>

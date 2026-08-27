@@ -9,7 +9,7 @@ export default function SiteFooter() {
           <img
             src={LOGO}
             alt={BRAND}
-            style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "multiply" }}
+            style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "normal" }}
           />
           <span className="font-bold text-sm" style={{ color: INK }}>{BRAND}</span>
         </Link>

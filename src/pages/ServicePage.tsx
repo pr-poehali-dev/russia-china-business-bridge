@@ -23,7 +23,7 @@ export default function ServicePage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-6 text-center" style={{ background: PANEL, color: INK }}>
         <h1 className="text-2xl font-black">{t("serviceNotFound")}</h1>
-        <Link to="/" className="px-6 py-3 rounded-full text-sm font-semibold text-white" style={{ background: INK }}>
+        <Link to="/" className="px-6 py-3 rounded-full text-sm font-semibold text-white" style={{ background: ACCENT }}>
           {t("toHome")}
         </Link>
       </div>
@@ -60,7 +60,7 @@ export default function ServicePage() {
 
         {/* preview */}
         <section className="section-reveal mt-10 md:mt-14">
-          <div className="card rounded-[28px] overflow-hidden" style={{ background: "#fff", border: `1px solid ${LINE}`, boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
+          <div className="card rounded-[28px] overflow-hidden" style={{ background: PANEL, border: `1px solid ${LINE}`, boxShadow: "0 20px 50px rgba(17,19,24,0.08)" }}>
             <img src={service.preview} alt={service.title} className="w-full" style={{ objectFit: "cover" }} />
           </div>
           <p className="text-xs mt-3 text-center" style={{ color: SUB }}>{t("exampleLabel")}{service.title}</p>
@@ -77,7 +77,7 @@ export default function ServicePage() {
           <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>{t("forWhomTitle")}</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {service.forWhom.map((f, i) => (
-              <div key={i} className="card flex items-start gap-3 p-5 rounded-[22px]" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div key={i} className="card flex items-start gap-3 p-5 rounded-[22px]" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                   style={{ background: ACCENT }}>
                   <Icon name="Check" size={14} style={{ color: "#fff" }} />
@@ -93,7 +93,7 @@ export default function ServicePage() {
           <h2 className="text-xl md:text-2xl font-black mb-6 tracking-tight" style={{ color: INK }}>{t("whatIncludedTitle")}</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {service.features.map((f, i) => (
-              <div key={i} className="card flex items-start gap-3 p-5 rounded-[22px]" style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              <div key={i} className="card flex items-start gap-3 p-5 rounded-[22px]" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <Icon name="Sparkles" size={16} style={{ color: ACCENT, flexShrink: 0, marginTop: 2 }} />
                 <span className="text-sm font-medium" style={{ color: INK }}>{f}</span>
               </div>
@@ -108,7 +108,7 @@ export default function ServicePage() {
             {services.filter((o) => o.slug !== service.slug).map((o) => (
               <Link key={o.slug} to={`/service/${o.slug}`}
                 className="card flex items-center gap-4 p-5 rounded-[22px] group"
-                style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: PANEL }}>
                   <Icon name={o.icon as "Globe"} size={20} style={{ color: ACCENT }} />

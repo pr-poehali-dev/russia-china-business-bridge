@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, ACCENT, SUB, LINE, LOGO, BRAND } from "@/components/landing/theme";
+import { INK, ACCENT, SUB, LINE, PANEL, LOGO, BRAND } from "@/components/landing/theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 
@@ -43,21 +43,21 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#F4F1FB" }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#08080A" }}>
       <div className="w-full max-w-md">
         <Link to="/" className="flex items-center justify-center gap-2.5 mb-8">
-          <img src={LOGO} alt={BRAND} style={{ width: 34, height: 34, objectFit: "contain", mixBlendMode: "multiply" }} />
+          <img src={LOGO} alt={BRAND} style={{ width: 34, height: 34, objectFit: "contain", mixBlendMode: "normal" }} />
           <span className="font-bold text-lg" style={{ color: INK }}>{BRAND}</span>
         </Link>
 
-        <div className="bg-white rounded-3xl p-8 shadow-sm" style={{ border: `1px solid ${LINE}` }}>
-          <div className="flex gap-2 p-1 rounded-full mb-6" style={{ background: "#F4F1FB" }}>
+        <div className="bg-[#17171D] rounded-3xl p-8 shadow-sm" style={{ border: `1px solid ${LINE}` }}>
+          <div className="flex gap-2 p-1 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.05)" }}>
             {(["register", "login"] as const).map((m) => (
               <button
                 key={m}
                 onClick={() => { setMode(m); setError(""); }}
                 className="flex-1 py-2.5 rounded-full text-sm font-semibold transition-all"
-                style={mode === m ? { background: "#fff", color: INK, boxShadow: "0 1px 4px rgba(0,0,0,0.08)" } : { color: SUB }}
+                style={mode === m ? { background: PANEL, color: INK, boxShadow: "0 1px 4px rgba(0,0,0,0.08)" } : { color: SUB }}
               >
                 {m === "register" ? t("regTab") : t("loginTab")}
               </button>
@@ -67,16 +67,16 @@ export default function Register() {
           <div className="space-y-3">
             {mode === "register" && (
               <input type="text" placeholder={t("phYourName")} value={name} onChange={(e) => setName(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:border-gray-400"
-                style={{ border: `1px solid ${LINE}` }} />
+                className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all text-white placeholder:text-gray-500 focus:border-white/30"
+                style={{ border: `1px solid ${LINE}`, background: "rgba(255,255,255,0.05)" }} />
             )}
             <input type="email" placeholder={t("phEmail")} value={email} onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:border-gray-400"
-              style={{ border: `1px solid ${LINE}` }} />
+              className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all text-white placeholder:text-gray-500 focus:border-white/30"
+              style={{ border: `1px solid ${LINE}`, background: "rgba(255,255,255,0.05)" }} />
             <input type="password" placeholder={t("phPassword")} value={password} onChange={(e) => setPassword(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && submit()}
-              className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all focus:border-gray-400"
-              style={{ border: `1px solid ${LINE}` }} />
+              className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all text-white placeholder:text-gray-500 focus:border-white/30"
+              style={{ border: `1px solid ${LINE}`, background: "rgba(255,255,255,0.05)" }} />
 
             {error && <p className="text-sm text-red-500">{error}</p>}
 

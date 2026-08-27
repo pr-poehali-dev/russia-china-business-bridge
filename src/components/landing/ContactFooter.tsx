@@ -104,7 +104,7 @@ export default function ContactFooter() {
                 <a key={c.text} href={c.href} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all hover:bg-white/[0.06] group"
                   style={{ color: "#D1D5DB", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <span className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors" style={{ background: "rgba(124,92,255,0.18)" }}>
+                  <span className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors" style={{ background: "rgba(255,90,31,0.18)" }}>
                     <Icon name={c.icon as "Mail"} size={17} style={{ color: ACCENT }} />
                   </span>
                   <span className="flex-1 group-hover:text-white transition-colors">{c.text}</span>

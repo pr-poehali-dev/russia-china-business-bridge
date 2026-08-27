@@ -25,7 +25,7 @@ export default function Process() {
                 className="card section-reveal p-6 md:p-8 rounded-[26px] flex flex-col relative"
                 style={featured
                   ? { background: DARK, border: `1px solid ${DARK}`, boxShadow: "0 22px 50px rgba(18,16,28,0.22)" }
-                  : { background: "#fff", border: `1px solid ${LINE}` }
+                  : { background: PANEL, border: `1px solid ${LINE}` }
                 }>
                 {featured && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap"
@@ -70,7 +70,7 @@ export default function Process() {
               <div key={i} className="card section-reveal flex items-center gap-4 p-6 rounded-[24px]"
                 style={dark
                   ? { background: DARK, border: `1px solid ${DARK}` }
-                  : { background: "#fff", border: `1px solid ${LINE}` }}>
+                  : { background: PANEL, border: `1px solid ${LINE}` }}>
                 <div className="card-icon w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={dark ? { background: "rgba(255,255,255,0.12)" } : { background: PANEL }}>
                   <Icon name={a.icon as "Globe"} size={20} style={{ color: dark ? MINT : ACCENT }} />

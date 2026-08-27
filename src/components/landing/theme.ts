@@ -1,11 +1,13 @@
 /* ── palette ── */
-export const INK = "#12101C";
-export const SUB = "#6B6880";
-export const LINE = "#E7E3F5";
-export const ACCENT = "#7C5CFF";
-export const MINT = "#2DE1D2";
-export const DARK = "#141320";
-export const PANEL = "#F4F1FB";
+export const INK = "#FFFFFF";
+export const SUB = "#9B9BA6";
+export const LINE = "rgba(255,255,255,0.10)";
+export const ACCENT = "#FF5A1F";
+export const MINT = "#FF7A3D";
+export const DARK = "#101014";
+export const PANEL = "#17171D";
+export const BG = "#08080A";
+export const ONACCENT = "#FFFFFF";
 
 export const LOGO = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/81ba0f62-7e71-4363-9e38-2b8a82d4a109.jpg";
 export const HERO_IMG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/e7af926c-879c-401a-9fd2-e1147933f108.jpg";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, PANEL, BRAND } from "./theme";
+import { INK, SUB, LINE, PANEL, ACCENT, BRAND } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -18,7 +18,7 @@ export default function SiteHeader() {
   const LangSwitch = ({ className = "" }: { className?: string }) => (
     <button onClick={toggle}
       className={`px-3 py-2 rounded-full text-sm font-semibold transition-all hover:opacity-80 flex items-center gap-1.5 ${className}`}
-      style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}
+      style={{ background: PANEL, border: `1px solid ${LINE}`, color: INK }}
       aria-label="Сменить язык">
       <Icon name="Globe" size={15} style={{ color: SUB }} />
       {lang === "ru" ? "中文" : "RU"}
@@ -28,7 +28,7 @@ export default function SiteHeader() {
   return (
     <>
       {/* ── NAV ── */}
-      <nav className="sticky top-0 z-50" style={{ background: "rgba(244,241,251,0.82)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
+      <nav className="sticky top-0 z-50" style={{ background: "rgba(8,8,10,0.72)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${LINE}` }}>
         <div className="w-full px-4 md:px-10 lg:px-16 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2.5">
             <img
@@ -50,16 +50,16 @@ export default function SiteHeader() {
             <LangSwitch className="hidden md:flex" />
             <Link to={isLoggedIn ? "/cabinet" : "/register"}
               className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: INK }}>{isLoggedIn ? t("cabinet") : t("register")}</Link>
+              style={{ background: ACCENT }}>{isLoggedIn ? t("cabinet") : t("register")}</Link>
             <button onClick={toggle}
               className="md:hidden h-9 px-3 flex items-center justify-center gap-1 rounded-full text-sm font-semibold transition-all"
-              style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}
+              style={{ background: PANEL, border: `1px solid ${LINE}`, color: INK }}
               aria-label="Сменить язык">
               <Icon name="Globe" size={15} style={{ color: SUB }} />
               {lang === "ru" ? "中文" : "RU"}
             </button>
             <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
-              style={{ background: "#fff", border: `1px solid ${LINE}` }}
+              style={{ background: PANEL, border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
               <Icon name={menuOpen ? "X" : "Menu"} size={18} style={{ color: INK }} />
             </button>
@@ -77,7 +77,7 @@ export default function SiteHeader() {
               onClick={() => setMenuOpen(false)}>{l.label}</Link>
           ))}
           <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
-            style={{ background: INK }} onClick={() => setMenuOpen(false)}>
+            style={{ background: ACCENT }} onClick={() => setMenuOpen(false)}>
             {isLoggedIn ? t("cabinet") : t("register")}
           </Link>
         </div>

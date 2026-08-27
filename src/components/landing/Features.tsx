@@ -21,7 +21,7 @@ export default function Features() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {included.map((f, i) => (
             <div key={i} className="card section-reveal flex items-start gap-3 p-5 rounded-[22px]"
-              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              style={{ background: PANEL, border: `1px solid ${LINE}` }}>
               <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                 style={{ background: ACCENT }}>
                 <Icon name="Check" size={14} style={{ color: "#fff" }} />
@@ -68,7 +68,7 @@ export default function Features() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {whyUs.map((w, i) => (
             <div key={i} className="card section-reveal flex items-start gap-3 p-5 rounded-[22px]"
-              style={{ background: "#fff", border: `1px solid ${LINE}` }}>
+              style={{ background: PANEL, border: `1px solid ${LINE}` }}>
               <div className="card-icon w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
                 style={{ background: PANEL }}>
                 <Icon name="Star" size={15} style={{ color: ACCENT }} />

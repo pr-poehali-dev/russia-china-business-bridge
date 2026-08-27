@@ -71,7 +71,7 @@ export default function Blog() {
                   <button
                     key={p.id}
                     onClick={() => setActive(p)}
-                    className="text-left rounded-2xl overflow-hidden bg-white transition-all hover:-translate-y-1 hover:shadow-lg"
+                    className="text-left rounded-2xl overflow-hidden bg-[#17171D] transition-all hover:-translate-y-1 hover:shadow-lg"
                     style={{ border: `1px solid ${LINE}` }}
                   >
                     {p.cover_url ? (

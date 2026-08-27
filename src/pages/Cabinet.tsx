@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import ChatBox from "@/components/ChatBox";
-import { INK, ACCENT, SUB, LINE, LOGO, BRAND } from "@/components/landing/theme";
+import { INK, ACCENT, SUB, LINE, PANEL, LOGO, BRAND } from "@/components/landing/theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 
@@ -92,7 +92,7 @@ export default function Cabinet() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "#F4F1FB" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "#17171D" }}>
         <Icon name="LoaderCircle" size={32} className="animate-spin" style={{ color: SUB }} />
       </div>
     );
@@ -109,12 +109,12 @@ export default function Cabinet() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: "#F4F1FB", color: INK }}>
+    <div className="min-h-screen" style={{ background: "#17171D", color: INK }}>
       <div className="max-w-6xl mx-auto flex gap-4 px-3 md:px-4 py-4">
         {/* Sidebar */}
         <aside className="hidden md:block w-56 shrink-0">
           <Link to="/" className="flex items-center gap-2.5 px-3 py-2 mb-2">
-            <img src={LOGO} alt={BRAND} style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "multiply" }} />
+            <img src={LOGO} alt={BRAND} style={{ width: 28, height: 28, objectFit: "contain", mixBlendMode: "normal" }} />
             <span className="font-bold text-[15px]" style={{ color: INK }}>{BRAND}</span>
           </Link>
           <nav className="space-y-1.5 sticky top-4">
@@ -126,7 +126,7 @@ export default function Cabinet() {
                   onClick={() => { setTab(m.tab); if (m.tab === "chat") setUnread(0); }}
                   className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm transition-all"
                   style={active
-                    ? { background: INK, color: "#fff", fontWeight: 600, boxShadow: "0 6px 16px rgba(17,19,24,0.18)" }
+                    ? { background: ACCENT, color: "#fff", fontWeight: 600, boxShadow: "0 6px 16px rgba(17,19,24,0.18)" }
                     : { color: SUB }}
                 >
                   <Icon name={m.icon as "User"} size={19} style={{ color: active ? ACCENT : SUB }} />
@@ -138,7 +138,7 @@ export default function Cabinet() {
             <div className="pt-2 mt-2" style={{ borderTop: `1px solid ${LINE}` }}>
               <button
                 onClick={logout}
-                className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm transition-colors hover:bg-white"
+                className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm transition-colors hover:bg-white/5"
                 style={{ color: SUB }}
               >
                 <Icon name="LogOut" size={19} />
@@ -149,15 +149,15 @@ export default function Cabinet() {
         </aside>
 
         {/* Mobile top bar */}
-        <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-14 px-4" style={{ background: "rgba(244,241,251,0.92)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
+        <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-14 px-4" style={{ background: "rgba(8,8,10,0.92)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
           <Link to="/" className="flex items-center gap-2">
-            <img src={LOGO} alt={BRAND} style={{ width: 26, height: 26, objectFit: "contain", mixBlendMode: "multiply" }} />
+            <img src={LOGO} alt={BRAND} style={{ width: 26, height: 26, objectFit: "contain", mixBlendMode: "normal" }} />
             <span className="font-bold text-sm" style={{ color: INK }}>{BRAND}</span>
           </Link>
           <div className="flex items-center gap-3">
             <button onClick={toggle}
               className="h-8 px-2.5 flex items-center gap-1 rounded-full text-xs font-semibold"
-              style={{ background: "#fff", border: `1px solid ${LINE}`, color: INK }}
+              style={{ background: PANEL, border: `1px solid ${LINE}`, color: INK }}
               aria-label="Сменить язык">
               <Icon name="Globe" size={13} style={{ color: SUB }} />
               {lang === "ru" ? "中文" : "RU"}
@@ -177,7 +177,7 @@ export default function Cabinet() {
         {/* Main */}
         <div className="flex-1 min-w-0 space-y-4 pt-14 md:pt-0">
           {/* Profile header */}
-          <div className="relative bg-white rounded-3xl overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(17,19,24,0.06)" }}>
+          <div className="relative bg-[#17171D] rounded-3xl overflow-hidden" style={{ boxShadow: "0 4px 24px rgba(17,19,24,0.06)" }}>
             <div className="h-20 md:h-24" style={{ background: `linear-gradient(120deg, ${INK} 0%, #262a33 100%)` }} />
             <div className="px-5 md:px-8 pb-6 flex flex-col sm:flex-row sm:items-end gap-4 -mt-12">
               <div className="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0 text-3xl font-bold text-white ring-4 ring-white" style={{ background: ACCENT }}>
@@ -197,11 +197,11 @@ export default function Cabinet() {
           </div>
 
           {/* Mobile tabs */}
-          <div className="md:hidden flex gap-1 p-1 rounded-2xl" style={{ background: "#fff", boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+          <div className="md:hidden flex gap-1 p-1 rounded-2xl" style={{ background: PANEL, boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
             {menu.map((m) => (
               <button key={m.label} onClick={() => { setTab(m.tab); if (m.tab === "chat") setUnread(0); }}
                 className="flex-1 py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1"
-                style={tab === m.tab ? { background: INK, color: "#fff" } : { color: SUB }}>
+                style={tab === m.tab ? { background: ACCENT, color: "#fff" } : { color: SUB }}>
                 <Icon name={m.icon as "User"} size={15} style={{ color: tab === m.tab ? ACCENT : SUB }} />
                 {m.label}
                 {m.badge && <span className="text-[10px]">({m.badge})</span>}
@@ -211,14 +211,14 @@ export default function Cabinet() {
 
           {tab === "profile" && (
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="group bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+              <div className="group bg-[#17171D] rounded-2xl p-6 transition-all hover:-translate-y-0.5" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(255,90,31,0.1)" }}>
                   <Icon name="FolderKanban" size={22} style={{ color: ACCENT }} />
                 </div>
                 <h3 className="font-semibold text-[15px]" style={{ color: INK }}>{t("myProjects")}</h3>
                 <p className="text-sm mt-1.5" style={{ color: SUB }}>{t("myProjectsDesc")}</p>
               </div>
-              <button onClick={() => setTab("chat")} className="group bg-white rounded-2xl p-6 text-left transition-all hover:-translate-y-0.5" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+              <button onClick={() => setTab("chat")} className="group bg-[#17171D] rounded-2xl p-6 text-left transition-all hover:-translate-y-0.5" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(255,90,31,0.1)" }}>
                   <Icon name="Plus" size={22} style={{ color: ACCENT }} />
                 </div>
@@ -236,7 +236,7 @@ export default function Cabinet() {
               <h2 className="text-lg font-bold mb-4" style={{ color: INK }}>{t("servicesForYou")}</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cabinetServices.map((s) => (
-                <div key={s.title} className="group bg-white rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
+                <div key={s.title} className="group bg-[#17171D] rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)" }}>
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors" style={{ background: "rgba(255,90,31,0.1)" }}>
                     <Icon name={s.icon as "Rocket"} size={22} style={{ color: ACCENT }} />
                   </div>
@@ -255,7 +255,7 @@ export default function Cabinet() {
           )}
 
           {tab === "chat" && (
-            <div className="bg-white rounded-2xl overflow-hidden flex flex-col" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)", height: 560 }}>
+            <div className="bg-[#17171D] rounded-2xl overflow-hidden flex flex-col" style={{ boxShadow: "0 2px 12px rgba(17,19,24,0.05)", height: 560 }}>
               <div className="px-6 py-4 flex items-center gap-2.5" style={{ borderBottom: `1px solid ${LINE}` }}>
                 <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "rgba(255,90,31,0.1)" }}>
                   <Icon name="Headset" size={17} style={{ color: ACCENT }} />
