@@ -10,7 +10,7 @@ export const BG = "#08080A";
 export const ONACCENT = "#FFFFFF";
 
 export const LOGO = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/81ba0f62-7e71-4363-9e38-2b8a82d4a109.jpg";
-export const HERO_IMG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/e7af926c-879c-401a-9fd2-e1147933f108.jpg";
+export const HERO_IMG = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/bucket/03f4093b-4332-41fe-9586-a4dde8c16abf.png";
 
 export const BRAND = "AltDel";
 

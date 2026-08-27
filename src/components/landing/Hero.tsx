@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, DARK, HERO_IMG } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, HERO_IMG } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -56,12 +56,9 @@ export default function Hero() {
           </div>
 
           <div className="section-reveal relative">
-            <div className="hero-float relative rounded-[28px] overflow-hidden"
-              style={{ border: `1px solid ${LINE}`, boxShadow: "0 40px 90px rgba(0,0,0,0.65)" }}>
-              <img src={HERO_IMG} alt="" className="w-full h-[300px] md:h-[440px] object-cover" />
-              <div className="absolute inset-0"
-                style={{ background: `linear-gradient(180deg, rgba(8,8,10,0.05) 40%, ${DARK} 100%)` }} />
-            </div>
+            <img src={HERO_IMG} alt=""
+              className="hero-float w-full max-w-[560px] mx-auto h-auto object-contain"
+              style={{ mixBlendMode: "screen" }} />
           </div>
         </div>
       </section>
