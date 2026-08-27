@@ -28,8 +28,9 @@ export default function SiteHeader() {
   return (
     <>
       {/* ── NAV ── */}
-      <nav className="sticky top-0 z-50" style={{ background: "rgba(8,8,10,0.72)", backdropFilter: "blur(14px)", borderBottom: `1px solid ${LINE}` }}>
-        <div className="w-full px-4 md:px-10 lg:px-16 flex items-center justify-between h-16">
+      <nav className="sticky top-3 md:top-5 z-50 px-3 md:px-6">
+        <div className="mx-auto w-full max-w-5xl rounded-full pl-5 pr-2 md:pl-7 md:pr-2.5 flex items-center justify-between h-14 md:h-16"
+          style={{ background: "rgba(18,18,20,0.82)", backdropFilter: "blur(16px)", border: `1px solid ${LINE}`, boxShadow: "0 12px 40px rgba(0,0,0,0.6)" }}>
           <Link to="/" className="flex items-center gap-2.5">
             <img
               src="/logo.png"

@@ -43,7 +43,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#08080A" }}>
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: "#000000" }}>
       <div className="w-full max-w-md">
         <Link to="/" className="flex items-center justify-center gap-2.5 mb-8">
           <img src={LOGO} alt={BRAND} style={{ width: 34, height: 34, objectFit: "contain", mixBlendMode: "normal" }} />

@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 6% 4%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 100%;
     --card: 240 8% 10%;
     --card-foreground: 0 0% 100%;
@@ -33,7 +33,7 @@
   }
   body {
     @apply text-foreground;
-    background: #08080a;
+    background: #000000;
     font-family: "Inter", "Noto Sans SC", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

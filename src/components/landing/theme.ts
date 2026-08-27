@@ -6,7 +6,7 @@ export const ACCENT = "#FF5A1F";
 export const MINT = "#FF7A3D";
 export const DARK = "#101014";
 export const PANEL = "#17171D";
-export const BG = "#08080A";
+export const BG = "#000000";
 export const ONACCENT = "#FFFFFF";
 
 export const LOGO = "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/81ba0f62-7e71-4363-9e38-2b8a82d4a109.jpg";

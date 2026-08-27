@@ -19,7 +19,7 @@ export default function PromotionPage() {
   }, []);
 
   return (
-    <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
+    <div className="min-h-screen font-chinese" style={{ background: "#000", color: INK }}>
       <SiteHeader />
 
       <article className="w-full px-4 md:px-10 lg:px-16 py-10 md:py-16">

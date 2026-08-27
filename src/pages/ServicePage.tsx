@@ -21,7 +21,7 @@ export default function ServicePage() {
 
   if (!service) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-6 text-center" style={{ background: PANEL, color: INK }}>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-6 text-center" style={{ background: "#000", color: INK }}>
         <h1 className="text-2xl font-black">{t("serviceNotFound")}</h1>
         <Link to="/" className="px-6 py-3 rounded-full text-sm font-semibold text-white" style={{ background: ACCENT }}>
           {t("toHome")}
@@ -31,7 +31,7 @@ export default function ServicePage() {
   }
 
   return (
-    <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
+    <div className="min-h-screen font-chinese" style={{ background: "#000", color: INK }}>
       <SiteHeader />
 
       <article className="w-full px-4 md:px-10 lg:px-16 py-10 md:py-16">

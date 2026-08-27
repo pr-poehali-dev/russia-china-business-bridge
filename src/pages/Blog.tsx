@@ -33,7 +33,7 @@ export default function Blog() {
     iso ? new Date(iso).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" }) : "";
 
   return (
-    <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
+    <div className="min-h-screen font-chinese" style={{ background: "#000", color: INK }}>
       <SiteHeader />
 
       <main className="w-full px-4 md:px-10 lg:px-16 py-12 md:py-16">

@@ -7,7 +7,7 @@ import Features from "@/components/landing/Features";
 import Process from "@/components/landing/Process";
 import ContactFooter from "@/components/landing/ContactFooter";
 import SiteFooter from "@/components/landing/SiteFooter";
-import { INK, PANEL } from "@/components/landing/theme";
+import { INK } from "@/components/landing/theme";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function Index() {
   }, [location]);
 
   return (
-    <div className="min-h-screen font-chinese" style={{ background: PANEL, color: INK }}>
+    <div className="min-h-screen font-chinese" style={{ background: "#000", color: INK }}>
       <SiteHeader />
       <Hero />
       <ProcessSteps />

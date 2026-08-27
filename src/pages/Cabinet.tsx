@@ -92,7 +92,7 @@ export default function Cabinet() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "#17171D" }}>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: "#000" }}>
         <Icon name="LoaderCircle" size={32} className="animate-spin" style={{ color: SUB }} />
       </div>
     );
@@ -109,7 +109,7 @@ export default function Cabinet() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: "#17171D", color: INK }}>
+    <div className="min-h-screen" style={{ background: "#000", color: INK }}>
       <div className="max-w-6xl mx-auto flex gap-4 px-3 md:px-4 py-4">
         {/* Sidebar */}
         <aside className="hidden md:block w-56 shrink-0">
