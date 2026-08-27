@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, LINE, ACCENT, PANEL, MINT, DARK } from "./theme";
+import { INK, SUB, LINE, ACCENT, MINT, DARK } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -40,21 +40,31 @@ export default function Features() {
 
       {/* ── ПОЧЕМУ ВЫБИРАЮТ НАС ── */}
       <section id="why" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
-        <div className="section-reveal mb-8 md:mb-10 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("whyTag")}</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("whyTitle")}</h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {whyUs.map((w, i) => (
-            <div key={i} className="card section-reveal flex items-start gap-3 p-5 rounded-[22px]"
-              style={{ background: PANEL, border: `1px solid ${LINE}` }}>
-              <div className="card-icon w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ background: PANEL }}>
-                <Icon name="Star" size={15} style={{ color: ACCENT }} />
+        <div className="grid lg:grid-cols-3 gap-x-12 gap-y-12">
+          <div className="section-reveal glow-card relative overflow-hidden rounded-[26px] p-8 md:p-11 flex flex-col justify-center">
+            <span className="glow glow-b" />
+            <p className="relative z-10 text-xs font-bold tracking-widest uppercase mb-4" style={{ color: ACCENT }}>{t("whyTag")}</p>
+            <h2 className="relative z-10 text-3xl md:text-5xl font-black tracking-tight leading-[1.05] pl-5"
+              style={{ color: INK, borderLeft: `3px solid ${ACCENT}` }}>
+              {t("whyTitle")}
+            </h2>
+            <p className="relative z-10 mt-6 text-base md:text-lg leading-relaxed" style={{ color: SUB }}>
+              {t("whySubtitle")}
+            </p>
+          </div>
+
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-x-10 gap-y-10">
+            {whyUs.map((w, i) => (
+              <div key={i} className="section-reveal">
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
+                  style={{ background: "linear-gradient(140deg, rgba(255,90,31,0.22), rgba(60,60,220,0.18))", border: `1px solid ${LINE}` }}>
+                  <Icon name={w.icon as "Star"} size={22} style={{ color: ACCENT }} />
+                </div>
+                <h3 className="font-black text-lg md:text-xl mb-2 tracking-tight" style={{ color: INK }}>{w.title}</h3>
+                <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: SUB }}>{w.desc}</p>
               </div>
-              <span className="text-sm font-medium" style={{ color: INK }}>{w}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
     </>

@@ -160,12 +160,12 @@ const promotionPageZh = {
 };
 
 const whyUsZh = [
-  "5 年以上网站开发经验",
-  "严格按期交付项目",
-  "为每位客户提供个性化服务",
-  "现代化自适应设计",
-  "无隐藏费用的诚信价格",
-  "上线后的全面支持",
+  { icon: "Award", title: "5 年以上经验", desc: "熟知网络行业规律，不让您的预算浪费在试错上。" },
+  { icon: "Clock", title: "严格按期交付", desc: "上线日期写入合同，并如约完成。" },
+  { icon: "UserRoundCheck", title: "个性化服务", desc: "深入了解您的业务，而不是套用模板。" },
+  { icon: "Smartphone", title: "现代自适应设计", desc: "在手机、平板和电脑上同样好用。" },
+  { icon: "Wallet", title: "诚信价格", desc: "费用提前明确——过程中没有隐藏加价。" },
+  { icon: "LifeBuoy", title: "上线后支持", desc: "网站运行后仍协助更新与调整。" },
 ];
 
 const stepsZh = [

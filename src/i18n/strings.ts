@@ -29,6 +29,7 @@ const dict = {
     includedSubtitle: "Полный набор — без скрытых доплат.",
     whyTag: "Преимущества",
     whyTitle: "Почему выбирают нас",
+    whySubtitle: "Продуманный дизайн, быстрый запуск и результат, на который можно опереться.",
     // process
     processTag: "Как мы работаем",
     processTitle: "Этапы работы",
@@ -140,6 +141,7 @@ const dict = {
     includedSubtitle: "全套服务——无隐藏费用。",
     whyTag: "优势",
     whyTitle: "为什么选择我们",
+    whySubtitle: "用心的设计、快速的交付，以及可以依靠的实际成果。",
     processTag: "我们如何工作",
     processTitle: "工作流程",
     processSubtitle: "透明流程——从创意到上线。",
