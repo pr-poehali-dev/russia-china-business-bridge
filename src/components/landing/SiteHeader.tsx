@@ -53,16 +53,16 @@ export default function SiteHeader() {
               className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:opacity-90"
               style={{ background: ACCENT }}>{isLoggedIn ? t("cabinet") : t("register")}</Link>
             <button onClick={toggle}
-              className="md:hidden h-9 px-3 flex items-center justify-center gap-1 rounded-full text-sm font-semibold transition-all"
+              className="tap md:hidden h-11 px-4 flex items-center justify-center gap-1.5 rounded-full text-sm font-semibold transition-all"
               style={{ background: PANEL, border: `1px solid ${LINE}`, color: INK }}
               aria-label="Сменить язык">
-              <Icon name="Globe" size={15} style={{ color: SUB }} />
+              <Icon name="Globe" size={16} style={{ color: SUB }} />
               {lang === "ru" ? "中文" : "RU"}
             </button>
-            <button className="md:hidden w-9 h-9 flex items-center justify-center rounded-full"
+            <button className="tap md:hidden w-11 h-11 flex items-center justify-center rounded-full"
               style={{ background: PANEL, border: `1px solid ${LINE}` }}
               onClick={() => setMenuOpen(!menuOpen)}>
-              <Icon name={menuOpen ? "X" : "Menu"} size={18} style={{ color: INK }} />
+              <Icon name={menuOpen ? "X" : "Menu"} size={20} style={{ color: INK }} />
             </button>
           </div>
         </div>
@@ -70,14 +70,18 @@ export default function SiteHeader() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 pt-20 px-6 flex flex-col gap-1" style={{ background: PANEL }}>
+        <div className="fixed inset-0 z-40 pt-24 px-5 flex flex-col gap-2.5 overflow-y-auto" style={{ background: "#000" }}>
           {navLinks.map((l) => (
             <Link key={l.href} to={linkTo(l.href)}
-              className="text-lg font-semibold py-4"
-              style={{ color: INK, borderBottom: `1px solid ${LINE}` }}
-              onClick={() => setMenuOpen(false)}>{l.label}</Link>
+              className="tap flex items-center justify-between text-lg font-bold px-5 py-5 rounded-2xl"
+              style={{ color: INK, background: PANEL, border: `1px solid ${LINE}` }}
+              onClick={() => setMenuOpen(false)}>
+              {l.label}
+              <Icon name="ChevronRight" size={20} style={{ color: SUB }} />
+            </Link>
           ))}
-          <Link to={isLoggedIn ? "/cabinet" : "/register"} className="mt-4 py-3.5 rounded-full text-center font-semibold text-white"
+          <Link to={isLoggedIn ? "/cabinet" : "/register"}
+            className="tap mt-3 py-5 rounded-2xl text-center text-lg font-bold text-white"
             style={{ background: ACCENT }} onClick={() => setMenuOpen(false)}>
             {isLoggedIn ? t("cabinet") : t("register")}
           </Link>

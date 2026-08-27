@@ -6,6 +6,7 @@ import ProcessSteps from "@/components/landing/ProcessSteps";
 import Features from "@/components/landing/Features";
 import Process from "@/components/landing/Process";
 import SiteFooter from "@/components/landing/SiteFooter";
+import MobileDock from "@/components/landing/MobileDock";
 import { INK } from "@/components/landing/theme";
 
 function useScrollReveal() {
@@ -33,13 +34,14 @@ export default function Index() {
   }, [location]);
 
   return (
-    <div className="min-h-screen font-chinese" style={{ background: "#000", color: INK }}>
+    <div className="min-h-screen font-chinese pb-24 lg:pb-0" style={{ background: "#000", color: INK }}>
       <SiteHeader />
       <Hero />
       <ProcessSteps />
       <Features />
       <Process />
       <SiteFooter />
+      <MobileDock />
     </div>
   );
 }

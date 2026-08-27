@@ -71,16 +71,16 @@ export default function Hero() {
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("servicesTitle")}</h2>
           <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t("servicesSubtitle")}</p>
         </div>
-        <div className="grid lg:grid-cols-3 gap-5">
+        <div className="snap-row lg:grid lg:grid-cols-3 lg:gap-5 -mx-4 px-4 lg:mx-0 lg:px-0">
           {services.map((s, i) => {
             const wide = i !== 1;
             const span = i === 0 ? "lg:col-span-2" : i === 2 ? "lg:col-span-3" : "";
             return (
               <Link key={i} to={`/service/${s.slug}`}
-                className={`glow-card section-reveal group relative overflow-hidden rounded-[26px] ${span} ${wide ? `flex flex-col md:items-center gap-6 md:gap-10 p-7 md:p-10 ${i === 2 ? "md:flex-row-reverse" : "md:flex-row"}` : "flex flex-col p-7 md:p-9"}`}>
+                className={`glow-card tap section-reveal group relative overflow-hidden rounded-[26px] ${span} ${wide ? `flex flex-col lg:items-center gap-6 lg:gap-10 p-6 md:p-10 ${i === 2 ? "lg:flex-row-reverse" : "lg:flex-row"}` : "flex flex-col p-6 md:p-9"}`}>
                 <span className="glow glow-a" />
                 <span className="glow glow-b" />
-                <div className={`relative z-10 ${wide ? "md:w-1/2" : ""}`}>
+                <div className={`relative z-10 ${wide ? "lg:w-1/2" : ""}`}>
                   <div className="card-icon w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
                     style={{ background: "rgba(255,90,31,0.14)" }}>
                     <Icon name={s.icon as "Globe"} size={20} style={{ color: ACCENT }} />
@@ -93,7 +93,7 @@ export default function Hero() {
                   </span>
                 </div>
                 {wide && (
-                  <div className="relative z-10 md:w-1/2 flex justify-center">
+                  <div className="relative z-10 lg:w-1/2 flex justify-center">
                     <img src={s.preview} alt=""
                       className="w-full max-w-[420px] rounded-2xl object-cover h-[180px] md:h-[240px] transition-transform duration-500 group-hover:scale-[1.03]"
                       style={{ border: `1px solid ${LINE}` }} />

@@ -94,6 +94,45 @@
     box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
     border-color: rgba(255, 90, 31, 0.5) !important;
   }
+  /* ── mobile app-like ── */
+  .snap-row {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-row > * {
+    scroll-snap-align: center;
+    flex: 0 0 86%;
+  }
+  @media (min-width: 1024px) {
+    .snap-row {
+      display: grid;
+      overflow: visible;
+    }
+    .snap-row > * {
+      flex: initial;
+    }
+  }
+
+  .tap {
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.16s ease;
+  }
+  .tap:active {
+    transform: scale(0.975);
+  }
+
+  .app-dock {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
   .glow-card {
     background: linear-gradient(160deg, #121216 0%, #0b0b0e 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);

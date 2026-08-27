@@ -17,12 +17,12 @@ export default function Process() {
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("pricingTitle")}</h2>
           <p className="mt-3 text-sm md:text-base max-w-xl mx-auto" style={{ color: SUB }}>{t("pricingSubtitle")}</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 md:items-stretch">
+        <div className="snap-row lg:grid lg:grid-cols-3 lg:gap-4 lg:items-stretch -mx-4 px-4 lg:mx-0 lg:px-0 pt-4">
           {plans.map((plan, i) => {
             const featured = i === 1;
             return (
               <div key={i}
-                className="card section-reveal p-6 md:p-8 rounded-[26px] flex flex-col relative"
+                className="card tap section-reveal p-6 md:p-8 rounded-[26px] flex flex-col relative"
                 style={featured
                   ? { background: DARK, border: `1px solid ${DARK}`, boxShadow: "0 22px 50px rgba(18,16,28,0.22)" }
                   : { background: PANEL, border: `1px solid ${LINE}` }
@@ -44,7 +44,7 @@ export default function Process() {
                   ))}
                 </ul>
                 <a href={CHAT_URL} target="_blank" rel="noopener noreferrer"
-                  className="btn-press w-full py-3 rounded-full text-sm font-semibold text-center transition-all"
+                  className="btn-press w-full py-4 rounded-full text-[15px] font-bold text-center transition-all"
                   style={featured
                     ? { background: MINT, color: INK }
                     : { background: PANEL, color: INK, border: `1px solid ${LINE}` }
