@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, BRAND } from "./theme";
+import { INK, SUB, LINE, ACCENT, BRAND, CHAT_URL } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -37,7 +37,7 @@ export default function SiteFooter() {
               style={{ background: ACCENT }}>
               {t("pricingTitle")}
             </a>
-            <a href="/#contact"
+            <a href={CHAT_URL} target="_blank" rel="noopener noreferrer"
               className="btn-press px-8 py-4 rounded-full text-[15px] font-semibold text-center inline-flex items-center justify-center gap-2"
               style={{ background: "#fff", color: "#101014" }}>
               {t("heroBtnChat")}

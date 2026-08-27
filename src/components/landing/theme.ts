@@ -14,6 +14,8 @@ export const HERO_IMG = "/hero-illustration.png";
 
 export const BRAND = "AltDel";
 
+export const CHAT_URL = "https://max.ru/u/f9LHodD0cOI1V0FgyQPvD3KYqH0JhZ9FjlJOLtmC6aBl0py9u_CJcZ6G-7w";
+
 /* ── nav ── */
 export const navLinks = [
   { href: "#services", label: "Услуги" },
@@ -21,7 +23,6 @@ export const navLinks = [
   { href: "#process", label: "Этапы" },
   { href: "#pricing", label: "Цены" },
   { href: "/blog", label: "Блог" },
-  { href: "#contact", label: "Контакты" },
 ];
 
 /* ── services ── */

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import SiteHeader from "@/components/landing/SiteHeader";
 import SiteFooter from "@/components/landing/SiteFooter";
-import { INK, SUB, LINE, ACCENT, PANEL, MINT, DARK } from "@/components/landing/theme";
+import { INK, SUB, LINE, ACCENT, PANEL, MINT, DARK, CHAT_URL } from "@/components/landing/theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -148,11 +148,11 @@ export default function PromotionPage() {
             <p className="text-sm md:text-base mb-8 max-w-lg mx-auto" style={{ color: "#9CA3AF" }}>
               {t("readyAttractDesc")}
             </p>
-            <Link to="/#contact"
-              className="btn-press inline-block px-10 py-3.5 rounded-full text-[15px] font-bold"
-              style={{ background: MINT, color: INK }}>
+            <a href={CHAT_URL} target="_blank" rel="noopener noreferrer"
+              className="btn-press inline-block px-10 py-3.5 rounded-full text-[15px] font-bold text-white"
+              style={{ background: ACCENT }}>
               {t("getConsult")}
-            </Link>
+            </a>
           </div>
         </section>
       </article>

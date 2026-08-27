@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, HERO_IMG } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, HERO_IMG, CHAT_URL } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -30,7 +30,7 @@ export default function Hero() {
               {t("heroDesc")}
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-              <a href="#contact"
+              <a href={CHAT_URL} target="_blank" rel="noopener noreferrer"
                 className="btn-press btn-accent px-8 py-4 rounded-full text-[15px] font-bold text-center text-white"
                 style={{ background: ACCENT }}>{t("heroBtnChat")}</a>
               <a href="#services"

@@ -18,7 +18,6 @@ const navLinksZh = [
   { href: "#process", label: "流程" },
   { href: "#pricing", label: "价格" },
   { href: "/blog", label: "博客" },
-  { href: "#contact", label: "联系我们" },
 ];
 
 const servicesZh: Service[] = [

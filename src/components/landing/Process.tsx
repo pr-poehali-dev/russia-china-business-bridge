@@ -1,5 +1,5 @@
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, MINT, DARK } from "./theme";
+import { INK, SUB, LINE, ACCENT, PANEL, MINT, DARK, CHAT_URL } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -43,7 +43,7 @@ export default function Process() {
                     </li>
                   ))}
                 </ul>
-                <a href="#contact"
+                <a href={CHAT_URL} target="_blank" rel="noopener noreferrer"
                   className="btn-press w-full py-3 rounded-full text-sm font-semibold text-center transition-all"
                   style={featured
                     ? { background: MINT, color: INK }
