@@ -71,24 +71,34 @@ export default function Hero() {
           <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("servicesTitle")}</h2>
           <p className="mt-3 text-sm md:text-base max-w-xl" style={{ color: SUB }}>{t("servicesSubtitle")}</p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid lg:grid-cols-3 gap-5">
           {services.map((s, i) => {
-            const featured = i % 3 === 1;
+            const wide = i !== 1;
+            const span = i === 0 ? "lg:col-span-2" : i === 2 ? "lg:col-span-3" : "";
             return (
-              <Link key={i} to={`/service/${s.slug}`} className="card section-reveal p-6 md:p-7 rounded-[24px] flex flex-col group"
-                style={featured
-                  ? { background: ACCENT, border: `1px solid ${ACCENT}` }
-                  : { background: PANEL, border: `1px solid ${LINE}` }}>
-                <div className="card-icon w-11 h-11 rounded-full flex items-center justify-center mb-5"
-                  style={{ background: featured ? "rgba(255,255,255,0.2)" : "rgba(255,90,31,0.14)" }}>
-                  <Icon name={s.icon as "Globe"} size={20} style={{ color: featured ? "#fff" : ACCENT }} />
+              <Link key={i} to={`/service/${s.slug}`}
+                className={`glow-card section-reveal group relative overflow-hidden rounded-[26px] ${span} ${wide ? `flex flex-col md:items-center gap-6 md:gap-10 p-7 md:p-10 ${i === 2 ? "md:flex-row-reverse" : "md:flex-row"}` : "flex flex-col p-7 md:p-9"}`}>
+                <span className="glow glow-a" />
+                <span className="glow glow-b" />
+                <div className={`relative z-10 ${wide ? "md:w-1/2" : ""}`}>
+                  <div className="card-icon w-11 h-11 rounded-2xl flex items-center justify-center mb-5"
+                    style={{ background: "rgba(255,90,31,0.14)" }}>
+                    <Icon name={s.icon as "Globe"} size={20} style={{ color: ACCENT }} />
+                  </div>
+                  <h3 className="font-black text-xl md:text-2xl mb-3 tracking-tight text-white">{s.title}</h3>
+                  <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: SUB }}>{s.desc}</p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold mt-6 px-5 py-2.5 rounded-full"
+                    style={{ background: ACCENT, color: "#fff" }}>
+                    {t("more")} <Icon name="ArrowRight" size={14} className="arrow-slide" />
+                  </span>
                 </div>
-                <h3 className="font-bold text-lg mb-2 text-white">{s.title}</h3>
-                <p className="text-sm leading-relaxed flex-1" style={{ color: featured ? "rgba(255,255,255,0.85)" : SUB }}>{s.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold mt-6 px-4 py-2 rounded-full self-start"
-                  style={featured ? { background: "#fff", color: "#101014" } : { background: ACCENT, color: "#fff" }}>
-                  {t("more")} <Icon name="ArrowRight" size={14} className="arrow-slide" />
-                </span>
+                {wide && (
+                  <div className="relative z-10 md:w-1/2 flex justify-center">
+                    <img src={s.preview} alt=""
+                      className="w-full max-w-[420px] rounded-2xl object-cover h-[180px] md:h-[240px] transition-transform duration-500 group-hover:scale-[1.03]"
+                      style={{ border: `1px solid ${LINE}` }} />
+                  </div>
+                )}
               </Link>
             );
           })}

@@ -94,6 +94,41 @@
     box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
     border-color: rgba(255, 90, 31, 0.5) !important;
   }
+  .glow-card {
+    background: linear-gradient(160deg, #121216 0%, #0b0b0e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.4s ease;
+  }
+  .glow-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+  .glow-card .glow {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border-radius: 9999px;
+    filter: blur(70px);
+    pointer-events: none;
+    opacity: 0.55;
+    transition: opacity 0.45s ease;
+  }
+  .glow-card:hover .glow {
+    opacity: 0.85;
+  }
+  .glow-card .glow-a {
+    top: -120px;
+    right: -110px;
+    background: rgba(255, 90, 31, 0.55);
+  }
+  .glow-card .glow-b {
+    bottom: -140px;
+    left: -120px;
+    background: rgba(60, 60, 220, 0.4);
+  }
+
   .card-icon {
     transition:
       transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
@@ -133,7 +168,7 @@
       padding-left 0.22s ease;
   }
   .row-item:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding-left: 26px;
   }
 
