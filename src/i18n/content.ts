@@ -102,13 +102,13 @@ const servicesZh: Service[] = [
 
 
 const promotionZh = [
-  "在谷歌和 Yandex 的 SEO 推广",
-  "谷歌 Ads 竞价广告",
-  "社交网络推广",
-  "广告投放设置",
-  "竞争对手分析",
-  "提升网站转化率",
-  "网站分析与报告",
+  { icon: "Search", text: "在谷歌和 Yandex 的 SEO 推广" },
+  { icon: "MousePointerClick", text: "谷歌 Ads 竞价广告" },
+  { icon: "Share2", text: "社交网络推广" },
+  { icon: "Megaphone", text: "广告投放设置" },
+  { icon: "Binoculars", text: "竞争对手分析" },
+  { icon: "TrendingUp", text: "提升网站转化率" },
+  { icon: "ChartColumn", text: "网站分析与报告" },
 ];
 
 const promotionPageZh = {
