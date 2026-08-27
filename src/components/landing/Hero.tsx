@@ -4,6 +4,7 @@ import { INK, SUB, LINE, ACCENT, HERO_IMG, CHAT_URL } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
+import LogoMarquee from "./LogoMarquee";
 
 export default function Hero() {
   const { lang } = useLang();
@@ -49,6 +50,8 @@ export default function Hero() {
           </div>
         </div>
       </section>
+
+      <LogoMarquee />
 
       {/* ── SERVICES ── */}
       <section id="services" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
