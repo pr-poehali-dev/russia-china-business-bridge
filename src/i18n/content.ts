@@ -189,6 +189,7 @@ const stepsZh = [
   { num: "3", title: "开发", desc: "进行页面搭建、编程并填充网站内容。", img: stepsRu[2].img },
   { num: "4", title: "测试", desc: "在各类设备上检查网站运行并修复问题。", img: stepsRu[3].img },
   { num: "5", title: "上线", desc: "接入域名、部署到主机并向客户交付成品。", img: stepsRu[4].img },
+  { num: "6", title: "维护与技术支持", desc: "持续更新、优化并保障网站稳定运行。", img: stepsRu[5].img },
 ];
 
 const plansZh = [

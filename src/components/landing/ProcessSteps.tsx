@@ -4,7 +4,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
 
-const stepIcons = ["consult", "design", "build", "test", "launch"] as const;
+const stepIcons = ["consult", "design", "build", "test", "launch", "support"] as const;
 
 export default function ProcessSteps() {
   const { lang } = useLang();

@@ -1,4 +1,4 @@
-type Props = { name: "consult" | "design" | "build" | "test" | "launch"; size?: number };
+type Props = { name: "consult" | "design" | "build" | "test" | "launch" | "support"; size?: number };
 
 export default function StepIcon({ name, size = 64 }: Props) {
   const id = `si-${name}`;
@@ -75,6 +75,27 @@ export default function StepIcon({ name, size = 64 }: Props) {
         <circle cx="40" cy="40" r="12" fill="rgba(10,10,12,0.85)" stroke="#fff" strokeWidth="2" />
         <path d="m49 49 7 7" stroke={`url(#${id}-b)`} strokeWidth="5" strokeLinecap="round" />
         <path d="m35 40 4 4 7-8" stroke={`url(#${id}-b)`} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+
+  if (name === "support")
+    return (
+      <svg {...common}>
+        <defs>
+          <linearGradient id={`${id}-a`} x1="12" y1="12" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#FFA22E" />
+            <stop offset="1" stopColor="#FF3B0F" />
+          </linearGradient>
+          <linearGradient id={`${id}-b`} x1="18" y1="26" x2="46" y2="52" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#4F8BFF" />
+            <stop offset="1" stopColor="#1B39D9" />
+          </linearGradient>
+        </defs>
+        <path d="M14 30v-1a18 18 0 0 1 36 0v1" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" />
+        <rect x="6" y="28" width="12" height="18" rx="5" fill={`url(#${id}-b)`} />
+        <rect x="46" y="28" width="12" height="18" rx="5" fill={`url(#${id}-b)`} />
+        <path d="M52 46v3a7 7 0 0 1-7 7h-7" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" />
+        <rect x="26" y="50" width="14" height="9" rx="4.5" fill={`url(#${id}-a)`} />
       </svg>
     );
 

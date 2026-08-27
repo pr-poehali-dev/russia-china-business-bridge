@@ -210,6 +210,7 @@ export const steps = [
   { num: "3", title: "Разработка", desc: "Верстаем, программируем и наполняем сайт контентом.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/0e56b463-71cc-47a5-8e8e-213f36d83b05.jpg" },
   { num: "4", title: "Тестирование", desc: "Проверяем работу сайта на всех устройствах и устраняем ошибки.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/92879d14-ab2e-47dc-9905-7d5457e3e960.jpg" },
   { num: "5", title: "Запуск", desc: "Подключаем домен, размещаем сайт на хостинге и передаём готовый проект заказчику.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/7a22be7e-efbf-4cfe-8baf-211c8030ff35.jpg" },
+  { num: "6", title: "Поддержка и сопровождение", desc: "Обновляем, дорабатываем и следим за стабильной работой сайта.", img: "https://cdn.poehali.dev/projects/1d240bc7-0274-4ca1-b0e1-9e83c9a33c7f/files/ccbd2bf7-e31d-42c1-b389-306ff064c006.jpg" },
 ];
 
 /* ── тарифы ── */
