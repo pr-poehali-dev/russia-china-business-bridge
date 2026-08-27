@@ -25,6 +25,20 @@ export default function Features() {
             <p className="relative z-10 mt-6 text-base md:text-lg leading-relaxed" style={{ color: SUB }}>
               {t("promoDesc")}
             </p>
+            <div className="relative z-10 flex flex-wrap gap-2.5 mt-7">
+              <span className="flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-semibold text-white"
+                style={{ background: "rgba(255,255,255,0.06)", border: `1px solid ${LINE}` }}>
+                <span className="w-5 h-5 rounded-md flex items-center justify-center font-black text-white text-[12px]"
+                  style={{ background: "#FC3F1D" }}>Я</span>
+                {t("withYandex")}
+              </span>
+              <span className="flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-semibold text-white"
+                style={{ background: "rgba(255,255,255,0.06)", border: `1px solid ${LINE}` }}>
+                <span className="w-5 h-5 rounded-md flex items-center justify-center font-black text-[12px]"
+                  style={{ background: "#fff", color: "#4285F4" }}>G</span>
+                {t("withGoogle")}
+              </span>
+            </div>
             <span className="relative z-10 inline-flex items-center gap-1.5 text-sm font-bold px-5 py-2.5 rounded-full mt-7 self-start text-white"
               style={{ background: ACCENT }}>
               {t("promoMore")} <Icon name="ArrowRight" size={14} className="arrow-slide" />
