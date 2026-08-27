@@ -38,7 +38,8 @@ export default function Features() {
                   style={{ background: "linear-gradient(140deg, rgba(255,90,31,0.22), rgba(60,60,220,0.18))", border: `1px solid ${LINE}` }}>
                   <Icon name={p.icon as "Star"} size={22} style={{ color: ACCENT }} />
                 </div>
-                <h3 className="font-black text-lg md:text-xl tracking-tight" style={{ color: INK }}>{p.text}</h3>
+                <h3 className="font-black text-lg md:text-xl mb-2 tracking-tight" style={{ color: INK }}>{p.text}</h3>
+                <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: SUB }}>{p.desc}</p>
               </div>
             ))}
           </div>
