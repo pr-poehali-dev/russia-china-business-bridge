@@ -7,7 +7,7 @@ import { useContent } from "@/i18n/content";
 export default function Process() {
   const { lang } = useLang();
   const t = useT(lang);
-  const { advantages, plans } = useContent(lang);
+  const { plans } = useContent(lang);
   return (
     <>
       {/* ── ЦЕНЫ ── */}
@@ -57,30 +57,6 @@ export default function Process() {
         </div>
       </section>
 
-      {/* ── НАШИ ПРЕИМУЩЕСТВА ── */}
-      <section id="advantages" className="w-full px-4 md:px-10 lg:px-16 py-14 md:py-16">
-        <div className="section-reveal mb-8 md:mb-10 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: ACCENT }}>{t("advTag")}</p>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tight" style={{ color: INK }}>{t("advTitle")}</h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {advantages.map((a, i) => {
-            const dark = i % 3 === 1;
-            return (
-              <div key={i} className="card section-reveal flex items-center gap-4 p-6 rounded-[24px]"
-                style={dark
-                  ? { background: DARK, border: `1px solid ${DARK}` }
-                  : { background: PANEL, border: `1px solid ${LINE}` }}>
-                <div className="card-icon w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={dark ? { background: "rgba(255,255,255,0.12)" } : { background: PANEL }}>
-                  <Icon name={a.icon as "Globe"} size={20} style={{ color: dark ? MINT : ACCENT }} />
-                </div>
-                <span className="font-bold text-sm md:text-base" style={{ color: dark ? "#fff" : INK }}>{a.title}</span>
-              </div>
-            );
-          })}
-        </div>
-      </section>
     </>
   );
 }
