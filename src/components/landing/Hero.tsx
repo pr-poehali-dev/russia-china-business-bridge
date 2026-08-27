@@ -56,8 +56,10 @@ export default function Hero() {
           </div>
 
           <div className="section-reveal relative">
+            <div className="pointer-events-none absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2 w-[85%] aspect-square rounded-full blur-[70px] opacity-70"
+              style={{ background: "radial-gradient(circle, rgba(255,90,31,0.42) 0%, rgba(255,90,31,0.14) 45%, rgba(255,90,31,0) 72%)" }} />
             <img src={HERO_IMG} alt=""
-              className="hero-float w-full max-w-[560px] mx-auto h-auto object-contain" />
+              className="hero-float relative w-full max-w-[560px] mx-auto h-auto object-contain" />
           </div>
         </div>
       </section>
