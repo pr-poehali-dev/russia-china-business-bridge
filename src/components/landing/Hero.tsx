@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { INK, SUB, LINE, ACCENT, PANEL, HERO_IMG, CHAT_URL } from "./theme";
+import { INK, SUB, LINE, ACCENT, HERO_IMG, CHAT_URL } from "./theme";
 import { useLang } from "@/i18n/LanguageContext";
 import { useT } from "@/i18n/strings";
 import { useContent } from "@/i18n/content";
@@ -38,20 +38,6 @@ export default function Hero() {
                 style={{ background: "#fff", color: "#101014" }}>
                 {t("heroBtnServices")}
               </a>
-            </div>
-            <div className="flex flex-wrap gap-3 mt-10">
-              <span className="flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-semibold text-white"
-                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
-                <span className="w-5 h-5 rounded-md flex items-center justify-center font-black text-white text-[12px]"
-                  style={{ background: "#FC3F1D" }}>Я</span>
-                {t("withYandex")}
-              </span>
-              <span className="flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-semibold text-white"
-                style={{ background: PANEL, border: `1px solid ${LINE}` }}>
-                <span className="w-5 h-5 rounded-md flex items-center justify-center font-black text-[12px]"
-                  style={{ background: "#fff", color: "#4285F4" }}>G</span>
-                {t("withGoogle")}
-              </span>
             </div>
           </div>
 
