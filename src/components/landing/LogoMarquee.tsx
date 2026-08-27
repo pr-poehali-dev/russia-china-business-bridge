@@ -22,7 +22,7 @@ export default function LogoMarquee() {
   const title = lang === "zh" ? "我们合作的平台与服务" : "Работаем с платформами и сервисами";
 
   return (
-    <section className="w-full py-10 md:py-14" style={{ borderTop: `1px solid ${LINE}`, borderBottom: `1px solid ${LINE}` }}>
+    <section className="w-full py-8 md:py-10" style={{ borderTop: `1px solid ${LINE}`, borderBottom: `1px solid ${LINE}` }}>
       <p className="text-center text-xs font-bold tracking-widest uppercase mb-7 px-4" style={{ color: SUB }}>
         {title}
       </p>

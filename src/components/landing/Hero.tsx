@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative w-full px-4 md:px-10 lg:px-16 pt-10 md:pt-20 pb-14 md:pb-24 overflow-hidden">
+      <section className="relative w-full px-4 md:px-10 lg:px-16 pt-10 md:pt-20 pb-4 md:pb-6 overflow-hidden">
         <div className="pointer-events-none absolute -top-40 right-0 w-[720px] h-[720px] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(255,90,31,0.18) 0%, rgba(255,90,31,0) 65%)" }} />
         <div className="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
