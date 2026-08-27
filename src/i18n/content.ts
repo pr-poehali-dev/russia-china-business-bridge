@@ -1,13 +1,11 @@
 import { Lang } from "./LanguageContext";
 import {
   services as servicesRu,
-  included as includedRu,
   promotion as promotionRu,
   promotionPage as promotionPageRu,
   whyUs as whyUsRu,
   steps as stepsRu,
   plans as plansRu,
-  advantages as advantagesRu,
   navLinks as navLinksRu,
   Service,
 } from "@/components/landing/theme";
@@ -102,19 +100,6 @@ const servicesZh: Service[] = [
   },
 ];
 
-const includedZh = [
-  "定制现代化设计",
-  "移动端适配",
-  "高加载速度",
-  "SEO 优化",
-  "域名与主机接入",
-  "SSL 证书（HTTPS）",
-  "反馈表单",
-  "接入 WhatsApp、Telegram 及社交网络",
-  "谷歌或 Yandex 地图",
-  "网站管理后台",
-  "上线后的技术支持",
-];
 
 const promotionZh = [
   "在谷歌和 Yandex 的 SEO 推广",
@@ -198,14 +183,6 @@ const plansZh = [
   { name: "网上商城", price: "50 000 卢布", feats: ["商品目录", "购物车与在线支付", "配送系统", "管理面板", "SEO 推广", "全程陪跑"] },
 ];
 
-const advantagesZh = [
-  { icon: "Timer", title: "5 天起完成网站开发" },
-  { icon: "Layers", title: "任意复杂度的项目" },
-  { icon: "Cpu", title: "现代化技术" },
-  { icon: "Search", title: "建站即做 SEO" },
-  { icon: "Headphones", title: "支持与陪跑" },
-  { icon: "Palette", title: "无模板的定制设计" },
-];
 
 /* ── Хук: возвращает данные под текущий язык ── */
 export function useContent(lang: Lang) {
@@ -213,13 +190,11 @@ export function useContent(lang: Lang) {
   return {
     navLinks: zh ? navLinksZh : navLinksRu,
     services: zh ? servicesZh : servicesRu,
-    included: zh ? includedZh : includedRu,
     promotion: zh ? promotionZh : promotionRu,
     promotionPage: zh ? promotionPageZh : promotionPageRu,
     whyUs: zh ? whyUsZh : whyUsRu,
     steps: zh ? stepsZh : stepsRu,
     plans: zh ? plansZh : plansRu,
-    advantages: zh ? advantagesZh : advantagesRu,
   };
 }
 
