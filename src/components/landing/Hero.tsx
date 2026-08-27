@@ -57,8 +57,7 @@ export default function Hero() {
 
           <div className="section-reveal relative">
             <img src={HERO_IMG} alt=""
-              className="hero-float w-full max-w-[560px] mx-auto h-auto object-contain"
-              style={{ mixBlendMode: "screen" }} />
+              className="hero-float w-full max-w-[560px] mx-auto h-auto object-contain" />
           </div>
         </div>
       </section>
